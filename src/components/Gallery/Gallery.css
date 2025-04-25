@@ -1,0 +1,13 @@
+.gallery_container{
+    width: 100%;
+    background-color: var(--colorNegro);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.gallery_img{
+    width: 25%;
+}
+

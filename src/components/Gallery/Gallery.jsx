@@ -1,18 +1,20 @@
 import React from 'react'
+import "./Gallery.css"
 
 const Gallery = () => {
 
   const images = [
-    "https://i.postimg.cc/sggP0g7m/producto.png",
-    "https://i.postimg.cc/sggP0g7m/producto.png",
-    "https://i.postimg.cc/sggP0g7m/producto.png"
+    "src/img/2.png",
+    "src/img/3.png",
+    "src/img/4.png",
+    "src/img/5.png"
   ];
 
   return (
-      <section>
+      <section className='gallery_container'>
         {
           images.map((src,index) => (
-            <img key={index} src={src} alt={`imagen${index+1}`}/>
+            <img className='gallery_img'  key={index} src={src} alt={`imagen${index+1}`}/>
           ))      
         }
       </section>

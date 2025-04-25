@@ -1,9 +1,8 @@
 import React from 'react'
 import './Header.css'
-import Nav from './Nav/Nav'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faMagnifyingGlass, faCartShopping, faHeart, faUser } from '@fortawesome/free-solid-svg-icons'
-
+import Nav from '../Nav/Nav'
 
 
 const Header = () => {
