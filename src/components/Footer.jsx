@@ -1,5 +1,5 @@
 import React from 'react'
-import './Footer.css'
+import './styles/Style.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTiktok, faInstagram, faYoutube, faCcVisa, faCcMastercard, faCcPaypal, faWhatsapp } from '@fortawesome/free-brands-svg-icons'
 import { faEnvelope, faLocationDot } from '@fortawesome/free-solid-svg-icons'

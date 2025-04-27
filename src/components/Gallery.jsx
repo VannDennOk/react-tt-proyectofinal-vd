@@ -1,5 +1,5 @@
 import React from 'react'
-import "./Gallery.css"
+import './styles/Style.css'
 
 const Gallery = () => {
 
@@ -14,7 +14,7 @@ const Gallery = () => {
       <section className='gallery_container'>
         {
           images.map((src,index) => (
-            <img className='gallery_img'  key={index} src={src} alt={`imagen${index+1}`}/>
+            <img className='gallery_img' key={index} src={src} alt={`imagen${index+1}`}/>
           ))      
         }
       </section>

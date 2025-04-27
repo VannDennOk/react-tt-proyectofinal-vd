@@ -1,9 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState } from 'react'
+import './styles/Style.css'
 
-
-
-export default function Formulario() {
-
+export default function Form() {
 
     const [nombre, setNombre] = useState('');
     const [apellido, setApellido] = useState('');

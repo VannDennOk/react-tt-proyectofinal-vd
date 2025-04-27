@@ -1,6 +1,6 @@
-import React from 'react'
-import './Hero.css'
-import Button from '../Button/Button'
+import React from 'react';
+import './styles/Style.css';
+import Button from './Button';
 
 function Hero() {
   return (
@@ -10,9 +10,9 @@ function Hero() {
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam, quaerat, obcaecati doloribus blanditiis iusto repellendus totam libero ad aliquid et consectetur, autem assumenda! Libero, iure! Adipisci molestiae provident doloribus porro?</p>
         <Button texto='Comprar'/>
       </div>
-      <div className='product_img'></div>
+      <div className='hero_container-img'></div>
     </section>
-  )
-}
+  );
+};
 
-export default Hero
+export default Hero;

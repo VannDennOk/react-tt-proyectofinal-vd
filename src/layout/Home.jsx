@@ -1,42 +1,24 @@
 import React from 'react';
-import Header from '../components/Header/Header'
-import Hero from '../components/Hero/Hero';
-import Gallery from '../components/Gallery/Gallery';
-import TarjetaProductos from '../components/TarjetaProductos/TarjetaProductos';
-import Footer from '../components/Footer/Footer';
-import Contador from '../components/Contador/contador';
-import Formulario from '../components/Formulario/Formulario';
-import { productos } from '../utils/data';
+import Header from '../components/Header'
+import Hero from '../components/Hero';
+import Gallery from '../components/Gallery';
+import Footer from '../components/Footer';
+import Form from '../components/Form';
+import { productsList } from '../utils/data';
+import ProductList from '../components/ProductList'
+import Cart from '../components/Cart'
 
-
-const Home = () => {
-  
-    const mostrarMensaje  = (e) => {
-      console.log(e.target.style.backgroundColor = 'red')
-  }
-
+const Home = ({cart, handleAddToCart}) => {
+  const countItem = cart.length
   return (
     <>
-      <Header/>
+      <Header countItem={countItem}/>
       <Hero/>
       <Gallery/>
-      <section className='tarjeta__container'>
-        {productos.map((producto) =>
-          <TarjetaProductos
-            key={producto.id}
-            titulo={producto.titulo}
-            img={producto.imagenUrl}
-            alt={producto.alt}
-            descripcion={producto.descripcion}
-            promocion={producto.promocion}
-            botonTexto="Ver más"
-          ></TarjetaProductos>
-        )}
-      </section>
-      <Formulario/>
+      <ProductList products={productsList} addToCart={handleAddToCart}/>
+      <Cart cartItems={cart}/>
+      <Form/>
       <Footer/>
-      <button onClick={mostrarMensaje}>Mensaje</button>
-      <Contador/>
     </>
   )
 }

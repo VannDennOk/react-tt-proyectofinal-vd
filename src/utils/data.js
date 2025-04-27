@@ -1,34 +1,42 @@
-export const productos = [
+export const productsList = [
     {
       id: 1,
-      titulo: 'Producto 1',
-      descripcion: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam…',
-      imagenUrl: 'src/img/2.png',
-      promocion: '2x1',
+      name: 'Producto 1',
+      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam…',
+      imgUrl: 'src/img/2.png',
+      promo: '2x1',
+      colorPromo: 'var(--colorVerde)',
+      price: 19.999,
       alt: 'imagen de producto 1'
     },
     {
       id: 2,
-      titulo: 'Producto 2',
-      descripcion: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam…',
-      imagenUrl: 'src/img/3.png',
-      promocion: '-50%',
+      name: 'Producto 2',
+      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam…',
+      imgUrl: 'src/img/3.png',
+      promo: '-50%',
+      colorPromo: 'var(--colorAmarillo)',
+      price: 21.999,
       alt: 'imagen de producto 2'
     },
     {
       id: 3,
-      titulo: 'Producto 3',
-      descripcion: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam…',
-      imagenUrl: 'src/img/4.png',
-      promocion: '2x1',
+      name: 'Producto 3',
+      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam…',
+      imgUrl: 'src/img/4.png',
+      promo: '2x1',
+      colorPromo: 'var(--colorVerde)',
+      price: 24.999,
       alt: 'imagen de producto 3'
     },
     {
       id: 4,
-      titulo: 'Producto 4',
-      descripcion: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam…',
-      imagenUrl: 'src/img/5.png',
-      promocion: '-25%',
+      name: 'Producto 4',
+      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam…',
+      imgUrl: 'src/img/5.png',
+      promo: '-25%',
+      colorPromo: 'var(--colorAmarillo)',
+      price: 14.999,
       alt: 'imagen de producto 4'
     }
   ];

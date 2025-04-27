@@ -14,7 +14,9 @@
 
   --colorNegro: #050002;
   --colorGris: #373335;
+  --colorGrisClaro: #E6E5E6;
   --colorBlanco: #F8F2F4;
+  --sombraTarjetas: rgba(37, 33, 35, 0.2);
 
   --colorMoraOscuro: #560422;
   --colorMora: #6B052A;
@@ -32,9 +34,9 @@
   --colorNaranja: #FC8401;
   --colorNaranjaClaro: #FD9D34;
 
-  --colorExito: #009B83;
-  --colorError: #FF000D;
-  --colorAdvertencia: #FFCF11;
+  --colorVerde: #009B83;
+  --colorRojo: #FF000D;
+  --colorAmarillo: #FFCF11;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
