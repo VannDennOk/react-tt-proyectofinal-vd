@@ -301,3 +301,17 @@
 .txt_blanco{
     color: var(--colorBlanco);
 }
+
+.cart_container{
+    background-color: var(--colorBlanco);
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    padding: 1rem;
+    border: 1px solid var(--colorNegro);
+    border-radius: 20px;
+    margin: 2rem;
+}
