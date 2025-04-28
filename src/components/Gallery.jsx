@@ -4,10 +4,10 @@ import './styles/Style.css'
 const Gallery = () => {
 
   const images = [
-    "src/img/2.png",
-    "src/img/3.png",
-    "src/img/4.png",
-    "src/img/5.png"
+    "https://i.postimg.cc/63qB1LKt/2.png",
+    "https://i.postimg.cc/TwsT8L2m/3.png",
+    "https://i.postimg.cc/C5fSwhd2/4.png",
+    "https://i.postimg.cc/W4X2nYQ5/5.png"
   ];
 
   return (
