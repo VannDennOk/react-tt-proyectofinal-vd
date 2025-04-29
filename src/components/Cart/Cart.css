@@ -114,6 +114,11 @@
     font-size: 1.25rem;
 }
 
+.btn_product-delete:hover,
+.btn_cart-close:hover{
+    color: var(--colorRojo);
+}
+
 .cart_total {
     width: 100%;
     display: flex;

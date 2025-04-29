@@ -1,5 +1,5 @@
 import React from 'react'
-import './StyleButton.css'
+import './Button.css'
 
 function Button({ texto, colorBG }) {
     const estilo = {backgroundColor: colorBG};

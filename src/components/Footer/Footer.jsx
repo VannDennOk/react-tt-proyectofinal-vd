@@ -1,5 +1,5 @@
-import React from 'react'
-import './styles/Style.css'
+import React from 'react';
+import './Footer.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTiktok, faInstagram, faYoutube, faCcVisa, faCcMastercard, faCcPaypal, faWhatsapp } from '@fortawesome/free-brands-svg-icons'
 import { faEnvelope, faLocationDot } from '@fortawesome/free-solid-svg-icons'
@@ -37,9 +37,9 @@ const Footer = () => {
           <span className='footer_line'><FontAwesomeIcon className='footer_icon' icon={faCcPaypal} /> <p>PayPal</p></span>
         </div>
         <div className='footer_social'>
-          <span className='footer_social-icon-box'><FontAwesomeIcon className='footer_social-icon' icon={faTiktok} /></span>
-          <span className='footer_social-icon-box'><FontAwesomeIcon className='footer_social-icon' icon={faInstagram} /></span>
-          <span className='footer_social-icon-box'><FontAwesomeIcon className='footer_social-icon' icon={faYoutube} /></span>
+          <button className='footer_social-icon'><FontAwesomeIcon icon={faTiktok} /></button>
+          <button className='footer_social-icon'><FontAwesomeIcon icon={faInstagram} /></button>
+          <button className='footer_social-icon'><FontAwesomeIcon icon={faYoutube} /></button>
         </div>
       </section>
 

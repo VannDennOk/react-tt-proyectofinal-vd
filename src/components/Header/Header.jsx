@@ -1,8 +1,8 @@
 import React from 'react';
-import './styles/Style.css';
+import './Header.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMagnifyingGlass, faCartShopping, faHeart, faUser } from '@fortawesome/free-solid-svg-icons';
-import Nav from './Nav';
+import Nav from '../Nav/Nav';
 
 const Header = ({ countItem }) => {
   return (

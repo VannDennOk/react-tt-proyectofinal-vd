@@ -1,7 +1,6 @@
 import React from 'react'
-import './styles/Style.css'
-import Product from './Product'
-
+import './ProductList.css'
+import Product from '../Product/Product'
 
 const ProductList = ({products, addToCart}) => {
 

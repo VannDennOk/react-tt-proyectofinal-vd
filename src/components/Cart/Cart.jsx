@@ -1,5 +1,5 @@
 import React from 'react'
-import './StyleCart.css'
+import './Cart.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrashCan, faCircleXmark, faTriangleExclamation } from '@fortawesome/free-solid-svg-icons';
 
