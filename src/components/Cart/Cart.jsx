@@ -3,7 +3,7 @@ import './StyleCart.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrashCan, faCircleXmark, faTriangleExclamation } from '@fortawesome/free-solid-svg-icons';
 
-const Cart = ({cartItems}) => {
+const Cart = ({ cartItems }) => {
   return (
     <section className='cart_container'>
       <div className='cart_container-title'>
@@ -17,31 +17,31 @@ const Cart = ({cartItems}) => {
         <p>Cantidad</p>
         <p>Total</p>
       </div>
-      {cartItems.length === 0 ? (<span className='cart_empty'><FontAwesomeIcon icon={faTriangleExclamation} /><p>El carrito esta vacio</p></span>) : 
-      (<ul className='cart_product-list'>
-        {cartItems.map((item, index)=>(
-          <li className='cart_product' key={index}>
-            <div className='cart_product-name'>
-              <img className='cart_img' src={item.imgUrl}></img> 
-              <p>{item.name}</p>
-            </div>
-            <p>${item.price}</p>
-            <div className='cart_product-count'>
-              <button className='btn_count btn_radius-left'>-</button>
-              <span className='input_count'><p>{item.cantidad}</p></span>
-              <button className='btn_count btn_radius-right'>+</button>
-            </div>
-            <div className='cart_product-total'>
+      {cartItems.length === 0 ? (<span className='cart_empty'><FontAwesomeIcon icon={faTriangleExclamation} /><p>El carrito esta vacio</p></span>) :
+        (<ul className='cart_product-list'>
+          {cartItems.map((item, index) => (
+            <li className='cart_product' key={index}>
+              <div className='cart_product-name'>
+                <img className='cart_img' src={item.imgUrl}></img>
+                <p>{item.name}</p>
+              </div>
               <p>${item.price}</p>
-              <button className='btn_product-delete'><FontAwesomeIcon icon={faTrashCan} /></button>
-            </div>
+              <div className='cart_product-count'>
+                <button className='btn_count btn_radius-left'>-</button>
+                <span className='input_count'><p>{item.cantidad}</p></span>
+                <button className='btn_count btn_radius-right'>+</button>
+              </div>
+              <div className='cart_product-total'>
+                <p>${item.price}</p>
+                <button className='btn_product-delete'><FontAwesomeIcon icon={faTrashCan} /></button>
+              </div>
             </li>))}
         </ul>)}
-        <div className='cart_total'>
-          <p className='txt_strong'>TOTAL</p>
-          <p className='txt_strong'>$ 000.000</p>
-        </div>
-        <button className='btn_pay'>Ir a pagar</button>
+      <div className='cart_total'>
+        <p className='txt_strong'>TOTAL</p>
+        <p className='txt_strong'>$ 000.000</p>
+      </div>
+      <button className='btn_pay'>Ir a pagar</button>
     </section>
   )
 }
