@@ -6,7 +6,7 @@ import Footer from '../components/Footer';
 import Form from '../components/Form';
 import { productsList } from '../utils/data';
 import ProductList from '../components/ProductList'
-import Cart from '../components/Cart'
+import Cart from '../components/Cart/Cart'
 
 const Home = ({cart, handleAddToCart}) => {
   const countItem = cart.length

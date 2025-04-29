@@ -1,8 +1,9 @@
 import React from 'react'
+import './StyleButton.css'
 
 function Button({ texto, colorBG }) {
     const estilo = {backgroundColor: colorBG};
-    return <button style = {estilo}> {texto} </button>
+    return <button className='basic_btn' style = {estilo}> {texto} </button>
 }
 
 export default Button
