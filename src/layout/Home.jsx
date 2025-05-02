@@ -52,7 +52,7 @@ const Home = ({ cart, handleAddToCart, borrarProducto, vaciarCarrito, isCartOpen
         carga ? <img src={loading} alt='loading'/> :
         <ProductList products={productos} addToCart={handleAddToCart} />
       }
-      <Cart cartItems={cart} />
+
       <Form />
       <Footer />
     </>
