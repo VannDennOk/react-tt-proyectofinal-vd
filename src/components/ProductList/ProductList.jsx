@@ -8,6 +8,7 @@ const ProductList = ({products, addToCart}) => {
         <section className='productList_container'>
             {products.map(product => (
                 <Product
+                    key={product.id}
                     product={product}
                     addToCart={addToCart}
                 />

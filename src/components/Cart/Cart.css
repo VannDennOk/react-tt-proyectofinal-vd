@@ -9,6 +9,11 @@
     padding: 1rem 1.5rem;
     border: 1px solid var(--colorNegro);
     border-radius: 20px;
+    visibility: hidden;
+}
+
+.cart_container {
+    visibility: visible;
 }
 
 .cart_container-title {

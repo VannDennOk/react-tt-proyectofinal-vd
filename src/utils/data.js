@@ -7,6 +7,7 @@ export const productsList = [
       promo: '2x1',
       colorPromo: 'var(--colorVerde)',
       price: 19.999,
+      stock: 100,
       alt: 'imagen de producto 1'
     },
     {
@@ -17,6 +18,7 @@ export const productsList = [
       promo: '-50%',
       colorPromo: 'var(--colorAmarillo)',
       price: 21.999,
+      stock: 100,
       alt: 'imagen de producto 2'
     },
     {
@@ -27,6 +29,7 @@ export const productsList = [
       promo: '2x1',
       colorPromo: 'var(--colorVerde)',
       price: 24.999,
+      stock: 100,
       alt: 'imagen de producto 3'
     },
     {
@@ -37,6 +40,7 @@ export const productsList = [
       promo: '-25%',
       colorPromo: 'var(--colorAmarillo)',
       price: 14.999,
+      stock: 100,
       alt: 'imagen de producto 4'
     }
   ];
