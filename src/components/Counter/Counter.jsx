@@ -1,10 +1,22 @@
-import React, {useState} from 'react'
+import React, { useState } from 'react'
 import "./Counter.css"
 
 const Counter = ({ stock, cantidad, setCantidad }) => {
 
-    const increase = () => setCantidad(prev => (prev != stock ? prev + 1: prev ))
-    const decrease = () => setCantidad(prev => (prev > 1 ? prev - 1 : 1));
+    const increase = () => {
+        if (cantidad < stock) {
+            setCantidad(cantidad + 1);
+        }
+    }
+
+    const decrease = () => {
+        if (cantidad > 1) {
+            setCantidad(cantidad - 1);
+        }
+    }
+
+    /* const increase = () => setCantidad(prev => (prev != stock ? prev + 1: prev ))
+    const decrease = () => setCantidad(prev => (prev > 1 ? prev - 1 : 1)); */
 
     return (
 

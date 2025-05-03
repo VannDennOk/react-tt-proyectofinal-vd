@@ -10,7 +10,7 @@ import Cart from '../components/Cart/Cart';
 import NotFound from '../components/NotFound/NotFound';
 import loading from '../assets/loading.gif'
 
-const Home = ({ cart, handleAddToCart, borrarProducto, vaciarCarrito, isCartOpen, setCartOpen }) => {
+const Home = ({ cart, handleAddToCart, borrarProducto, vaciarCarrito, isCartOpen, setCartOpen, actualizarCantidad }) => {
 
   const [productos, setProductos] = useState([])
   const [carga, setCarga] = useState(true)
@@ -45,6 +45,7 @@ const Home = ({ cart, handleAddToCart, borrarProducto, vaciarCarrito, isCartOpen
         setCartOpen={setCartOpen}
         vaciarCarrito={vaciarCarrito}
         borrarProducto={borrarProducto}
+        actualizarCantidad={actualizarCantidad}
       />
       <Hero />
       <Gallery />
@@ -52,7 +53,7 @@ const Home = ({ cart, handleAddToCart, borrarProducto, vaciarCarrito, isCartOpen
         carga ? <img src={loading} alt='loading' /> :
           <ProductList products={productos} addToCart={handleAddToCart} />
       }
-      <Cart cartItems={cart}/>
+      <Cart cartItems={cart} />
       <Form />
       <Footer />
     </>

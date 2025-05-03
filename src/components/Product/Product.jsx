@@ -30,7 +30,9 @@ const Product = ({ product, addToCart }) => {
 
             <div className='product_card-txt'>
                 <h3>{product.name}</h3>
-                <p>$ {product.price}</p>
+                <p>
+                    {new Intl.NumberFormat('es-AR', { style: 'currency', currency: 'ARS' }).format(Number(product.price))}
+                </p>
                 <p className='product_card-description'>{product.description}</p>
                 <div className='cart_product-add'>
                     <Counter stock={product.stock} cantidad={cantidad} setCantidad={setCantidad} />

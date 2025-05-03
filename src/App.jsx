@@ -15,7 +15,7 @@ function App() {
 
   const handleAddToCart = (product) => {
     const productExist = cart.find(item => item.id === product.id)
-    
+
     if (productExist) {
       //alert('El producto ta está en el carrito')
       setCart(cart.map((item) => item.id === product.id ? { ...item, cantidad: item.cantidad + 1 } : item))
@@ -24,9 +24,21 @@ function App() {
     }
   }
 
+  const actualizarCantidad = (id, nuevaCantidad) => {
+    setCart(prevCart =>
+      prevCart.map(item =>
+        item.id === id
+          ? { ...item, cantidad: nuevaCantidad }
+          : item
+      )
+    );
+  };
+
   const borrarProducto = (product) => {
-    
-    setCart(preVCart => {
+
+    setCart(cart.filter(item => item.id !=product.id))
+
+/*     setCart(preVCart => {
       return preVCart.map(item => {
         if (item.id === product.id) {
           if (item.cantidad > 1) {
@@ -39,24 +51,24 @@ function App() {
           return item
         }
       }).filter(item => item != null)
-  })
-}
-  //setCart(cart.filter(item => item.id !=product.id))
-
-  const vaciarCarrito=()=>{
+    }) */
+  }
+  
+  const vaciarCarrito = () => {
     setCart([])
   }
 
   return (
     <>
-      <Home 
-        cart={cart} 
-        vaciarCarrito={vaciarCarrito} 
-        handleAddToCart={handleAddToCart} 
+      <Home
+        cart={cart}
+        vaciarCarrito={vaciarCarrito}
+        handleAddToCart={handleAddToCart}
         borrarProducto={borrarProducto}
         isCartOpen={isCartOpen}
         setCartOpen={setCartOpen}
-        />
+        actualizarCantidad={actualizarCantidad}
+      />
     </>
   )
 }
