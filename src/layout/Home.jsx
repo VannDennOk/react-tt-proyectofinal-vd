@@ -38,7 +38,7 @@ const Home = ({ cart, handleAddToCart, borrarProducto, vaciarCarrito, isCartOpen
 
   return (
     <>
-      <Header 
+      <Header
         cartItems={cart}
         cartCount={cartCount}
         isCartOpen={isCartOpen}
@@ -49,10 +49,10 @@ const Home = ({ cart, handleAddToCart, borrarProducto, vaciarCarrito, isCartOpen
       <Hero />
       <Gallery />
       {
-        carga ? <img src={loading} alt='loading'/> :
-        <ProductList products={productos} addToCart={handleAddToCart} />
+        carga ? <img src={loading} alt='loading' /> :
+          <ProductList products={productos} addToCart={handleAddToCart} />
       }
-
+      <Cart cartItems={cart}/>
       <Form />
       <Footer />
     </>

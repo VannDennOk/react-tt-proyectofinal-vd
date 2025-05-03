@@ -51,6 +51,16 @@
     filter: grayscale(100%);
 }
 
+.product_card-img-filter { 
+    width: 300px;
+    height: 300px;
+    background-color: var(--colorMora);
+    opacity: 40%;
+    border-radius: 20px 20px 0 0;
+    position: absolute;
+    z-index: 300;
+}
+
 .product_card-txt {
     width: 100%;
     padding: 1rem;
@@ -86,6 +96,8 @@
     padding: 0.5rem 1rem;
 
     position: absolute;
+    z-index: 400;
+
     left: 1rem;
     bottom: 1rem;
 }

@@ -9,6 +9,10 @@ function App() {
 
   const [isCartOpen, setCartOpen] = useState(false)
 
+  useEffect(() => {
+    document.body.style.overflow = isCartOpen ? 'hidden' : 'auto';
+  }, [isCartOpen]);
+
   const handleAddToCart = (product) => {
     const productExist = cart.find(item => item.id === product.id)
     

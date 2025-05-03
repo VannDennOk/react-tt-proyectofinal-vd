@@ -1,12 +1,20 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import './Cart.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrashCan, faCircleXmark, faTriangleExclamation } from '@fortawesome/free-solid-svg-icons';
 
 const Cart = ({ cartItems, vaciarCarrito, borrarProducto, isOpen, onClose }) => {
+  if (!isOpen) return null;
+
+  const handleOverlayClick = (e) => {
+    if (e.target.classList.contains('cart_overlay')) {
+      onClose();
+    }
+  };
 
   return (
-    <section className={`cart_container' ${isOpen ? 'open' : ''}`}>
+    <div className="cart_overlay" onClick={handleOverlayClick}>
+    <section className={`cart_container ${isOpen ? 'open' : ''}`}>
       <div className='cart_container-title'>
         <h2>LIV</h2>
         <h3>Carrito de Compras</h3>
@@ -25,9 +33,8 @@ const Cart = ({ cartItems, vaciarCarrito, borrarProducto, isOpen, onClose }) => 
         ) : (
           <>
             <ul>
-              {cartItems.map((item, index) => (
-                <>
-                  <li key={index} className='cart_product' >
+              {cartItems.map((item ) => (
+                                  <li key={item.id} className='cart_product' >
                     <div className='cart_product-name'>
                       <img className='cart_img' src={item.imgUrl}></img>
                       <p>{item.name}</p>
@@ -39,11 +46,10 @@ const Cart = ({ cartItems, vaciarCarrito, borrarProducto, isOpen, onClose }) => 
                       <button className='btn_count btn_radius-right'>+</button>
                     </div>
                     <div className='cart_product-total'>
-                      <p>${item.price}</p>
+                      <p>${item.price * item.cantidad}</p>
                       <button onClick={() => borrarProducto(item)} className='btn_product-delete'><FontAwesomeIcon icon={faTrashCan} /></button>
                     </div>
                   </li>
-                </>
               ))}
             </ul>
             <div className='cart_total'>
@@ -52,9 +58,11 @@ const Cart = ({ cartItems, vaciarCarrito, borrarProducto, isOpen, onClose }) => 
             </div>
             <button onClick={() => vaciarCarrito()} className='btn_pay'>Vaciar Carrito</button>
             <button className='btn_pay'>Ir a pagar</button>
-          </>)}
+          </>
+        )}
       </div>
     </section>
+    </div>
   )
 }
 
