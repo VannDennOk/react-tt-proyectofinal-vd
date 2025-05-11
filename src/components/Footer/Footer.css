@@ -29,6 +29,19 @@ footer {
     gap: 1rem;
 }
 
+.footernav_link {
+      font-family: var(--fontCuerpo);
+    font-size: 1rem;
+    font-weight: 300;
+     color: var(--colorNegro);
+     text-decoration: none;
+     border-bottom: 1px solid transparent;
+}
+
+.footernav_link:hover {
+    border-bottom: 1px solid var(--colorNegro);
+}
+
 .footer_line {
     width: 100%;
     display: flex;
@@ -51,11 +64,11 @@ footer {
 }
 
 .footer_social-icon {
-    width: 3rem;
+    min-width: 3rem;
     height: 3rem;
     background-color: var(--colorNegro);
     border: 1px solid var(--colorNegro);
-    border-radius: 50%;
+    border-radius: 1.5rem;
     display: flex;
     align-items: center;
     justify-content: center;

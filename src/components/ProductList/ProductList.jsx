@@ -4,6 +4,7 @@ import Product from '../Product/Product'
 
 const ProductList = ({products, addToCart}) => {
 
+
     return (
         <section className='productList_container'>
             {products.map(product => (

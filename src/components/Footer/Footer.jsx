@@ -1,5 +1,6 @@
 import React from 'react';
 import './Footer.css'
+import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTiktok, faInstagram, faYoutube, faCcVisa, faCcMastercard, faCcPaypal, faWhatsapp } from '@fortawesome/free-brands-svg-icons'
 import { faEnvelope, faLocationDot } from '@fortawesome/free-solid-svg-icons'
@@ -26,9 +27,10 @@ const Footer = () => {
         </div>
         <div className='footer_data'>
           <h3>Navegación</h3>
-          <a href='#'>Inicio</a>
-          <a href='#'>Nosotros</a>
-          <a href='#'>Contacto</a>
+              <Link className='footernav_link' to='/'>Inicio</Link>
+              <Link className='footernav_link' to='/productos'>Productos</Link>
+              <Link className='footernav_link' to='/nosotros'>Nosotros</Link>
+              <Link className='footernav_link' to='/contacto'>Contacto</Link>
         </div>
         <div className='footer_data'>
           <h3>Medios de pago</h3>

@@ -1,9 +1,10 @@
 import React from 'react'
-import './Main.css'
+import './main.css'
 
 const Main = () => {
   return (
-    <main>
+    <main className='container_main'>
+      
     </main>
   )
 }
