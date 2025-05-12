@@ -26,7 +26,7 @@ const Home = ({ carga, productos, cart, handleAddToCart, borrarProducto, vaciarC
       <main className="container_page">
         <Hero />
         <Gallery />
-        { carga ? <div className='container_loading'><img src={loading} alt='loading' /></div> :
+        { carga ? <div className='container_loading'><img src={loading} alt='loading' /><p>Cargando los productos</p></div> :
             <ProductList products={productos} addToCart={handleAddToCart} />}
         <Cart cartItems={cart} />
       </main>

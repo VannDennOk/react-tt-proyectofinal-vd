@@ -34,7 +34,7 @@ const GaleriaDeProductos = ({
 
       <main className="container_page">
         <h1>Galeria de productos</h1>
-        {carga ? <div className='container_loading'><img src={loading} alt='loading'/><p>Cargando los productos</p> </div> :
+        {carga ? <div className='container_loading'><img src={loading} alt='loading'/><p>Cargando los productos</p></div> :
           <ProductList addToCart={handleAddToCart} products={productos} />}
         <Cart cartItems={cart} />
       </main>
