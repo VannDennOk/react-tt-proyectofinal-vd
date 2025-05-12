@@ -6,6 +6,7 @@ import Nosotros from './pages/Nosotros'
 import NotFound from './pages/NotFound';
 import GaleriaDeProductos from './pages/GaleriaDeProductos';
 import Contacto from './pages/Contacto';
+import Modal from './components/Modal/Modal';
 
 function App() {
 
@@ -35,12 +36,18 @@ function App() {
     document.body.style.overflow = isCartOpen ? 'hidden' : 'auto';
   }, [isCartOpen]);
 
+  const [modalAbierto, setModalAbierto] = useState(false);
+  const [mensajeModal1, setMensajeModal1] = useState('');
+  const [mensajeModal2, setMensajeModal2] = useState('');
+
   const handleAddToCart = (product) => {
     const productExist = cart.find(item => item.id === product.id)
     if (!productExist) {
       setCart([...cart, { ...product, cantidad: product.cantidad || 1 }])
     } else {
-      alert("El producto ya fue agregado, revisa tu carrito de compras")
+      setMensajeModal1("El producto ya fue agregado.")
+      setMensajeModal2("Revisa tu carrito de compras!!!")
+      setModalAbierto(true);
     }
   }
 
@@ -65,10 +72,11 @@ function App() {
   const cartCount = () => {
     return cart.reduce((total, item) => total + item.cantidad, 0)
   }
-    
+
   return (
     <>
       <Router>
+        {modalAbierto && <Modal mensaje1={mensajeModal1} mensaje2={mensajeModal2} onClose={() => setModalAbierto(false)} />}
         <Routes>
           <Route path='/' element={<Home
             error={error}
