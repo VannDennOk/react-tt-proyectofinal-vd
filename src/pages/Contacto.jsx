@@ -1,11 +1,14 @@
 import React from "react"
+import './pages.css'
 import Header from "../components/Header/Header"
 import Footer from "../components/Footer/Footer"
 import Cart from "../components/Cart/Cart"
 import Form from "../components/Form/Form"
 
 const Contacto = ({ cart, borrarProducto, vaciarCarrito, isCartOpen, setCartOpen, actualizarCantidad }) => {
-   const cartCount = cart.length 
+
+  const cartCount = cart.reduce((total, item) => total + item.cantidad, 0);
+
   return (
     <>
       <Header
@@ -17,10 +20,12 @@ const Contacto = ({ cart, borrarProducto, vaciarCarrito, isCartOpen, setCartOpen
         borrarProducto={borrarProducto}
         actualizarCantidad={actualizarCantidad}
       />
+      <main className="container_page">
         <h1>Contacto</h1>
         <Form></Form>
-        <Cart cartItems={cart} />
-        <Footer />
+      </main>
+      <Cart cartItems={cart} />
+      <Footer />
     </>
   )
 }

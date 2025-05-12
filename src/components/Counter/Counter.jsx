@@ -1,17 +1,32 @@
 import React, { useState } from 'react'
 import "./Counter.css"
 
-const Counter = ({ stock, cantidad, setCantidad }) => {
+const Counter = ({ stock, cantidad, setCantidad, productId, actualizarCantidad}) => {
 
+    const handleChange = (newCantidad) => {
+        if (actualizarCantidad && productId) {
+            actualizarCantidad(productId, newCantidad)
+        } else if (setCantidad) {
+            setCantidad(newCantidad)
+        }
+    }
+    
+    
     const increase = () => {
         if (cantidad < stock) {
-            setCantidad(cantidad + 1);
+
+            handleChange(cantidad +1)
+/*             setCantidad(cantidad + 1);
+            actualizarCantidad(productId, cantidad + 1); */
         }
     }
 
     const decrease = () => {
         if (cantidad > 1) {
-            setCantidad(cantidad - 1);
+
+            handleChange(cantidad -1)
+/*             setCantidad(cantidad - 1);
+            actualizarCantidad(productId, cantidad -1); */
         }
     }
 

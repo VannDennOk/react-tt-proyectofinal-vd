@@ -2,8 +2,7 @@ import React from 'react'
 import './ProductList.css'
 import Product from '../Product/Product'
 
-const ProductList = ({products, addToCart}) => {
-
+const ProductList = ({ products, addToCart }) => {
 
     return (
         <section className='productList_container'>

@@ -1,4 +1,5 @@
 import React from "react"
+import './pages.css'
 import Header from "../components/Header/Header"
 import Footer from "../components/Footer/Footer"
 import ProductList from "../components/ProductList/ProductList"
@@ -17,7 +18,7 @@ const GaleriaDeProductos = ({
   actualizarCantidad
 }) => {
 
-  const cartCount = cart.length
+  const cartCount = cart.reduce((total, item) => total + item.cantidad, 0);
 
   return (
     <>
@@ -30,14 +31,13 @@ const GaleriaDeProductos = ({
         borrarProducto={borrarProducto}
         actualizarCantidad={actualizarCantidad}
       />
-      <h1>Galeria de productos</h1>
-      {
-        carga ? <div className='container_loading'><img src={loading} alt='loading' /> </div> :
 
-          <ProductList addToCart={handleAddToCart} products={productos} />
-      }
-      <Cart cartItems={cart} />
-
+      <main className="container_page">
+        <h1>Galeria de productos</h1>
+        {carga ? <div className='container_loading'><img src={loading} alt='loading'/><p>Cargando los productos</p> </div> :
+          <ProductList addToCart={handleAddToCart} products={productos} />}
+        <Cart cartItems={cart} />
+      </main>
       <Footer />
     </>
   )

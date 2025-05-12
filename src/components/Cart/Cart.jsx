@@ -54,7 +54,10 @@ const Cart = ({ cartItems, vaciarCarrito, borrarProducto, isOpen, onClose, actua
                       <Counter
                         stock={item.stock}
                         cantidad={item.cantidad}
-                        setCantidad={(nuevaCantidad) => actualizarCantidad(item.id, nuevaCantidad)} />
+                        productId={item.id}
+                        actualizarCantidad={actualizarCantidad}
+/*                         setCantidad={(nuevaCantidad) => actualizarCantidad(item.id, nuevaCantidad)}  */
+                        />
                     </div>
                     <div className='cart_product-total'>
                       <p>{(item.price * item.cantidad).toLocaleString('es-AR', { style: 'currency', currency: 'ARS' })}</p>

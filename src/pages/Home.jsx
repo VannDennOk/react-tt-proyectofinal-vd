@@ -1,5 +1,4 @@
 import React from 'react';
-import loading from "../assets/loading.gif"
 import './pages.css'
 import Header from '../components/Header/Header'
 import Hero from '../components/Hero/Hero';
@@ -7,10 +6,11 @@ import Gallery from '../components/Gallery/Gallery';
 import Footer from '../components/Footer/Footer';
 import ProductList from '../components/ProductList/ProductList'
 import Cart from '../components/Cart/Cart';
+import loading from "../assets/loading.gif"
 
-const Home = ({ cargando, productos, cart, handleAddToCart, borrarProducto, vaciarCarrito, isCartOpen, setCartOpen, actualizarCantidad }) => {
+const Home = ({ carga, productos, cart, handleAddToCart, borrarProducto, vaciarCarrito, isCartOpen, setCartOpen, actualizarCantidad }) => {
 
-  const cartCount = cart.length
+  const cartCount = cart.reduce((total, item) => total + item.cantidad, 0);
 
   return (
     <>
@@ -23,15 +23,13 @@ const Home = ({ cargando, productos, cart, handleAddToCart, borrarProducto, vaci
         borrarProducto={borrarProducto}
         actualizarCantidad={actualizarCantidad}
       />
-      <Hero />
-      <Gallery />
-      {
-        cargando ? <div className='container_loading'><img src={loading} alt='loading' /> </div> :
-          <ProductList
-            products={productos}
-            addToCart={handleAddToCart} />
-      }
-      <Cart cartItems={cart} />
+      <main className="container_page">
+        <Hero />
+        <Gallery />
+        { carga ? <div className='container_loading'><img src={loading} alt='loading' /></div> :
+            <ProductList products={productos} addToCart={handleAddToCart} />}
+        <Cart cartItems={cart} />
+      </main>
       <Footer />
     </>
   )

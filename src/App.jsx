@@ -35,21 +35,14 @@ function App() {
     document.body.style.overflow = isCartOpen ? 'hidden' : 'auto';
   }, [isCartOpen]);
 
-/*   const handleAddToCart = (product) => {
+  const handleAddToCart = (product) => {
     const productExist = cart.find(item => item.id === product.id)
-    if (productExist) {
-      setCart(cart.map((item) => item.id === product.id ? { ...item, cantidad: item.cantidad + 1 } : item))
+    if (!productExist) {
+      setCart([...cart, { ...product, cantidad: product.cantidad || 1 }])
     } else {
-      setCart([...cart, product])
+      alert("El producto ya fue agregado, revisa tu carrito de compras")
     }
-  } */
-
-const handleAddToCart = (product) => {
-  const productExist = cart.find(item => item.id === product.id)
-  if (!productExist) {
-    setCart([...cart, { ...product, cantidad: product.cantidad || 1 }])
   }
-}
 
   const actualizarCantidad = (id, nuevaCantidad) => {
     setCart(prevCart =>
@@ -63,26 +56,16 @@ const handleAddToCart = (product) => {
 
   const borrarProducto = (product) => {
     setCart(cart.filter(item => item.id != product.id))
-    /* setCart(preVCart => {
-      return preVCart.map(item => {
-        if (item.id === product.id) {
-          if (item.cantidad > 1) {
-            return { ...item, cantidad: item.cantidad - 1 }
-          } else {
-            return null
-          }
-
-        } else {
-          return item
-        }
-      }).filter(item => item != null)
-    }) */
   }
 
   const vaciarCarrito = () => {
     setCart([])
   }
 
+  const cartCount = () => {
+    return cart.reduce((total, item) => total + item.cantidad, 0)
+  }
+    
   return (
     <>
       <Router>
@@ -98,6 +81,8 @@ const handleAddToCart = (product) => {
             isCartOpen={isCartOpen}
             setCartOpen={setCartOpen}
             actualizarCantidad={actualizarCantidad}
+            cartItems={cart}
+            cartCount={cartCount}
           />}></Route>
 
           <Route path='/productos' element={<GaleriaDeProductos
