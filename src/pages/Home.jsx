@@ -1,7 +1,7 @@
 import React from 'react';
 import './pages.css'
 import Header from '../components/Header/Header'
-import Hero from '../components/Hero/Hero';
+import Hero from '../components/Hero';
 import Gallery from '../components/Gallery/Gallery';
 import Footer from '../components/Footer/Footer';
 import ProductList from '../components/ProductList/ProductList'
