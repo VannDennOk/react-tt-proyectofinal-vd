@@ -2,9 +2,9 @@ import React from "react"
 import './pages.css'
 import Header from "../components/Header"
 import Footer from "../components/Footer"
-import ProductList from "../components/ProductList/ProductList"
+import ProductList from "../components/ProductList"
 import loading from "../assets/loading.gif"
-import Cart from "../components/Cart/Cart"
+import Cart from "../components/Cart"
 
 const GaleriaDeProductos = ({
   cart,

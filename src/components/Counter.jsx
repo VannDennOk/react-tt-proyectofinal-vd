@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import "./Counter.css"
+import "./styles/Counter.css"
 
 const Counter = ({ stock, cantidad, setCantidad, productId, actualizarCantidad}) => {
 

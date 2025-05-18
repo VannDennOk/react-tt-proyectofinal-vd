@@ -6,7 +6,7 @@ import Nosotros from './pages/Nosotros'
 import NotFound from './pages/NotFound';
 import GaleriaDeProductos from './pages/GaleriaDeProductos';
 import Contacto from './pages/Contacto';
-import Modal from './components/Modal/Modal';
+import Modal from './components/Modal';
 
 function App() {
 

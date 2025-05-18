@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
-import './Product.css'
+import './styles/Product.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart, faPlus, faCartPlus } from '@fortawesome/free-solid-svg-icons';
-import Counter from '../Counter/Counter';
+import Counter from './Counter';
 
 const Product = ({ product, addToCart }) => {
 

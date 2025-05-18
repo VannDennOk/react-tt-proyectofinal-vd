@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react'
-import './Cart.css'
+import './styles/Cart.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrashCan, faCircleXmark, faTriangleExclamation } from '@fortawesome/free-solid-svg-icons';
-import Counter from '../Counter/Counter'
+import Counter from './Counter'
 
 
 

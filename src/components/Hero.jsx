@@ -4,12 +4,9 @@ import balance from '../assets/balance.png';
 import defense from '../assets/defense.png';
 import sleep from '../assets/sleep.png';
 import strong from '../assets/strong.png';
-
-
-
 import heroproduct from '../assets/heroproduct.png'
 import { Link } from 'react-router-dom';
-import './Hero.css';
+import './styles/Hero.css';
 
 function Hero() {
   return (

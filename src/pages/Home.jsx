@@ -2,10 +2,10 @@ import React from 'react';
 import './pages.css'
 import Header from '../components/Header'
 import Hero from '../components/Hero';
-import Gallery from '../components/Gallery/Gallery';
+import Gallery from '../components/Gallery';
 import Footer from '../components/Footer';
-import ProductList from '../components/ProductList/ProductList'
-import Cart from '../components/Cart/Cart';
+import ProductList from '../components/ProductList'
+import Cart from '../components/Cart';
 import loading from "../assets/loading.gif"
 
 const Home = ({ carga, productos, cart, handleAddToCart, borrarProducto, vaciarCarrito, isCartOpen, setCartOpen, actualizarCantidad }) => {
