@@ -7,6 +7,7 @@ import NotFound from './pages/NotFound';
 import GaleriaDeProductos from './pages/GaleriaDeProductos';
 import Contacto from './pages/Contacto';
 import Modal from './components/Modal';
+import DetalleProductos from './components/DetalleProductos';
 
 function App() {
 
@@ -104,6 +105,24 @@ function App() {
             setCartOpen={setCartOpen}
             actualizarCantidad={actualizarCantidad}
           />}></Route>
+
+            <Route path='/productos/:id' element={<DetalleProductos
+            productos={productos}
+
+            error={error}
+            carga={carga}         
+            cart={cart}
+            vaciarCarrito={vaciarCarrito}
+            handleAddToCart={handleAddToCart}
+            borrarProducto={borrarProducto}
+            isCartOpen={isCartOpen}
+            setCartOpen={setCartOpen}
+            actualizarCantidad={actualizarCantidad}
+            cartItems={cart}
+            cartCount={cartCount}
+           
+           />}></Route>
+
 
           <Route path='/nosotros' element={<Nosotros
             error={error}
