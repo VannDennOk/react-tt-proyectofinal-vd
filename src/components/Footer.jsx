@@ -1,5 +1,6 @@
 import React from 'react';
 import './Footer.css'
+import logo from '../assets/logo.png';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTiktok, faInstagram, faYoutube, faCcVisa, faCcMastercard, faCcPaypal, faWhatsapp } from '@fortawesome/free-brands-svg-icons'
@@ -11,8 +12,8 @@ const Footer = () => {
     <footer>
       <section className='footer_container-top'>
         <div className='footer_data'>
-          <h2>LIV</h2>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum molestias assumenda reiciendis.</p>
+          <h2><img className='footer_logo' src={logo} alt='logo liv' /></h2>
+          <p>Gomitas divertidas que combinan ciencia y sabor para cuidarte todo el día. Sin azúcar añadida. 100% veganas.</p>
         </div>
         <div className='footer_data'>
           <h3>Envíos</h3>

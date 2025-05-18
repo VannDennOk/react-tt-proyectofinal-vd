@@ -14,6 +14,10 @@
     padding: 0 1rem;
 }
 
+.header_logo{
+    width: 3rem;
+}
+
 .link_icon_container {
     display: flex;
     align-items: center;

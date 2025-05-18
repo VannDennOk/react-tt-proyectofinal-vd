@@ -1,9 +1,9 @@
 import React from 'react';
 import './pages.css'
-import Header from '../components/Header/Header'
+import Header from '../components/Header'
 import Hero from '../components/Hero';
 import Gallery from '../components/Gallery/Gallery';
-import Footer from '../components/Footer/Footer';
+import Footer from '../components/Footer';
 import ProductList from '../components/ProductList/ProductList'
 import Cart from '../components/Cart/Cart';
 import loading from "../assets/loading.gif"

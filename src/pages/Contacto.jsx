@@ -1,7 +1,7 @@
 import React from "react"
 import './pages.css'
-import Header from "../components/Header/Header"
-import Footer from "../components/Footer/Footer"
+import Header from "../components/Header"
+import Footer from "../components/Footer"
 import Cart from "../components/Cart/Cart"
 import Form from "../components/Form/Form"
 

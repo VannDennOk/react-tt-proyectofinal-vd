@@ -39,7 +39,7 @@ function Hero() {
             </span>
           </div>
           <p className='texto_blanco'>Aptas para tu ritmo. Hechas para tu disfrute.</p>
-          <p className='texto_blanco'>Sin azúcar añadida. 100% sabor.</p>
+          <p className='texto_blanco'>Sin azúcar añadida. 100% veganas.</p>
         </div>
 
         <Link className='hero_btn' to='/productos'>¡Descubrilas acá!</Link>

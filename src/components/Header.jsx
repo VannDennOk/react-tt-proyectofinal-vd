@@ -1,16 +1,17 @@
 import React from 'react';
 import './Header.css'
+import logo from '../assets/logo.png';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMagnifyingGlass, faCartShopping, faHeart, faUser } from '@fortawesome/free-solid-svg-icons';
-import Nav from '../Nav/Nav';
-import Cart from '../Cart/Cart'
+import Nav from './Nav/Nav';
+import Cart from './Cart/Cart'
 
 const Header = ({ vaciarCarrito, cartItems, cartCount, setCartOpen, isCartOpen, borrarProducto, actualizarCantidad }) => {
   
   return (
     <header className='header_container'>
       <div className='header_container_top'>
-        <h1>LIV</h1>
+        <h1><img className='header_logo' src={logo} alt='logo liv' /></h1>
         <span className='link_icon_container'>
           <a className='link_icon' href="#"><FontAwesomeIcon icon={faMagnifyingGlass} />Buscar</a>
           <a className='link_icon' href="#"><FontAwesomeIcon icon={faUser} />Login</a>
