@@ -7,7 +7,10 @@ import NotFound from './pages/NotFound';
 import GaleriaDeProductos from './pages/GaleriaDeProductos';
 import Contacto from './pages/Contacto';
 import Modal from './components/Modal';
-import DetalleProductos from './components/DetalleProductos';
+import DetalleProductos from './pages/DetalleProductos';
+import Admin from './pages/Admin';
+import Login from './pages/Login';
+import RutasProtegidas from './auth/RutasProtegidas';
 
 function App() {
 
@@ -15,6 +18,7 @@ function App() {
   const [productos, setProductos] = useState([])
   const [error, setError] = useState(false)
   const [carga, setCarga] = useState(true)
+  const [isAuthenticated, setIsAuthenticated] = useState(false)
 
   useEffect(() => {
     fetch('https://681455e4225ff1af162889a4.mockapi.io/productos-ecommerce/product')
@@ -106,11 +110,11 @@ function App() {
             actualizarCantidad={actualizarCantidad}
           />}></Route>
 
-            <Route path='/productos/:id' element={<DetalleProductos
+          <Route path='/productos/:id' element={<DetalleProductos
             productos={productos}
 
             error={error}
-            carga={carga}         
+            carga={carga}
             cart={cart}
             vaciarCarrito={vaciarCarrito}
             handleAddToCart={handleAddToCart}
@@ -120,9 +124,7 @@ function App() {
             actualizarCantidad={actualizarCantidad}
             cartItems={cart}
             cartCount={cartCount}
-           
-           />}></Route>
-
+          />}></Route>
 
           <Route path='/nosotros' element={<Nosotros
             error={error}
@@ -150,8 +152,12 @@ function App() {
             actualizarCantidad={actualizarCantidad}
           />}></Route>
 
-          <Route path='*' element={<NotFound
-          />}></Route>
+          <Route path='/admin' element={<RutasProtegidas isAuthenticated=
+            {isAuthenticated}> <Admin /></RutasProtegidas>} />
+
+          <Route path='/login' element={<Login />} />
+
+          <Route path='*' element={<NotFound />} />
 
         </Routes>
       </Router>

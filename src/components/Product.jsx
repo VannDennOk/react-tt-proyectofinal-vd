@@ -3,6 +3,7 @@ import './styles/Product.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart, faPlus, faCartPlus } from '@fortawesome/free-solid-svg-icons';
 import Counter from './Counter';
+import { Link } from 'react-router-dom';
 
 const Product = ({ product, addToCart }) => {
 
@@ -38,7 +39,7 @@ const Product = ({ product, addToCart }) => {
                     <Counter stock={product.stock} cantidad={cantidad} setCantidad={setCantidad} />
                     <button className='btn_addToCart' onClick={() => addToCart({ ...product, cantidad: cantidad })}>Agregar <FontAwesomeIcon icon={faCartPlus} /></button>
                 </div>
-                <button className='btn_seeMore'>Ver más<FontAwesomeIcon icon={faPlus} /></button>
+                <button className='btn_seeMore'><Link to={`/productos/${product.id}`}>Ver más</Link><FontAwesomeIcon icon={faPlus} /></button>
             </div>
         </div>
     );
