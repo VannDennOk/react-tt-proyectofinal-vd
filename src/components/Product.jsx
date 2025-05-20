@@ -15,7 +15,6 @@ const Product = ({ product, addToCart }) => {
 
     const estiloImg = {
         backgroundImage: `url(${product.imgUrl})`,
-
     };
 
     return (

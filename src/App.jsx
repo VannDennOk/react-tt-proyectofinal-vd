@@ -7,11 +7,11 @@ import NotFound from './pages/NotFound';
 import GaleriaDeProductos from './pages/GaleriaDeProductos';
 import Contacto from './pages/Contacto';
 import Modal from './components/Modal';
-import DetalleProductos from './pages/DetalleProductos';
 import Admin from './pages/Admin';
 import Login from './pages/Login';
 import RutasProtegidas from './auth/RutasProtegidas';
 import { CartContext } from './context/CartContext';
+import PaginaProducto from './pages/PaginaProducto';
 
 function App() {
   const {   
@@ -65,7 +65,7 @@ function App() {
             actualizarCantidad={actualizarCantidad}
           />}></Route>
 
-          <Route path='/productos/:id' element={<DetalleProductos
+          <Route path='/productos/:id' element={<PaginaProducto
             productos={productos}
 
             error={error}

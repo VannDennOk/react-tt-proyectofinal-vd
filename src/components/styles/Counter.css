@@ -1,18 +1,18 @@
 .cart_product-count {
-    width: 5rem;
+    width: 120px;
     display: flex;
     align-items: center;
     justify-content: flex-start;
 }
 
 .btn_count {
-    width: 1.5rem;
-    height: 1.5rem;
-    background-color: var(--colorNegro);
+    width: 40px;
+    height: 40px;
+    background-color: var(--colorGrisClaro);
     border: 1px solid var(--colorNegro);
 
-    color: var(--colorBlanco);
-    font-weight: 600;
+    color: var(--colorNegro);
+    font-weight: 400;
     font-size: 1rem;
     display: flex;
     align-items: center;
@@ -30,10 +30,11 @@
 }
 
 .input_count {
-    width: 2rem;
-    height: 1.5rem;
+    width: 40px;
+    height: 40px;
     background-color: var(--colorBlanco);
-    border: 1px solid var(--colorNegro);
+    border-top: 1px solid var(--colorNegro);
+    border-bottom: 1px solid var(--colorNegro);
 
     display: flex;
     align-items: center;

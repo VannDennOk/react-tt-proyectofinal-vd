@@ -1,0 +1,122 @@
+.container_productDetail {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 2rem;
+}
+
+.container_productDetail-top {
+    width: 100%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 1rem;
+    padding: 2rem 1rem;
+
+}
+
+.productDetail_img-box {
+    width: 500px;
+    height: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    border-radius: 20px;
+}
+
+.productDetail_img-filter {
+    width: 100%;
+    height: 100%;
+    background-color: var(--colorMora);
+    opacity: 40%;
+    position: absolute;
+    z-index: 300;
+}
+
+.productDetail_img {
+    width: 100%;
+    filter: grayscale(100%);
+}
+
+.container_productDetail-right {
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 1rem;
+}
+
+.productDetail-title {
+    font-size: 2.5rem;
+}
+
+.productDetail-txt {
+    font-size: 0.8rem;
+}
+
+.productDetail-price {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--colorVerde);
+}
+
+.productDetail-subtitle {
+    width: 100%;
+    text-align: left;
+    border-bottom: 1px solid var(--colorGris);
+}
+
+.container_productDetail-btn {
+    width: 100%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 1rem;
+    padding-top: 1rem;
+}
+
+.productDetail_btn-add{
+    width: 160px;
+    height: 40px;
+    background-color: var(--colorNegro);
+    border: 1px solid var(--colorNegro);
+    border-radius: 20px;
+    padding: 0.5rem 1rem;
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+  
+    font-family: var(--fontCuerpo);
+    font-size: 1rem;
+    font-weight: 300;
+    color: var(--colorBlanco);
+    cursor: pointer;
+    transition: border-color 0.25s;
+  }
+  
+.productDetail_btn-add:hover {
+    color: var(--colorNegro);
+    background-color: var(--colorBlanco);
+    box-shadow: 0px 6px var(--colorNegro);
+  }
+
+.container_productDetail-banner {
+    background-color: var(--colorGrisClaro);
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    padding: 1rem;
+}
+
+.banner_img {
+    width: 3rem;
+}
