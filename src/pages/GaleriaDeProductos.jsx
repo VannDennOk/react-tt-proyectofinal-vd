@@ -5,6 +5,7 @@ import Footer from "../components/Footer"
 import ProductList from "../components/ProductList"
 import loading from "../assets/loading.gif"
 import Cart from "../components/Cart"
+import BannerBottom from "../components/BannerBottom"
 
 const GaleriaDeProductos = ({
   cart,
@@ -34,10 +35,14 @@ const GaleriaDeProductos = ({
 
       <main className="container_page">
         <h1>Galeria de productos</h1>
-        {carga ? <div className='container_loading'><img src={loading} alt='loading'/><p>Cargando los productos</p></div> :
+        {carga ? <div className='container_loading'><img src={loading} alt='loading' /><p>Cargando los productos</p></div> :
           <ProductList addToCart={handleAddToCart} products={productos} />}
+
+        <BannerBottom />
+
         <Cart cartItems={cart} />
       </main>
+
       <Footer />
     </>
   )

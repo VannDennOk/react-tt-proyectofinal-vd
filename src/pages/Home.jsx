@@ -7,6 +7,7 @@ import Footer from '../components/Footer';
 import ProductList from '../components/ProductList'
 import Cart from '../components/Cart';
 import loading from "../assets/loading.gif"
+import BannerBottom from '../components/BannerBottom';
 
 const Home = ({ carga, productos, cart, handleAddToCart, borrarProducto, vaciarCarrito, isCartOpen, setCartOpen, actualizarCantidad }) => {
 
@@ -23,13 +24,18 @@ const Home = ({ carga, productos, cart, handleAddToCart, borrarProducto, vaciarC
         borrarProducto={borrarProducto}
         actualizarCantidad={actualizarCantidad}
       />
+
       <main className="container_page">
         <Hero />
         <Gallery />
         { carga ? <div className='container_loading'><img src={loading} alt='loading' /><p>Cargando los productos</p></div> :
             <ProductList products={productos} addToCart={handleAddToCart} />}
+
+        <BannerBottom />
+
         <Cart cartItems={cart} />
       </main>
+      
       <Footer />
     </>
   )

@@ -22,8 +22,7 @@ const DetalleProducto = ({ productos, addToCart }) => {
 
       {productoDetalle ? (
 
-        <section className='container_productDetail'>
-          <div className='container_productDetail-top'>
+           <div className='container_productDetail'>
             <div className='productDetail_img-box'>
               <img className='productDetail_img' src={productoDetalle.imgUrl} alt="imagen de producto" />
               <div className='productDetail_img-filter'></div>
@@ -46,13 +45,6 @@ const DetalleProducto = ({ productos, addToCart }) => {
               </div>
             </div>
           </div>
-          <div className='container_productDetail-banner'>
-            <h1><img className='banner_img' src={crueltyFree} alt='cruelty free' /></h1>
-            <h1><img className='banner_img' src={vegano} alt='vegano' /></h1>
-            <h1><img className='banner_img' src={libreGluten} alt='libre de gluten' /></h1>
-            <h1><img className='banner_img' src={libreAzucar} alt='libre de azucar' /></h1>
-          </div>
-        </section>
 
       ) : (<p>Producto no encontrado</p>)}
     </>
