@@ -14,27 +14,20 @@
 .cart_container {
     position: fixed;
     top: 5.5rem;
-
     width: 95%;
-    height: 70%;
-
+    height: 75%;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
     gap: 1rem;
     padding: 1rem 1.5rem;
-
-
     background-color: var(--colorBlanco);
     border-bottom: 1px solid var(--colorNegro);
     border-radius: 20px;
-
     opacity: 0;
-
     transform: translateX(100%);
     transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
-
     z-index: 999;
     overflow-y: auto;
 }
