@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
-import './styles/Form.css'
+import './styles/FormContacto.css'
 
-export default function Form() {
+export default function FormContacto() {
 
     const [nombre, setNombre] = useState('');
     const [apellido, setApellido] = useState('');

@@ -1,5 +1,5 @@
 import React from 'react';
-import './pages.css'
+import './styles/pages.css'
 import Header from '../components/Header'
 import Hero from '../components/Hero';
 import Gallery from '../components/Gallery';

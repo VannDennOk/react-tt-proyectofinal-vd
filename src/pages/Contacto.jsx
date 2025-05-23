@@ -1,9 +1,9 @@
 import React from "react"
-import './pages.css'
+import './styles/pages.css'
 import Header from "../components/Header"
 import Footer from "../components/Footer"
 import Cart from "../components/Cart"
-import Form from "../components/Form"
+import FormContacto from "../components/FormContacto"
 
 const Contacto = ({ cart, borrarProducto, vaciarCarrito, isCartOpen, setCartOpen, actualizarCantidad }) => {
 
