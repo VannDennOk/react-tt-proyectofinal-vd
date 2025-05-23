@@ -37,14 +37,17 @@ const Cart = ({ cartItems, vaciarCarrito, borrarProducto, isOpen, onClose, actua
 
         <div className='cart_product-list'>
           {cartItems.length === 0 ? (
-            <span className='cart_empty'><FontAwesomeIcon icon={faTriangleExclamation} /><p>El carrito está vacío</p></span>
+            <span className='cart_empty-messege'><FontAwesomeIcon icon={faTriangleExclamation} /><p>El carrito está vacío</p></span>
           ) : (
             <>
               <ul className='cart_product-list'>
                 {cartItems.map((item) => (
                   <li key={item.id} className='cart_product' >
                     <div className='cart_product-name'>
-                      <img className='cart_img' src={item.imgUrl}></img>
+                      <div className='cart_img-box'>
+                        <img className='cart_img' src={item.imgUrl}></img>
+                        <div className='cart_img-filter'></div>
+                      </div>
                       <p>{item.name}</p>
                     </div>
                     <p>

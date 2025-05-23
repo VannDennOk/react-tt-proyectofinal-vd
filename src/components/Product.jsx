@@ -24,7 +24,7 @@ const Product = ({ product, addToCart }) => {
                     <FontAwesomeIcon icon={faHeart} />
                 </button>
                 <div className='product_card-img-filter'></div>
-                <div style={estiloImg} className='product_card-img'></div>
+                <img className='product_card-img' src={product.imgUrl} alt="imagen de producto" />
                 <p className='product_card-promo'>{product.promo}</p>
             </div>
 
