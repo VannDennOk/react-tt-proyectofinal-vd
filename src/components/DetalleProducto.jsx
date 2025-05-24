@@ -1,9 +1,5 @@
 import React, { useState } from 'react'
 import { useParams } from 'react-router-dom'
-import crueltyFree from '../assets/crueltyFree.png'
-import libreAzucar from '../assets/libreAzucar.png'
-import libreGluten from '../assets/libreGluten.png'
-import vegano from '../assets/vegano.png'
 import Counter from './Counter'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCartPlus } from '@fortawesome/free-solid-svg-icons';
