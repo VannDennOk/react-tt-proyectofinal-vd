@@ -18,20 +18,15 @@
     padding: 1rem 0;
 }
 
+/*PÁGINA NOT FOUND*/
 
 .notfound_main {
     width: 100%;
     height: 100vh;
+    background-color: var(--colorBlanco);
     display: flex;
     align-items: center;
     justify-content: center;
-
-    background-image: url("src/assets/fondologin.png");
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-
-    background-color: var(--colorMora);
 }
 
 .notfound_container {
@@ -43,6 +38,7 @@
 
     border: 1px solid var(--colorNegro);
     border-radius: 20px;
+    overflow: hidden;
     box-shadow: 6px 4px 4px 1px var(--sombraTarjetas);
 }
 
@@ -55,6 +51,11 @@
     align-items: center;
     justify-content: center;
     padding: 2rem;
+
+    background-image: url("src/assets/notfoundimgfondo.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 .notfound_img {
@@ -62,33 +63,21 @@
 }
 
 .notfound_container-right {
-    background-color: var(--colorBlanco);
     width: 60%;
     height: 100%;
-    border-radius: 0 20px 20px 0;
+    background-color: var(--colorGrisClaro);
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     justify-content: center;
-    gap: 1rem;
+    gap: 2rem;
     padding: 2rem;
 }
 
-.notfound_btn {
-    background-color: var(--colorNegro);
-    height: 40px;
-    border-radius: 20px;
-    border: 1px solid var(--colorNegro);
-    color: var(--colorBlanco);
-    font-family: var(--fontCuerpo);
-    font-size: 1rem;
-    padding: 0.5rem 1.5rem;
-    cursor: pointer;
-    transition: border-color 0.25s;
-}
-
-.notfound_btn:hover {
-    color: var(--colorNegro);
-    background-color: var(--colorBlanco);
-    box-shadow: 0px 6px var(--colorNegro);
+.notfound_container-right-title{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
 }

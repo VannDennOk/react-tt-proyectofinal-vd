@@ -59,9 +59,18 @@ ul {
     color: var(--colorBlanco);
     font-family: var(--fontCuerpo);
     font-size: 1rem;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
     padding: 0.5rem 1rem;
     cursor: pointer;
     transition: border-color 0.25s;
+}
+
+.btn-160 {
+  width: 160px;
 }
 
 .btn-negro:hover{

@@ -1,12 +1,29 @@
 .gallery_container {
     width: 100%;
-    background-color: var(--colorNegro);
+    overflow: hidden;
+    padding: 5rem 0;
+}
+
+.gallery_slider {
     display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-wrap: wrap;
+    animation: change 20s infinite alternate linear;
+    width: 400%;
 }
 
 .gallery_img {
-    width: 25%;
+    width: 100%;
+}
+
+@keyframes change{
+    0%{margin-left: 0;}
+    20%{margin-left: 0;}
+
+    25%{margin-left: -100%;}
+    45%{margin-left: -100%;}
+
+    50%{margin-left: -200%;}
+    70%{margin-left: -200%;}
+
+    75%{margin-left: -300%;}
+    100%{margin-left: -300%;}
 }
