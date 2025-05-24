@@ -10,7 +10,7 @@ const FormContacto = () => {
 
     function manejarEnvio(e) {
         e.preventDefault();
-        alert(`Formulario enviado por: ${nombre} ${email} `);
+        alert(`Gracias ${nombre}. Pronto nos comunicaremos a tu email: ${email}. No ovides revisar 'correo no deseado' :)`);
         setNombre('')
         setEmail('')
         setMensaje('')
@@ -19,15 +19,12 @@ const FormContacto = () => {
     return (
         <section className='contacto_main'>
             <div className='contacto_container'>
-
                 <div className='contacto_container-left'>
                     <img className='contacto_img' src={contactoimg} alt="ositos alineados" />
                 </div>
-
                 <div className='contacto_container-right'>
                     <h3>Formulario de contacto</h3>
                     <p>Completá el formulario y nos pondremos en contacto lo antes posible.</p>
-
                     <form onSubmit={manejarEnvio}>
                         <div className='contacto_form-line'>
                             <label htmlFor='formBasicName'>Nombre</label>
@@ -51,10 +48,8 @@ const FormContacto = () => {
                                 onChange={(e) => setEmail(e.target.value)}
                             />
                         </div>
-
                         <div className='contacto_form-line'>
                             <label htmlFor='formBasicMensaje'>Mensaje</label>
-                                                
                             <textarea
                                 id='formBasicMensaje'
                                 name='formBasicMensaje'
@@ -63,7 +58,7 @@ const FormContacto = () => {
                                 cols="50"
                                 required
                                 value={mensaje}
-                                onChange={(e) => setEmail(e.target.value)}
+                                onChange={(e) => setMensaje(e.target.value)}
                             />
                         </div>
                         <button className='btn-negro' type="submit">Enviar</button>

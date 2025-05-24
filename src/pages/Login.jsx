@@ -36,7 +36,7 @@ const Login = () => {
       const foundUser = users.find((user) => user.email === email && user.password === password)
 
       if (!foundUser) {
-        setError({ email: 'credenciales inválidas' })
+        setError({ password: 'Credenciales inválidas' })
       } else {
         console.log('User role:', foundUser.role);
         if (foundUser.role === 'admin') {
@@ -54,54 +54,44 @@ const Login = () => {
   }
 
   return (
-    <form className='lgform_container' onSubmit={handleSubmit} >
 
-      <div className='lgform_container-box'>
-        <Link to='/'><FontAwesomeIcon className='lgform_volver' icon={faArrowLeft} /></Link>
+    <section className='login_main'>
+      <div className='login_container'>
+        <Link to='/'><FontAwesomeIcon className='icon_back' icon={faArrowLeft} /></Link>
         <h2>¡Hola!</h2>
-        <div className='lgform_container-line'>
-          <label
-            className='lgform_container-label'
-            htmlFor="formBasicEmail">
-            E-mail
-          </label>
-          <input
-            className='lgform_container-input'
-            id='formBasicEmail'
-            type="email"
-            placeholder='Ingresá tu e-mail'
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-          />
-          {error.email && (
-            <div className='lgform_error'>{error.email}</div>
-          )}
-        </div>
 
-        <div className='lgform_container-line'>
-          <label
-            className='lgform_container-label'
-            htmlFor="formBasicPassword">
-            Contraseña
-          </label>
-          <input
-            className='lgform_container-input'
-            id='formBasicPassword'
-            type="password"
-            placeholder='Ingresá tu contraseña'
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-          />
-          {error.password && (
-            <div className='lgform_error'>{error.password}</div>
-          )}
-        </div>
+        <form onSubmit={handleSubmit}>
+          <div className='login_form-line'>
+            <label htmlFor="formBasicEmail">E-mail</label>
+            <input
+              id='formBasicEmail'
+              type="email"
+              placeholder='Ingresá tu e-mail'
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
+            {error.email && (
+              <div className='form_error'>{error.email}</div>
+            )}
+          </div>
 
-        <button className='lgform_btn'
-          type='submit'
-        >Ingresar</button>
+          <div className='login_form-line'>
+            <label htmlFor="formBasicPassword">Contraseña</label>
+            <input
+              id='formBasicPassword'
+              type="password"
+              placeholder='Ingresá tu contraseña'
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+            />
+            {error.password && (
+              <div className='form_error'>{error.password}</div>
+            )}
+          </div>
+          <button className='btn-negro' type='submit'>Ingresar</button>
+        </form>
       </div>
-    </form>
+    </section>
   )
 }
 

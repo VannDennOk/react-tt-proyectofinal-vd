@@ -129,4 +129,9 @@ input:focus, textarea:focus {
     border: 1px solid var(--colorNaranja);
 }
 
+.form_error {
+    color: var(--colorRojo);
+    font-size: 0.8rem;
+}
+
 
