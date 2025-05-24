@@ -3,8 +3,8 @@ import './styles/Cart.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrashCan, faCircleXmark, faTriangleExclamation } from '@fortawesome/free-solid-svg-icons';
 import Counter from './Counter'
-
-
+import logo from '../assets/Img/logo.png'
+import { Link } from 'react-router-dom';
 
 const Cart = ({ cartItems, vaciarCarrito, borrarProducto, isOpen, onClose, actualizarCantidad }) => {
   if (!isOpen) return null;
@@ -19,13 +19,12 @@ const Cart = ({ cartItems, vaciarCarrito, borrarProducto, isOpen, onClose, actua
     .reduce((acc, item) => acc + item.price * item.cantidad, 0)
     .toLocaleString('es-AR', { style: 'currency', currency: 'ARS' });
 
-
   return (
     <div className="cart_overlay" onClick={handleOverlayClick}>
       <section className={`cart_container ${isOpen ? 'open' : ''}`}>
         <div className='cart_container-title'>
-          <h2>LIV</h2>
-          <h3>Carrito de Compras</h3>
+          <img className='logo' src={logo} alt="logo" />
+          <h2>Carrito de Compras</h2>
           <button onClick={onClose} className='btn_cart-close'><FontAwesomeIcon icon={faCircleXmark} /></button>
         </div>
         <div className='cart_table'>
@@ -37,7 +36,10 @@ const Cart = ({ cartItems, vaciarCarrito, borrarProducto, isOpen, onClose, actua
 
         <div className='cart_product-list'>
           {cartItems.length === 0 ? (
+            <div className='cart_empty-box'>
             <span className='cart_empty-messege'><FontAwesomeIcon icon={faTriangleExclamation} /><p>El carrito está vacío</p></span>
+            <Link className='btn-negro btn-240' onClick={onClose} to='/productos'>Seguir comprando</Link>
+            </div>
           ) : (
             <>
               <ul className='cart_product-list'>
@@ -59,8 +61,7 @@ const Cart = ({ cartItems, vaciarCarrito, borrarProducto, isOpen, onClose, actua
                         cantidad={item.cantidad}
                         productId={item.id}
                         actualizarCantidad={actualizarCantidad}
-/*                         setCantidad={(nuevaCantidad) => actualizarCantidad(item.id, nuevaCantidad)}  */
-                        />
+                      />
                     </div>
                     <div className='cart_product-total'>
                       <p>{(item.price * item.cantidad).toLocaleString('es-AR', { style: 'currency', currency: 'ARS' })}</p>
@@ -74,8 +75,9 @@ const Cart = ({ cartItems, vaciarCarrito, borrarProducto, isOpen, onClose, actua
                 <p className='txt_strong'>{totalGeneral}</p>
               </div>
               <div className='cart_btn-container'>
-                <button onClick={() => vaciarCarrito()} className='btn_empty'>Vaciar Carrito</button>
-                <button className='btn_pay'>Ir a pagar</button>
+                <button onClick={() => vaciarCarrito()} className='btn-blanco'>Vaciar Carrito</button>
+                <Link className='btn-gris' onClick={onClose} to='/productos'>Seguir comprando</Link>
+                <button className='btn-negro'>Ir a pagar</button>
               </div>
             </>
           )}
