@@ -20,7 +20,7 @@ const Login = () => {
 
     //Analisis de que no esté vacío
     let validationError = {}
-    if (!email) validationError.email = "Es necesario ingresar un e-mail válido"
+    if (!email) validationError.email = "Es necesario ingresar un e-mail"
     if (!password) validationError.password = "Es necesario ingresar una contraseña"
 
     if (Object.keys(validationError).length > 0) {

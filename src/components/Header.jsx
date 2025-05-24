@@ -15,7 +15,7 @@ const Header = ({ vaciarCarrito, cartItems, cartCount, setCartOpen, isCartOpen, 
         <h1><img className='header_logo' src={logo} alt='logo liv' /></h1>
         <span className='link_icon_container'>
           <a className='link_icon' href="#"><FontAwesomeIcon icon={faMagnifyingGlass} />Buscar</a>
-          <Link to='/login'><a className='link_icon' href="#"><FontAwesomeIcon icon={faUser} />Login</a></Link>
+          <Link className='link_icon'to='/login'><FontAwesomeIcon icon={faUser} />Login</Link>
           <a className='link_icon' href="#"><FontAwesomeIcon icon={faHeart} />Favs</a>
           <a className='link_icon' href="#" onClick={() => setCartOpen(true)}>
             <FontAwesomeIcon icon={faCartShopping} />

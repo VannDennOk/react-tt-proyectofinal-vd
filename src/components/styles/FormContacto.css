@@ -1,2 +1,70 @@
+.contacto_main{
+    width: 100%;
+    background-color: var(--colorBlanco);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 4rem 2rem;
+}
+
+.contacto_container{
+    width: 80%;
+    height: 100vh;
+    background-color: var(--colorGrisClaro);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--colorNegro);
+    border-radius: 20px;
+    box-shadow: 6px 4px 4px 1px var(--sombraTarjetas);
+    overflow: hidden;
+    position: relative;
+}
+
+.contacto_container-left{
+    width: 40%;
+    height: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+
+    background-image: url("src/assets/contactoimgfondo.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.contacto_img{
+    width: 100%;
+}
+
+.contacto_container-right{
+    width: 60%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 1rem;
+    padding: 1rem;
+}
+
+.contacto_form_volver{
+    color: var(--colorNegro);
+    position: absolute;
+    top: 1.25rem;
+    right: 1.5rem;
+}
+
+.contacto_form-line{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 0.5rem;
+}
 
   
