@@ -2,7 +2,8 @@ import React, { useState } from 'react'
 import { useParams } from 'react-router-dom'
 import Counter from './Counter'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCartPlus } from '@fortawesome/free-solid-svg-icons';
+import { faCartPlus, faLocationDot, faCreditCard, faRotate } from '@fortawesome/free-solid-svg-icons';
+import { Link } from 'react-router-dom';
 import './styles/DetalleProducto.css'
 
 const DetalleProducto = ({ productos, addToCart }) => {
@@ -14,36 +15,67 @@ const DetalleProducto = ({ productos, addToCart }) => {
   const productoDetalle = productos.find(product => product.id === id)
 
   return (
-    <>
-
+    <section className='productDetail_main'>
       {productoDetalle ? (
-
-           <div className='container_productDetail'>
-            <div className='productDetail_img-box'>
-              <img className='productDetail_img' src={productoDetalle.imgUrl} alt="imagen de producto" />
-              <div className='productDetail_img-filter'></div>
-            </div>
-            <div className='container_productDetail-right'>
-              <h1 className='productDetail-title'>{productoDetalle.name}</h1>
-              <p className='productDetail-txt'>Product ID: {id}</p>
-              <p className='productDetail-price'>
-                {new Intl.NumberFormat('es-AR', { style: 'currency', currency: 'ARS' }).format(Number(productoDetalle.price))}
-              </p>
-              <h3 className='productDetail-subtitle'>Descripción</h3>
-              <p>{productoDetalle.description}</p>
-              <h3 className='productDetail-subtitle'>Ingredientes</h3>
-              <p>{productoDetalle.ingredients}</p>
-              <h3 className='productDetail-subtitle'>Modo de uso</h3>
-              <p>{productoDetalle.use}</p>
-              <div className='container_productDetail-btn'>
-                <Counter stock={productoDetalle.stock} cantidad={cantidad} setCantidad={setCantidad} />
-                <button className='productDetail_btn-add' onClick={() => addToCart({ ...productoDetalle, cantidad: cantidad })}>Agregar <FontAwesomeIcon icon={faCartPlus} /></button>
-              </div>
+        <div className='productDetail_container'>
+          <div className='productDetail_img-box'>
+            <img className='productDetail_img' src={productoDetalle.imgUrl} alt="imagen de producto" />
+            <div className='productDetail_img-filter'></div>
+          </div>
+          <div className='productDetail_container-right'>
+            <h2>{productoDetalle.name}</h2>
+            <p>Product ID: {id}</p>
+            <p className='productDetail-price'>
+              {new Intl.NumberFormat('es-AR', { style: 'currency', currency: 'ARS' }).format(Number(productoDetalle.price))}
+            </p>
+            <h3>Descripción</h3>
+            <p>{productoDetalle.description}</p>
+            <h3>Ingredientes</h3>
+            <p>{productoDetalle.ingredients}</p>
+            <h3>Modo de uso</h3>
+            <p>{productoDetalle.use}</p>
+            <div className='productDetail_btns'>
+              <Counter stock={productoDetalle.stock} cantidad={cantidad} setCantidad={setCantidad} />
+              <button className='btn-negro btn-160' onClick={() => addToCart({ ...productoDetalle, cantidad: cantidad })}>Agregar <FontAwesomeIcon icon={faCartPlus} /></button>
             </div>
           </div>
-
-      ) : (<p>Producto no encontrado</p>)}
-    </>
+        </div>
+      ) : (
+        <div className='productDetail_notfound'>
+          <div className='productDetail_notfound-box'>
+            <div className='productDetail_notfound-title'>
+              <h2>ERROR</h2>
+              <h3>PRODUCTO NO ENCONTRADO</h3>
+            </div>
+            <p>Lo sentimos mucho. No hemos podido encontrar el producto solicitado. Prueba volver a la sección de productos para seguir navegando.</p>
+            <Link className="btn-negro btn-240" to="/productos">Volver a productos</Link>
+          </div>
+        </div>
+      )}
+      <div className='productDetail_data'>
+        <div className='productDetail_data-box'>
+          <FontAwesomeIcon className='icon-big' icon={faLocationDot} />
+          <span className='productDetail_data-txt'>
+            <h3>Retiro en tienda o envío a domicilio</h3>
+            <p>Retirá sin cargo en nuestro local en CABA o elegí enviar a domicilio gratis a partir de $30.000.</p>
+          </span>
+        </div>
+        <div className='productDetail_data-box'>
+          <FontAwesomeIcon className='icon-big' icon={faCreditCard} />
+          <span className='productDetail_data-txt'>
+            <h3>Cuotas sin interés</h3>
+            <p>Pagá con Visa o Master en 3 cuotas sin interés en compras superiores a $30.000 y en 6 cuotas sin interés en compras superiores a $70.000.</p>
+          </span>
+        </div>
+        <div className='productDetail_data-box'>
+          <FontAwesomeIcon className='icon-big' icon={faRotate} />
+          <span className='productDetail_data-txt'>
+            <h3>Cambios y devoluciones</h3>
+            <p>Realizá cambios o devoluciones sin cargo dentro de los 30 días.</p>
+          </span>
+        </div>
+      </div>
+    </section>
   )
 }
 
