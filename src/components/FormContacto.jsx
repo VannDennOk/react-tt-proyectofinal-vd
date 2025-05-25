@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import '../app.css'
 import './styles/FormContacto.css'
 import contactoimg from '../assets/contactoimg.png'
 

@@ -1,5 +1,4 @@
 import React from 'react'
-import '../app.css'
 import './styles/pages.css'
 import { Link } from 'react-router-dom'
 import notfoundimg from '../assets/notfoundimg.png'
