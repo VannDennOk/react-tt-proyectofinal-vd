@@ -24,13 +24,13 @@ header {
 .header_links button,
 .header_links a {
     height: 40px;
-    background-color: var(--colorNegro);
+    background-color: var(--colorBlanco);
     border: 1px solid var(--colorNegro);
     border-radius: 20px;
     font-family: var(--fontCuerpo);
     font-size: 1rem;
     font-weight: 300;
-    color: var(--colorBlanco);
+    color: var(--colorNegro);
     text-decoration: none;
     display: flex;
     align-items: center;
@@ -42,8 +42,8 @@ header {
 
 .header_links button:hover,
 .header_links a:hover {
-    background-color: var(--colorBlanco);
-    color: var(--colorNegro);
+    background-color: var(--colorNegro);
+    color: var(--colorBlanco);
 }
 
 .contador_carrito {
