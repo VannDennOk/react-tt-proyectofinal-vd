@@ -12,7 +12,7 @@ const Header = ({ vaciarCarrito, cartItems, cartCount, setCartOpen, isCartOpen, 
   return (
     <header>
       <div className='header_container'>
-        <h1><img className='logo' src={logo} alt='logo liv' /></h1>
+        <Link to='/'><h1><img className='logo' src={logo} alt='logo liv'/></h1></Link>
         <div className='header_links'>
           <button><FontAwesomeIcon icon={faMagnifyingGlass}/>Buscar</button>
           <Link to='/login'><FontAwesomeIcon icon={faUser}/>Login</Link>
