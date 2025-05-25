@@ -55,6 +55,17 @@ ul {
   list-style: none;
 }
 
+
+/*TAMAÑO ICONOS*/
+
+.icon-medium {
+  font-size: 1.25 rem;
+}
+
+.icon-big {
+    font-size: 1.5rem;
+}
+
 /*ESTILO GENERAL DE BOTONES*/
 
 .btn-negro {
