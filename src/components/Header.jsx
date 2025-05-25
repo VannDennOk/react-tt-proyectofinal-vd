@@ -1,6 +1,6 @@
 import React from 'react';
 import './styles/Header.css'
-import logo from '../assets/logo.png';
+import logo from '../assets/Img/logo.png';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMagnifyingGlass, faCartShopping, faHeart, faUser } from '@fortawesome/free-solid-svg-icons';
 import Nav from './Nav';

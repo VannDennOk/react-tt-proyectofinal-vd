@@ -1,7 +1,7 @@
 import React from 'react'
 import ImageGallery from 'react-image-gallery'
 import "react-image-gallery/styles/css/image-gallery.css";
-import { datacarrusel } from '../assets/datacarrusel';
+import { datacarrusel } from '../utils/datacarrusel';
 import './styles/Gallery.css'
 
 const Gallery = () => {
