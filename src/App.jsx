@@ -28,15 +28,14 @@ function App() {
             actualizarCantidad,
             cartCount,
             modalAbierto,
-            mensajeModal1,
-            mensajeModal2,
+            mensajeModal,
             setModalAbierto
   } = useContext(CartContext)
 
   return (
     <>
       <Router>
-        {modalAbierto && <Modal mensaje1={mensajeModal1} mensaje2={mensajeModal2} onClose={() => setModalAbierto(false)} />}
+        {modalAbierto && <Modal mensaje={mensajeModal} onClose={() => setModalAbierto(false)} />}
         <Routes>
           <Route path='/' element={<Home
             error={error}

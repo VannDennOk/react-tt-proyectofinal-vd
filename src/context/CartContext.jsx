@@ -34,16 +34,14 @@ export const CartProvider = ({ children }) => {
 
   //Maneja el botón agregar al carrito (con mensaje modal si ya está agregado)
   const [modalAbierto, setModalAbierto] = useState(false);
-  const [mensajeModal1, setMensajeModal1] = useState('');
-  const [mensajeModal2, setMensajeModal2] = useState('');
-
+  const [mensajeModal, setMensajeModal] = useState('');
+  
   const handleAddToCart = (product) => {
     const productExist = cart.find(item => item.id === product.id)
     if (!productExist) {
       setCart([...cart, { ...product, cantidad: product.cantidad || 1 }])
     } else {
-      setMensajeModal1("El producto ya fue agregado.")
-      setMensajeModal2("Revisa tu carrito de compras!!!")
+      setMensajeModal('El producto ya fue agregado. Revisá tu carrito de compras!!!');
       setModalAbierto(true);
     }
   }
@@ -92,8 +90,7 @@ export const CartProvider = ({ children }) => {
           actualizarCantidad,
           cartCount,
           modalAbierto,
-          mensajeModal1,
-          mensajeModal2,
+          mensajeModal,
           setModalAbierto
         }
       }>

@@ -12,37 +12,37 @@ function Hero() {
   return (
     <section className='hero_container'>
       <div className='hero_container-textbox'>
-        <img className='hero_logo' src={logoBlanco} alt='logo blanco' />
+        <img className='logo' src={logoBlanco} alt='logo blanco' />
         <div className='textbox'>
-          <p className='texto_blanco'><strong> Gomitas funcionales que cuidan tu bienestar todos los días.</strong></p>
-          <p className='texto_blanco'>En Liv creemos que cuidarte no tiene que ser aburrido.</p>
-          <p className='texto_blanco'>Combinamos sabor y ciencia para acompañarte en cada necesidad:</p>
+          <p><strong> Gomitas funcionales que cuidan tu bienestar todos los días.</strong></p>
+          <p>En Liv creemos que cuidarte no tiene que ser aburrido.</p>
+          <p>Combinamos sabor y ciencia para acompañarte en cada necesidad:</p>
           <div className='container_propiedades'>
-            <span className='propiedades'>
-              <img className='hero_icono' src={sleep} alt='logo blanco' />
-              <h3 className='texto_blanco'>Descanso</h3>
+            <span>
+              <img src={sleep} alt='icono descanso' />
+              <h3>Descanso</h3>
             </span>
-            <span className='propiedades'>
-              <img className='hero_icono' src={strong} alt='logo blanco' />
-              <h3 className='texto_blanco'>Fuerza</h3>
+            <span>
+              <img src={strong} alt='icono Fuerza' />
+              <h3>Fuerza</h3>
             </span>
-            <span className='propiedades'>
-              <img className='hero_icono' src={defense} alt='logo blanco' />
-              <h3 className='texto_blanco'>Defensa</h3>
+            <span>
+              <img src={defense} alt='icono defensa' />
+              <h3>Defensa</h3>
             </span>
-            <span className='propiedades'>
-              <img className='hero_icono' src={balance} alt='logo blanco' />
-              <h3 className='texto_blanco'>Equilibrio</h3>
+            <span>
+              <img src={balance} alt='icono equilibrio' />
+              <h3>Equilibrio</h3>
             </span>
           </div>
-          <p className='texto_blanco'>Aptas para tu ritmo. Hechas para tu disfrute.</p>
-          <p className='texto_blanco'>Sin azúcar añadida. 100% veganas.</p>
+          <p>Aptas para tu ritmo. Hechas para tu disfrute.</p>
+          <p>Sin azúcar añadida. 100% veganas.</p>
         </div>
 
-        <Link className='hero_btn' to='/productos'>¡Descubrilas acá!</Link>
+        <Link className='btn-negro btn-240' to='/productos'>¡Descubrilas acá!</Link>
 
       </div>
-      <img className='heroproduct' src={heroproduct} alt='imagen de producto' />
+      <img className='heroproduct-img' src={heroproduct} alt='imagen de producto' />
     </section>
   );
 };

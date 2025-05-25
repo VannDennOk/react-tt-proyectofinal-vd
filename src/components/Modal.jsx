@@ -3,16 +3,13 @@ import './styles/Modal.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTriangleExclamation } from '@fortawesome/free-solid-svg-icons';
 
-const Modal = ({mensaje1, mensaje2, onClose}) => {
+const Modal = ({ mensaje, onClose }) => {
     return (
         <div className="modal_overlay" onClick={onClose}>
             <div className="modal_container" onClick={(e) => e.stopPropagation()}>
-                <FontAwesomeIcon icon={faTriangleExclamation} className="modal_alert-icon"/>
-                <div>
-                    <p>{mensaje1}</p>
-                    <p>{mensaje2}</p>
-                </div>
-                <button className="modal_btn" onClick={onClose}>Cerrar</button>
+                <FontAwesomeIcon icon={faTriangleExclamation} className="modal_alert-icon" />
+                <p>{mensaje}</p>
+                <button className="btn-negro" onClick={onClose}>Cerrar</button>
             </div>
         </div>
     )
