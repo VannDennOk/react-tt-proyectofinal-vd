@@ -1,11 +1,12 @@
-.cart_product-count {
+.product_counter {
     width: 120px;
     display: flex;
     align-items: center;
     justify-content: flex-start;
+    position: relative;
 }
 
-.btn_count {
+.btn-counter {
     width: 40px;
     height: 40px;
     background-color: var(--colorGrisClaro);
@@ -21,15 +22,15 @@
     cursor: pointer;
 }
 
-.btn_radius-left {
+.btn-radius-left {
     border-radius: 50% 0 0 50%;
 }
 
-.btn_radius-right {
+.btn-radius-right {
     border-radius: 0 50% 50% 0;
 }
 
-.input_count {
+.input_counter {
     width: 40px;
     height: 40px;
     background-color: var(--colorBlanco);
@@ -39,4 +40,22 @@
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+.mensaje_stock {
+    width: 220px;
+
+    background-color: var(--colorBlanco);
+    border: 1px solid var(--colorNegro);
+    border-radius: 8px;
+    padding: 0.5rem;
+
+    color: var(--colorRojo);
+
+    position: absolute;
+    left: 0;
+    bottom: 45px;
+
+    box-shadow: 6px 4px 4px 1px var(--sombraTarjetas);
+
 }
