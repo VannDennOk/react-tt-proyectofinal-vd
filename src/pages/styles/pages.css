@@ -74,10 +74,146 @@
     padding: 2rem;
 }
 
-.notfound_container-right-title{
+.notfound_container-right-title {
     width: 100%;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     justify-content: center;
+}
+
+/*PÁGINA ADMIN*/
+.container_admin {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    padding-bottom: 2rem;
+}
+
+.admin_nav {
+    width: 100%;
+    height: 5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 1rem;
+    border-bottom: 1px solid var(--colorNegro);
+}
+
+.admin_nav-links {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.admin_nav-links a,
+.admin_nav-links button {
+    height: 40px;
+    background-color: var(--colorBlanco);
+    border: 1px solid var(--colorNegro);
+    border-radius: 20px;
+    font-family: var(--fontCuerpo);
+    font-size: 1rem;
+    font-weight: 300;
+    color: var(--colorNegro);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0 1rem;
+    cursor: pointer;
+}
+
+.admin_nav-links a:hover,
+.admin_nav-links button:hover {
+    background-color: var(--colorNegro);
+    color: var(--colorBlanco);
+}
+
+.admin-products {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    padding: 0rem 1rem;
+}
+
+.admin-products ul {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+}
+
+.admin-products li {
+    width: 100%;
+    background-color: var(--colorGrisClaro);
+    border-radius: 20px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 1.5rem;
+    padding: 1rem;
+    overflow: hidden;
+    box-shadow: 6px 4px 4px 1px var(--sombraTarjetas);
+}
+
+.admin_products-left {
+    width: 25%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.admin-products img {
+    width: 100%;
+    border-radius: 16px;
+}
+
+.admin_products-right {
+    width: 75%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+} 
+.admin-products-data {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 0.5rem;
+}
+
+.admin-products-data span {
+    width: 100%;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-start;
+    gap: 1rem;
+}
+
+
+.admin-products-data h3 {
+    font-size: 1rem;
+    width: 80px;
+    text-align: left;
+}
+
+.admin-products-btns {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 0.5rem;
 }
