@@ -35,7 +35,7 @@ export const CartProvider = ({ children }) => {
   //Maneja el botón agregar al carrito (con mensaje modal si ya está agregado)
   const [modalAbierto, setModalAbierto] = useState(false);
   const [mensajeModal, setMensajeModal] = useState('');
-  
+
   const handleAddToCart = (product) => {
     const productExist = cart.find(item => item.id === product.id)
     if (!productExist) {

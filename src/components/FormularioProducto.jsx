@@ -148,7 +148,7 @@ const FormularioProducto = ({ onAgregar }) => {
                 {errors.use && <p style={{ color: 'red' }}>{errors.use}</p>}
             </div>
 
-                        <div>
+            <div>
                 <label>Categoria</label>
                 <input
                     type="text"

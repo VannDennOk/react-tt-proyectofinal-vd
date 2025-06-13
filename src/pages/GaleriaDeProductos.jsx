@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useContext } from 'react';
 import './styles/pages.css'
 import Header from "../components/Header"
 import Footer from "../components/Footer"
@@ -6,41 +6,29 @@ import ProductList from "../components/ProductList"
 import loading from "../assets/loading.gif"
 import Cart from "../components/Cart"
 import BannerBottom from "../components/BannerBottom"
+import { CartContext } from "../context/CartContext"
 
-const GaleriaDeProductos = ({
-  cart,
-  productos,
-  vaciarCarrito,
-  handleAddToCart,
-  borrarProducto,
-  isCartOpen,
-  setCartOpen,
-  carga,
-  actualizarCantidad
-}) => {
+const GaleriaDeProductos = () => {
 
-  const cartCount = cart.reduce((total, item) => total + item.cantidad, 0);
+  const { cart, carga } = useContext(CartContext);
 
   return (
     <>
-      <Header
-        cartItems={cart}
-        cartCount={cartCount}
-        isCartOpen={isCartOpen}
-        setCartOpen={setCartOpen}
-        vaciarCarrito={vaciarCarrito}
-        borrarProducto={borrarProducto}
-        actualizarCantidad={actualizarCantidad}
-      />
+      <Header />
 
       <main className="container_page">
         <h1>Galeria de productos</h1>
-        {carga ? <div className='container_loading'><img src={loading} alt='loading' /><p>Cargando los productos</p></div> :
-          <ProductList addToCart={handleAddToCart} products={productos} />}
+        {carga ? (
+          <div className='container_loading'>
+            <img src={loading} alt='loading' />
+            <p>Cargando los productos</p>
+          </div> 
+        ) : (
+          <ProductList />
+        )}
 
         <BannerBottom />
-
-        <Cart cartItems={cart} />
+        <Cart />
       </main>
 
       <Footer />

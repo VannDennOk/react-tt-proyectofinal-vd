@@ -22,7 +22,7 @@ const Gallery = () => {
             ))
           }
       </div> */}
-      
+
       <div className='gallery_container'>
         <ImageGallery
           items={datacarrusel}

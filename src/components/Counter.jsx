@@ -1,10 +1,13 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
 import "./styles/Counter.css"
+import { CartContext } from '../context/CartContext';
 
-const Counter = ({ stock, cantidad, setCantidad, productId, actualizarCantidad }) => {
+const Counter = ({ stock, cantidad, setCantidad, productId }) => {
 
+    const { actualizarCantidad } = useContext(CartContext);
     const [mensaje, setMensaje] = useState("");
 
+    /** Maneja y actualiza la cantidad */
     const handleChange = (newCantidad) => {
         if (actualizarCantidad && productId) {
             actualizarCantidad(productId, newCantidad);
@@ -13,6 +16,7 @@ const Counter = ({ stock, cantidad, setCantidad, productId, actualizarCantidad }
         }
     };
 
+    /** Mensaje de limite de stock */
     const mostrarMensajeTemporal = (texto) => {
         setMensaje(texto);
         setTimeout(() => {
@@ -20,28 +24,23 @@ const Counter = ({ stock, cantidad, setCantidad, productId, actualizarCantidad }
         }, 2500);
     };
 
+    /** Incrementa la cantidad */
     const increase = () => {
         if (cantidad < stock) {
             handleChange(cantidad + 1)
             setMensaje("");
-            /* setCantidad(cantidad + 1);
-            actualizarCantidad(productId, cantidad + 1); */
         } else {
             mostrarMensajeTemporal("Máximo de stock alcanzado")
         }
     };
 
+    /** Descuenta la cantidad */
     const decrease = () => {
         if (cantidad > 1) {
             handleChange(cantidad - 1);
             setMensaje("");
-            /* setCantidad(cantidad - 1);
-            actualizarCantidad(productId, cantidad -1); */
         }
     };
-
-    /* const increase = () => setCantidad(prev => (prev != stock ? prev + 1: prev ))
-    const decrease = () => setCantidad(prev => (prev > 1 ? prev - 1 : 1)); */
 
     return (
 

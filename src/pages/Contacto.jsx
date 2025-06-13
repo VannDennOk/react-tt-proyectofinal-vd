@@ -1,26 +1,19 @@
-import React from "react"
+import React, { useContext } from "react"
 import Header from "../components/Header"
 import Footer from "../components/Footer"
 import Cart from "../components/Cart"
 import FormContacto from "../components/FormContacto"
+import { CartContext } from "../context/CartContext"
 
-const Contacto = ({ cart, borrarProducto, vaciarCarrito, isCartOpen, setCartOpen, actualizarCantidad }) => {
+const Contacto = () => {
 
-  const cartCount = cart.reduce((total, item) => total + item.cantidad, 0);
+  const { cart } = useContext(CartContext);
 
   return (
     <>
-      <Header
-        cartItems={cart}
-        cartCount={cartCount}
-        isCartOpen={isCartOpen}
-        setCartOpen={setCartOpen}
-        vaciarCarrito={vaciarCarrito}
-        borrarProducto={borrarProducto}
-        actualizarCantidad={actualizarCantidad}
-      />
-      <FormContacto></FormContacto>
-      <Cart cartItems={cart} />
+      <Header />
+      <FormContacto />
+      <Cart />
       <Footer />
     </>
   )

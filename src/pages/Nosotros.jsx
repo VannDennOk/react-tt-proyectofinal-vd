@@ -1,27 +1,20 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import './styles/pages.css'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
 import Cart from '../components/Cart'
+import { CartContext } from '../context/CartContext'
 
-const Nosotros = ({ cart, borrarProducto, vaciarCarrito, isCartOpen, setCartOpen, actualizarCantidad }) => {
+const Nosotros = () => {
 
-  const cartCount = cart.reduce((total, item) => total + item.cantidad, 0);
+  const { cart } = useContext(CartContext);
 
   return (
     <>
-      <Header
-        cartItems={cart}
-        cartCount={cartCount}
-        isCartOpen={isCartOpen}
-        setCartOpen={setCartOpen}
-        vaciarCarrito={vaciarCarrito}
-        borrarProducto={borrarProducto}
-        actualizarCantidad={actualizarCantidad}
-      />
+      <Header />
       <main className="container_page">
         <h1>Nosotros</h1>
-        <Cart cartItems={cart} />
+        <Cart />
         <Footer />
       </main>
     </>

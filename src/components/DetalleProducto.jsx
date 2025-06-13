@@ -1,16 +1,17 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
 import { useParams } from 'react-router-dom'
 import Counter from './Counter'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCartPlus, faLocationDot, faCreditCard, faRotate } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom';
 import './styles/DetalleProducto.css'
+import { CartContext } from '../context/CartContext';
 
-const DetalleProducto = ({ productos, addToCart }) => {
+const DetalleProducto = () => {
 
+  const { productos, handleAddToCart } = useContext(CartContext);
   const [cantidad, setCantidad] = useState(1);
 
-  console.log(productos);
   const { id } = useParams()
   const productoDetalle = productos.find(product => product.id === id)
 
@@ -22,6 +23,7 @@ const DetalleProducto = ({ productos, addToCart }) => {
             <img className='productDetail_img' src={productoDetalle.imgUrl} alt="imagen de producto" />
             <div className='productDetail_img-filter'></div>
           </div>
+
           <div className='productDetail_container-right'>
             <h2>{productoDetalle.name}</h2>
             <p>Product ID: {id}</p>
@@ -35,8 +37,13 @@ const DetalleProducto = ({ productos, addToCart }) => {
             <h3>Modo de uso</h3>
             <p>{productoDetalle.use}</p>
             <div className='productDetail_btns'>
-              <Counter stock={productoDetalle.stock} cantidad={cantidad} setCantidad={setCantidad} />
-              <button className='btn-negro btn-160' onClick={() => addToCart({ ...productoDetalle, cantidad: cantidad })}>Agregar <FontAwesomeIcon icon={faCartPlus} /></button>
+              <Counter
+                stock={productoDetalle.stock}
+                cantidad={cantidad}
+                setCantidad={setCantidad} />
+              <button className='btn-negro btn-160'
+                onClick={() =>
+                  handleAddToCart({ ...productoDetalle, cantidad })}>Agregar <FontAwesomeIcon icon={faCartPlus} /></button>
             </div>
           </div>
         </div>
