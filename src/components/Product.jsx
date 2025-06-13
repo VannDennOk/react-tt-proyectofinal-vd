@@ -40,10 +40,10 @@ const Product = ({ product }) => {
                         cantidad={cantidad}
                         setCantidad={setCantidad}
                     />
-                    <button className='btn_addToCart'
-                        onClick={() => handleAddToCart({ ...product, cantidad })}>Agregar<FontAwesomeIcon icon={faCartPlus} /></button>
-                </div>
                 <button className='btn_seeMore'><Link to={`/productos/${product.id}`}>Ver más</Link><FontAwesomeIcon icon={faPlus} /></button>
+                </div>
+                
+                <button className='btn_addToCart' onClick={() => handleAddToCart({ ...product, cantidad })}>Agregar<FontAwesomeIcon icon={faCartPlus} /></button>
             </div>
         </div>
     );
