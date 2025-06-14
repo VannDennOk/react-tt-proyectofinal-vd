@@ -111,7 +111,7 @@
 }
 
 .admin_nav-links a,
-.admin_nav-links button {
+.admin_nav-btn {
     height: 40px;
     background-color: var(--colorBlanco);
     border: 1px solid var(--colorNegro);
@@ -130,7 +130,7 @@
 }
 
 .admin_nav-links a:hover,
-.admin_nav-links button:hover {
+.admin_nav-btn:hover {
     background-color: var(--colorNegro);
     color: var(--colorBlanco);
 }
@@ -202,7 +202,6 @@
     justify-content: flex-start;
     gap: 1rem;
 }
-
 
 .admin-products-data h3 {
     font-size: 1rem;

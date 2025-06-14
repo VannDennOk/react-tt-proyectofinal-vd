@@ -145,6 +145,19 @@ ul {
     box-shadow: 0px 6px var(--colorNegro);
 }
 
+.btn_close {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    color: var(--colorNegro);
+    font-size: 1.25rem;
+}
+
+.btn_close:hover {
+  color: var(--colorRojo);
+}
+
+
 /*ESTILO GENERAL DE FORMULARIOS*/
 
 form {
