@@ -4,20 +4,8 @@ import logo from '../assets/Img/logo.png'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCircleXmark } from '@fortawesome/free-solid-svg-icons';
 
-const FormularioProducto = ({ onAgregar, onClose }) => {
-    const [producto, setProducto] = useState({
-        name: '',
-        description: '',
-        promo: '',
-        price: '',
-        stock: '',
-        ingredients: '',
-        use: '',
-        category: '',
-        imgUrl: ''
-    })
-
-    const [errors, setErrors] = useState({})
+const FormularioEdicion = ({ productoSeleccionado, onActualizar, onClose }) => {
+    const [producto, setProducto] = useState(productoSeleccionado);
 
     //Cerrar el modal al apretar Esc
     useEffect(() => {
@@ -28,58 +16,14 @@ const FormularioProducto = ({ onAgregar, onClose }) => {
         return () => window.removeEventListener('keydown', handleKeyDown);
     }, [onClose]);
 
+    useEffect(() => {
+        setProducto(productoSeleccionado)
+    }, [productoSeleccionado])
+
     //Almacena los datos
     const handleChange = (e) => {
         const { name, value } = e.target
         setProducto({ ...producto, [name]: value })
-    }
-
-    //Valida el formulario
-    const validarFormulario = () => {
-        const newErrors = {};
-        if (!producto.name.trim()) {
-            newErrors.name = 'Nombre es obligatorio.';
-        }
-        if (!producto.description.trim() || producto.description.length < 10) {
-            newErrors.description = 'Descripción debe tener al menos 10 caracteres.';
-        }
-        if (!producto.price || producto.precio <= 0) {
-            newErrors.price = 'Precio debe ser mayor a 0.';
-        }
-        if (!producto.stock || producto.stock <= 0) {
-            newErrors.stock = 'Stock debe ser mayor a 0.';
-        }
-        if (!producto.ingredients.trim() || producto.ingredients.length < 10) {
-            newErrors.ingredientes = 'Ingredientes debe tener al menos 10 caracteres.';
-        }
-        if (!producto.use.trim() || producto.use.length < 10) {
-            newErrors.use = 'Uso debe tener al menos 10 caracteres.';
-        }
-        if (!producto.category.trim()) {
-            newErrors.category = 'Categoría es obligatorio.';
-        }
-
-        setErrors(newErrors);
-        return Object.keys(newErrors).length === 0;
-    };
-
-    //Lo que hace al apretar el botón del formulario
-    const handleSubmit = (e) => {
-        e.preventDefault()
-        if (!validarFormulario()) {
-            return;
-        }
-        onAgregar(producto)
-        setProducto({
-            name: '',
-            description: '',
-            promo: '',
-            price: '',
-            stock: '',
-            ingredients: '',
-            use: '',
-            category: ''
-        })
     }
 
     return (
@@ -88,7 +32,7 @@ const FormularioProducto = ({ onAgregar, onClose }) => {
                 <div className='form-product_overflow'>
                     <div className='form-product_header'>
                         <img className='logo' src={logo} alt="logo" />
-                        <h2>Agregar nuevo producto</h2>
+                        <h2>Editar producto</h2>
                         <button
                             className='btn_close'
                             type='button'
@@ -97,7 +41,10 @@ const FormularioProducto = ({ onAgregar, onClose }) => {
                             <FontAwesomeIcon icon={faCircleXmark} />
                         </button >
                     </div>
-                    <form onSubmit={handleSubmit}>
+                    <form onSubmit={(e) => {
+                        e.preventDefault()
+                        onActualizar(producto)
+                    }}>
                         <div className='from-product-box'> {/* Nombre y Categoría */}
                             <div className='form-product-line'>
                                 <label>Nombre</label>
@@ -109,7 +56,6 @@ const FormularioProducto = ({ onAgregar, onClose }) => {
                                     required
                                     placeholder="Ingresá el nombre del producto"
                                 />
-                                {errors.name && <p style={{ color: 'red' }}>{errors.name}</p>}
                             </div>
                             <div className='form-product-line'>
                                 <label>Categoría</label>
@@ -121,10 +67,10 @@ const FormularioProducto = ({ onAgregar, onClose }) => {
                                     required
                                     placeholder="Ingresá la categoría del producto"
                                 />
-                                {errors.category && <p style={{ color: 'red' }}>{errors.category}</p>}
+
                             </div>
                         </div>
-                        <div className='form-product-line'> {/* Descripción */}
+                        <div className='form-product-line'> {/* URL */}
                             <label>URL de la imagen</label>
                             <input
                                 type="url"
@@ -135,7 +81,6 @@ const FormularioProducto = ({ onAgregar, onClose }) => {
 
                                 placeholder="Ingresá la URL de la imagen"
                             />
-                            {errors.imgUrl && <p style={{ color: 'red' }}>{errors.imgUrl}</p>}
                         </div>
 
                         <div className='form-product-line'> {/* Descripción */}
@@ -151,7 +96,6 @@ const FormularioProducto = ({ onAgregar, onClose }) => {
                                 rows="4"
                                 cols="50"
                             />
-                            {errors.description && <p style={{ color: 'red' }}>{errors.description}</p>}
                         </div>
                         <div className='from-product-box'> {/* Promo Precio Stock */}
                             <div className='form-product-line'>
@@ -163,7 +107,7 @@ const FormularioProducto = ({ onAgregar, onClose }) => {
                                     onChange={handleChange}
                                     required
                                 />
-                                {errors.promo && <p style={{ color: 'red' }}>{errors.promo}</p>}
+
                             </div>
                             <div className='form-product-line'>
                                 <label>Precio</label>
@@ -174,7 +118,7 @@ const FormularioProducto = ({ onAgregar, onClose }) => {
                                     onChange={handleChange}
                                     required
                                 />
-                                {errors.price && <p style={{ color: 'red' }}>{errors.price}</p>}
+
                             </div >
                             <div className='form-product-line'>
                                 <label>Stock</label>
@@ -185,7 +129,7 @@ const FormularioProducto = ({ onAgregar, onClose }) => {
                                     onChange={handleChange}
                                     required
                                 />
-                                {errors.stock && <p style={{ color: 'red' }}>{errors.stock}</p>}
+
                             </div>
                         </div>
                         <div className='form-product-line'> {/* Ingredientes */}
@@ -201,7 +145,7 @@ const FormularioProducto = ({ onAgregar, onClose }) => {
                                 rows="4"
                                 cols="50"
                             />
-                            {errors.ingredients && <p style={{ color: 'red' }}>{errors.ingredients}</p>}
+
                         </div>
                         <div className='form-product-line'> {/* Uso */}
                             <label>Uso</label>
@@ -215,9 +159,8 @@ const FormularioProducto = ({ onAgregar, onClose }) => {
                                 rows="4"
                                 cols="50"
                             />
-                            {errors.use && <p style={{ color: 'red' }}>{errors.use}</p>}
                         </div>
-                        <button className='btn-negro' type="submit">Agregar producto</button>
+                        <button className='btn-negro' type="submit">Editar producto</button>
                     </form>
                 </div>
             </div>
@@ -225,4 +168,4 @@ const FormularioProducto = ({ onAgregar, onClose }) => {
     )
 }
 
-export default FormularioProducto
+export default FormularioEdicion

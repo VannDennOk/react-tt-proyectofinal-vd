@@ -198,14 +198,14 @@
 .admin-products-data span {
     width: 100%;
     display: flex;
-    align-items: flex-end;
+    align-items: flex-start;
     justify-content: flex-start;
     gap: 1rem;
 }
 
 .admin-products-data h3 {
     font-size: 1rem;
-    width: 80px;
+    min-width: 80px;
     text-align: left;
 }
 
