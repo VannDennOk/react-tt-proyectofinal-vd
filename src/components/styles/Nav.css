@@ -24,6 +24,7 @@
     cursor: pointer;
 }
 
-.nav_link:hover {
+.nav_link:hover, .nav_link.active {
     border-bottom: 1px solid var(--colorBlanco);
 }
+
