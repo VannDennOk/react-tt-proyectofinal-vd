@@ -9,6 +9,7 @@ import Cart from '../components/Cart';
 import loading from "../assets/loading.gif"
 import BannerBottom from '../components/BannerBottom';
 import { CartContext } from '../context/CartContext';
+import ProductDestacado from '../components/ProductDestacado';
 
 const Home = () => {
   const { carga, cart, cartCount } = useContext(CartContext)
@@ -29,6 +30,8 @@ const Home = () => {
          ) : (            
             <ProductList />
         )}
+
+        <ProductDestacado/>
 
         <BannerBottom />
 

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useContext } from 'react'
 import './styles/pages.css'
 import logo from '../assets/Img/logo.png';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';

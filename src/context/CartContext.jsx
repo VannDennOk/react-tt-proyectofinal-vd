@@ -8,10 +8,11 @@ export const CartProvider = ({ children }) => {
   const [error, setError] = useState(false)
   const [carga, setCarga] = useState(true)
   const [isAuthenticated, setIsAuthenticated] = useState(false)
+  const [busqueda, setBusqueda] = useState('')
 
   //conecta MockAPI
   useEffect(() => {
-    fetch('https://681455e4225ff1af162889a4.mockapi.io/productos-ecommerce/product')
+    fetch('https://68476daeec44b9f3493d0ddc.mockapi.io/vitamins')
       .then(respueta => respueta.json())
       .then(datos => {
         setTimeout(() => {
@@ -26,15 +27,27 @@ export const CartProvider = ({ children }) => {
       });
   }, [])
 
+
+
   //Maneja la apertura del acrrito
   const [isCartOpen, setCartOpen] = useState(false)
   useEffect(() => {
     document.body.style.overflow = isCartOpen ? 'hidden' : 'auto';
   }, [isCartOpen]);
 
+
   //Maneja el botón agregar al carrito (con mensaje modal si ya está agregado)
   const [modalAbierto, setModalAbierto] = useState(false);
   const [mensajeModal, setMensajeModal] = useState('');
+
+
+  //Búsqueda de productos
+  const productosFiltrados = productos.filter((producto) => producto?.name.toLowerCase().includes(busqueda.trim().toLowerCase()))
+
+
+  //Productos destacados
+ const productosDestacados = productos.filter((producto) => producto?.category?.toLowerCase() === 'destacado');
+
 
   const handleAddToCart = (product) => {
     const productExist = cart.find(item => item.id === product.id)
@@ -91,7 +104,11 @@ export const CartProvider = ({ children }) => {
           cartCount,
           modalAbierto,
           mensajeModal,
-          setModalAbierto
+          setModalAbierto,
+          productosFiltrados,
+          busqueda,
+          setBusqueda,
+          productosDestacados
         }
       }>
       {children}
