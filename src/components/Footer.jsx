@@ -1,7 +1,7 @@
 import React from 'react';
 import './styles/Footer.css'
 import logo from '../assets/Img/logo.png';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTiktok, faInstagram, faYoutube, faCcVisa, faCcMastercard, faCcPaypal, faWhatsapp } from '@fortawesome/free-brands-svg-icons'
 import { faEnvelope, faLocationDot } from '@fortawesome/free-solid-svg-icons'
@@ -28,10 +28,10 @@ const Footer = () => {
         <div className='footer_data'>
           <h3>Navegación</h3>
           <ul>
-            <li><Link to='/'>Inicio</Link></li>
-            <li><Link to='/productos'>Productos</Link></li>
-            <li><Link to='/nosotros'>Nosotros</Link></li>
-            <li><Link to='/contacto'>Contacto</Link></li>
+            <li><NavLink className='footer-nav_link' to='/'>Inicio</NavLink></li>
+            <li><NavLink className='footer-nav_link' to='/productos'>Productos</NavLink></li>
+            <li><NavLink className='footer-nav_link' to='/nosotros'>Nosotros</NavLink></li>
+            <li><NavLink className='footer-nav_link' to='/contacto'>Contacto</NavLink></li>
           </ul>
         </div>
         <div className='footer_data'>
