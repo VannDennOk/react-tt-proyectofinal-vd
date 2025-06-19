@@ -4,7 +4,6 @@ import Header from '../components/Header'
 import Hero from '../components/Hero';
 import Gallery from '../components/Gallery';
 import Footer from '../components/Footer';
-import ProductList from '../components/ProductList'
 import Cart from '../components/Cart';
 import loading from "../assets/loading.gif"
 import BannerBottom from '../components/BannerBottom';
@@ -12,7 +11,7 @@ import { CartContext } from '../context/CartContext';
 import ProductDestacado from '../components/ProductDestacado';
 
 const Home = () => {
-  const { carga, cart, cartCount } = useContext(CartContext)
+  const { carga, cartCount } = useContext(CartContext)
   const totalItems = cartCount();
 
   return (
@@ -28,10 +27,8 @@ const Home = () => {
             <p>Cargando los productos</p>
           </div>
          ) : (            
-            <ProductList />
+            <ProductDestacado/>
         )}
-
-        <ProductDestacado/>
 
         <BannerBottom />
 

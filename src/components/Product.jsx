@@ -22,8 +22,7 @@ const Product = ({ product }) => {
                 <button className='btn-like' onClick={cambiarColor}>
                     <FontAwesomeIcon icon={faHeart} />
                 </button>
-
-                <div className='product_card-img-filter'></div>
+           
                 <img className='product_card-img' src={product.imgUrl} alt="imagen de producto" />
                 <p className='product_card-promo'>{product.promo}</p>
             </div>

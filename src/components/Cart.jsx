@@ -64,7 +64,6 @@ const Cart = () => {
                     <div className='cart_product-name'>
                       <div className='cart_img-box'>
                         <img className='cart_img' src={item.imgUrl} />
-                        <div className='cart_img-filter'></div>
                       </div>
                       <p>{item.name}</p>
                     </div>
