@@ -1,6 +1,6 @@
 import { useContext } from 'react';
 import './App.css';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import { Routes, Route } from 'react-router-dom'
 import Home from './pages/Home';
 import Nosotros from './pages/Nosotros'
 import NotFound from './pages/NotFound';
@@ -9,12 +9,13 @@ import Contacto from './pages/Contacto';
 import Modal from './components/Modal';
 import Admin from './pages/Admin';
 import Login from './pages/Login';
-import RutasProtegidas from './auth/RutasProtegidas';
-import { CartContext } from './context/CartContext';
+import RutasProtegidas from './rutas/RutasProtegidas';
 import PaginaProducto from './pages/PaginaProducto';
+import { CartContext } from './context/CartContext';
+
 
 function App() {
-  const {   
+  const {  
             isAuthenticated,
             modalAbierto,
             mensajeModal,
@@ -23,7 +24,7 @@ function App() {
 
   return (
     <>
-      <Router>
+
         {modalAbierto && (
           <Modal 
             mensaje={mensajeModal}
@@ -50,7 +51,7 @@ function App() {
           <Route path='*' element={<NotFound />} />
 
         </Routes>
-      </Router>
+
     </>
   )
 }

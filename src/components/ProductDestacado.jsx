@@ -22,7 +22,7 @@ const ProductDestacado = () => {
         <section className='productDestacado_container'>
             <h2>Productos destacados</h2>
             {destacado.map((producto) => (
-                <div className='productDestacado_card'>
+                <div key={producto.id} className='productDestacado_card'>
                     <div className='productDestacado_img-box'>
                         <img src={producto.imgUrl} alt={producto.name} />
                         {producto.promo && <span className='productDestacado_promo'>{producto.promo}</span>}

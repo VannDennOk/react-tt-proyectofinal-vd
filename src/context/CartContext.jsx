@@ -1,13 +1,19 @@
 import { createContext, useState, useEffect } from "react";
+import { toast } from "react-toastify";
+
 
 export const CartContext = createContext()
 
 export const CartProvider = ({ children }) => {
-  const [cart, setCart] = useState([])
+  const [cart, setCart] = useState(()=>{
+      const savedCart = localStorage.getItem("cart")
+      return savedCart ? JSON.parse(savedCart) : []
+    })
+      
   const [productos, setProductos] = useState([])
   const [error, setError] = useState(false)
   const [carga, setCarga] = useState(true)
-  const [isAuthenticated, setIsAuthenticated] = useState(false)
+  const [isAuthenticated, setIsAuth] = useState(false)
   const [busqueda, setBusqueda] = useState('')
 
   //conecta MockAPI
@@ -27,7 +33,9 @@ export const CartProvider = ({ children }) => {
       });
   }, [])
 
-
+  useEffect(()=>{
+    localStorage.setItem("cart", JSON.stringify(cart))
+  }, [cart])
 
   //Maneja la apertura del acrrito
   const [isCartOpen, setCartOpen] = useState(false)
@@ -35,19 +43,15 @@ export const CartProvider = ({ children }) => {
     document.body.style.overflow = isCartOpen ? 'hidden' : 'auto';
   }, [isCartOpen]);
 
-
   //Maneja el botón agregar al carrito (con mensaje modal si ya está agregado)
   const [modalAbierto, setModalAbierto] = useState(false);
   const [mensajeModal, setMensajeModal] = useState('');
 
-
   //Búsqueda de productos
   const productosFiltrados = productos.filter((producto) => producto?.name.toLowerCase().includes(busqueda.trim().toLowerCase()))
 
-
   //Productos destacados
- const productosDestacados = productos.filter((producto) => producto?.category?.toLowerCase() === 'destacado');
-
+  const productosDestacados = productos.filter((producto) => producto?.category?.toLowerCase() === 'destacado');
 
   const handleAddToCart = (product) => {
     const productExist = cart.find(item => item.id === product.id)
@@ -80,7 +84,7 @@ export const CartProvider = ({ children }) => {
     setCart([])
   }
 
-  //maneja e contador
+  //maneja el contador
   const cartCount = () => {
     return cart.reduce((total, item) => total + item.cantidad, 0)
   }
@@ -94,7 +98,7 @@ export const CartProvider = ({ children }) => {
           error,
           carga,
           isAuthenticated,
-          setIsAuthenticated,
+          setIsAuth,
           vaciarCarrito,
           handleAddToCart,
           borrarProducto,

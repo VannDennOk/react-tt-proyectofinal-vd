@@ -1,6 +1,6 @@
 import React, { useState, useContext } from 'react'
 import { CartContext } from "../context/CartContext"
-import { useNavigate } from 'react-router-dom'
+import { useAuth } from '../context/AuthContext';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom';
@@ -8,50 +8,14 @@ import './styles/Login.css'
 
 const Login = () => {
 
-  const { setIsAuthenticated } = useContext(CartContext)
-  const [email, setEmail] = useState('')
-  const [password, setPassword] = useState('')
-  const [error, setError] = useState({})
-  const navigate = useNavigate()
-
-
-  const handleSubmit = async (e) => {
-    e.preventDefault()
-
-    //Analisis de que no esté vacío
-    let validationError = {}
-    if (!email) validationError.email = "Es necesario ingresar un e-mail"
-    if (!password) validationError.password = "Es necesario ingresar una contraseña"
-
-    if (Object.keys(validationError).length > 0) {
-      setError(validationError)
-      return
-    }
-
-    //llama al JSON
-    try {
-      const res = await fetch('data/users.json');
-      const users = await res.json();
-
-      const foundUser = users.find((user) => user.email === email && user.password === password)
-
-      if (!foundUser) {
-        setError({ password: 'Credenciales inválidas' })
-      } else {
-        console.log('User role:', foundUser.role);
-        if (foundUser.role === 'admin') {
-          setIsAuthenticated(true);
-          navigate('/admin')
-        } else {
-          navigate('/')
-        }
-      }
-
-    } catch (err) {
-      console.error('Error fetching users:', err);
-      setError({ email: 'Algo salió mal, por favor intentalo más tarde' })
-    }
-  }
+  const {
+    email, 
+    setEmail,
+    password,
+    setPassword,
+    handleSubmit,
+    error
+  } = useAuth()
 
   return (
 

@@ -43,14 +43,14 @@ const FormularioProducto = ({ onAgregar, onClose }) => {
         if (!producto.description.trim() || producto.description.length < 10) {
             newErrors.description = 'Descripción debe tener al menos 10 caracteres.';
         }
-        if (!producto.price || producto.precio <= 0) {
+        if (!producto.price || parseFloat(producto.price) <= 0) {
             newErrors.price = 'Precio debe ser mayor a 0.';
         }
         if (!producto.stock || producto.stock <= 0) {
             newErrors.stock = 'Stock debe ser mayor a 0.';
         }
         if (!producto.ingredients.trim() || producto.ingredients.length < 10) {
-            newErrors.ingredientes = 'Ingredientes debe tener al menos 10 caracteres.';
+            newErrors.ingredients = 'Ingredientes debe tener al menos 10 caracteres.';
         }
         if (!producto.use.trim() || producto.use.length < 10) {
             newErrors.use = 'Uso debe tener al menos 10 caracteres.';
@@ -78,7 +78,8 @@ const FormularioProducto = ({ onAgregar, onClose }) => {
             stock: '',
             ingredients: '',
             use: '',
-            category: ''
+            category: '',
+            imgUrl: ''
         })
     }
 
