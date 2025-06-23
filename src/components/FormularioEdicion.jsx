@@ -7,14 +7,25 @@ import { faCircleXmark } from '@fortawesome/free-solid-svg-icons';
 const FormularioEdicion = ({ productoSeleccionado, onActualizar, onClose }) => {
     const [producto, setProducto] = useState(productoSeleccionado);
 
-    //Cerrar el modal al apretar Esc
+
+    //cerrar con esc, bloquear scroll, limpiar al cerrar
     useEffect(() => {
         const handleKeyDown = (e) => {
             if (e.key === 'Escape') onClose();
         };
         window.addEventListener('keydown', handleKeyDown);
-        return () => window.removeEventListener('keydown', handleKeyDown);
+        const prevOverflow = document.body.style.overflow;
+        document.body.style.overflow = 'hidden';
+
+        return () => {
+            window.removeEventListener('keydown', handleKeyDown);
+            document.body.style.overflow = prevOverflow;
+        };
     }, [onClose]);
+
+
+
+
 
     useEffect(() => {
         setProducto(productoSeleccionado)

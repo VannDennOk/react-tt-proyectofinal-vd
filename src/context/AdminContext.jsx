@@ -1,6 +1,7 @@
 import { createContext, useEffect, useState, useContext } from "react";
 import { CartContext } from "./CartContext";
 import { toast } from "react-toastify";
+import Swal from "sweetalert2";
 
 export const AdminContext = createContext();
 
@@ -93,22 +94,81 @@ export const AdminProvider = ({ children }) => {
     }
 
     //Eliminar un producto por ID
-    const eliminarProducto = async (id) => {
-        const confirmar = window.confirm('Estás seguro de eliminar el producto?')
-        if (confirmar) {
-            try {
-                const respuesta = await fetch(`https://68476daeec44b9f3493d0ddc.mockapi.io/vitamins/${id}`, {
-                    method: 'DELETE',
-                })
-                if (!respuesta.ok) throw Error('Error al eliminar')
-                toast.success('producto eliminado correctamente')
-                cargarProductos()
-                setProductos((prev) => prev.filter((p) => p.id !== id));
-            } catch (error) {
-                toast.error('hubo un problema al eliminar el producto')
+    /*     const eliminarProducto = async (id) => {
+            const confirmar = window.confirm('Estás seguro de eliminar el producto?')
+            if (confirmar) {
+                try {
+                    const respuesta = await fetch(`https://68476daeec44b9f3493d0ddc.mockapi.io/vitamins/${id}`, {
+                        method: 'DELETE',
+                    })
+                    if (!respuesta.ok) throw Error('Error al eliminar')
+                    toast.success('producto eliminado correctamente')
+                    cargarProductos()
+                    setProductos((prev) => prev.filter((p) => p.id !== id));
+                } catch (error) {
+                    toast.error('hubo un problema al eliminar el producto')
+                }
             }
+        } */
+
+    //Eliminar un producto por ID con SweetAlert Personalizado
+    const eliminarProducto = async (id) => {
+        const { isConfirmed } = await Swal.fire({
+            title: '¿Seguro que deseas eliminar el producto?',
+            text: '¡No podrás deshacer esta acción!',
+            iconHtml: '<i class="fas fa-exclamation-triangle fa-1x" style="color: var(--colorAmarillo);"></i>',
+            iconColor: 'transparent',
+            showCancelButton: true,
+            confirmButtonText: 'Aceptar',
+            cancelButtonText: 'Cancelar',
+
+            customClass: {
+                popup: 'mi-popup',
+                title: 'mi-title',
+                htmlContainer: 'mi-text',
+                confirmButton: 'btn-negro btn-160',
+                cancelButton: 'btn-blanco  btn-160',
+            }
+        });
+
+        if (!isConfirmed) return;
+        try {
+            const respuesta = await fetch(
+                `https://68476daeec44b9f3493d0ddc.mockapi.io/vitamins/${id}`,
+                { method: 'DELETE' }
+            );
+
+            if (!respuesta.ok) throw new Error('Error al eliminar');
+            // Swal.fire('Listo', 'El producto fue eliminado correctamente', 'success');
+            Swal.fire({
+            title: '¡Listo!',
+            text: 'El producto fue eliminado correctamente',
+            iconHtml: '<i class="fas fa-check-circle fa-1x" style="color: var(--colorVerde);"></i>',
+            iconColor: 'transparent',
+            showCancelButton: false,
+            confirmButtonText: 'Ok',
+
+            customClass: {
+                popup: 'mi-popup',
+                title: 'mi-title',
+                htmlContainer: 'mi-text',
+                confirmButton: 'btn-negro btn-160',
+            }
+        })
+            
+            
+            cargarProductos();
+            setProductos((prev) => prev.filter((p) => p.id !== id));
+        } catch (error) {
+            toast.error('Hubo un problema al eliminar el producto');
+            console.error(error);
         }
-    }
+    };
+
+
+
+
+
 
     return (
         <AdminContext.Provider

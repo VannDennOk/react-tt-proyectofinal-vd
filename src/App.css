@@ -222,4 +222,17 @@ input:focus, textarea:focus {
     font-size: 0.8rem;
 }
 
-
+.mi-popup {
+  background-color: var(--colorBlanco);
+  border-radius: 20px;
+  box-shadow: 6px 4px 4px 1px var(--sombraTarjetas);
+  gap: 1rem;
+  padding: 2rem;
+}
+.mi-title, .mi-text {
+  font-family: var(--fontCuerpo);
+  font-size: 1.5rem;
+  font-weight: 200;
+  color: var(--colorNegro);
+  padding: 0;
+}

@@ -19,13 +19,19 @@ const FormularioProducto = ({ onAgregar, onClose }) => {
 
     const [errors, setErrors] = useState({})
 
-    //Cerrar el modal al apretar Esc
+    //cerrar con esc, bloquear scroll, limpiar al cerrar
     useEffect(() => {
         const handleKeyDown = (e) => {
             if (e.key === 'Escape') onClose();
         };
         window.addEventListener('keydown', handleKeyDown);
-        return () => window.removeEventListener('keydown', handleKeyDown);
+        const prevOverflow = document.body.style.overflow;
+        document.body.style.overflow = 'hidden';
+
+        return () => {
+            window.removeEventListener('keydown', handleKeyDown);
+            document.body.style.overflow = prevOverflow;
+        };
     }, [onClose]);
 
     //Almacena los datos
@@ -38,26 +44,34 @@ const FormularioProducto = ({ onAgregar, onClose }) => {
     const validarFormulario = () => {
         const newErrors = {};
         if (!producto.name.trim()) {
-            newErrors.name = 'Nombre es obligatorio.';
-        }
-        if (!producto.description.trim() || producto.description.length < 10) {
-            newErrors.description = 'Descripción debe tener al menos 10 caracteres.';
-        }
-        if (!producto.price || parseFloat(producto.price) <= 0) {
-            newErrors.price = 'Precio debe ser mayor a 0.';
-        }
-        if (!producto.stock || producto.stock <= 0) {
-            newErrors.stock = 'Stock debe ser mayor a 0.';
-        }
-        if (!producto.ingredients.trim() || producto.ingredients.length < 10) {
-            newErrors.ingredients = 'Ingredientes debe tener al menos 10 caracteres.';
-        }
-        if (!producto.use.trim() || producto.use.length < 10) {
-            newErrors.use = 'Uso debe tener al menos 10 caracteres.';
+            newErrors.name = 'Debés ingresar un nombre';
         }
         if (!producto.category.trim()) {
-            newErrors.category = 'Categoría es obligatorio.';
+            newErrors.category = 'Debés seleccionar una categoría';
         }
+        if (!producto.imgUrl.trim()) {
+            newErrors.imgUrl = 'Debés ingresar una URL';
+        }
+        if (!producto.description.trim() || producto.description.length <= 10) {
+            newErrors.description = 'Descripción debe tener al menos 10 caracteres';
+        }
+
+        if (!producto.promo.trim()) {
+            newErrors.promo = 'Debés ingresar una Promo';
+        }
+        if (!producto.price || parseFloat(producto.price) <= 0) {
+            newErrors.price = 'Precio debe ser mayor a 0';
+        }
+        if (!producto.stock || producto.stock <= 0) {
+            newErrors.stock = 'Stock debe ser mayor a 0';
+        }
+        if (!producto.ingredients.trim() || producto.ingredients.length <= 10) {
+            newErrors.ingredients = 'Ingredientes debe tener al menos 10 caracteres';
+        }
+        if (!producto.use.trim() || producto.use.length <= 10) {
+            newErrors.use = 'Uso debe tener al menos 10 caracteres';
+        }
+
 
         setErrors(newErrors);
         return Object.keys(newErrors).length === 0;
@@ -81,6 +95,7 @@ const FormularioProducto = ({ onAgregar, onClose }) => {
             category: '',
             imgUrl: ''
         })
+        onClose();
     }
 
     return (
@@ -98,6 +113,7 @@ const FormularioProducto = ({ onAgregar, onClose }) => {
                             <FontAwesomeIcon icon={faCircleXmark} />
                         </button >
                     </div>
+                    <p>Todos los campos son obligatorios!</p>
                     <form onSubmit={handleSubmit}>
                         <div className='from-product-box'> {/* Nombre y Categoría */}
                             <div className='form-product-line'>
@@ -107,22 +123,25 @@ const FormularioProducto = ({ onAgregar, onClose }) => {
                                     name='name'
                                     value={producto.name}
                                     onChange={handleChange}
-                                    required
                                     placeholder="Ingresá el nombre del producto"
                                 />
-                                {errors.name && <p style={{ color: 'red' }}>{errors.name}</p>}
+                                {errors.name && <p style={{ color: 'red', fontSize: '0.75rem' }}>{errors.name}</p>}
                             </div>
+
                             <div className='form-product-line'>
                                 <label>Categoría</label>
-                                <input
-                                    type="text"
-                                    name='category'
+                                <select
+                                    name="category"
                                     value={producto.category}
                                     onChange={handleChange}
-                                    required
-                                    placeholder="Ingresá la categoría del producto"
-                                />
-                                {errors.category && <p style={{ color: 'red' }}>{errors.category}</p>}
+                                >
+                                    <option value="">Seleccioná una opción</option>
+                                    <option value="destacado">Destacado</option>
+                                    <option value="no destacado">No destacado</option>
+                                </select>
+                                {errors.category && (
+                                    <p style={{ color: 'red', fontSize: '0.75rem' }}>{errors.category}</p>
+                                )}
                             </div>
                         </div>
                         <div className='form-product-line'> {/* Descripción */}
@@ -132,11 +151,9 @@ const FormularioProducto = ({ onAgregar, onClose }) => {
                                 name='imgUrl'
                                 value={producto.imgUrl}
                                 onChange={handleChange}
-                                required
-
                                 placeholder="Ingresá la URL de la imagen"
                             />
-                            {errors.imgUrl && <p style={{ color: 'red' }}>{errors.imgUrl}</p>}
+                            {errors.imgUrl && <p style={{ color: 'red', fontSize: '0.75rem' }}>{errors.imgUrl}</p>}
                         </div>
 
                         <div className='form-product-line'> {/* Descripción */}
@@ -146,13 +163,11 @@ const FormularioProducto = ({ onAgregar, onClose }) => {
                                 name='description'
                                 value={producto.description}
                                 onChange={handleChange}
-                                required
-
-                                placeholder="Ingresá la descripción del producto"
+                                placeholder="Ingresá la descripción del producto (mínimo 10 caracteres)"
                                 rows="4"
                                 cols="50"
                             />
-                            {errors.description && <p style={{ color: 'red' }}>{errors.description}</p>}
+                            {errors.description && <p style={{ color: 'red', fontSize: '0.75rem' }}>{errors.description}</p>}
                         </div>
                         <div className='from-product-box'> {/* Promo Precio Stock */}
                             <div className='form-product-line'>
@@ -162,9 +177,8 @@ const FormularioProducto = ({ onAgregar, onClose }) => {
                                     name='promo'
                                     value={producto.promo}
                                     onChange={handleChange}
-                                    required
                                 />
-                                {errors.promo && <p style={{ color: 'red' }}>{errors.promo}</p>}
+                                {errors.promo && <p style={{ color: 'red', fontSize: '0.75rem' }}>{errors.promo}</p>}
                             </div>
                             <div className='form-product-line'>
                                 <label>Precio</label>
@@ -173,9 +187,9 @@ const FormularioProducto = ({ onAgregar, onClose }) => {
                                     name='price'
                                     value={producto.price}
                                     onChange={handleChange}
-                                    required
+                                    min="0"
                                 />
-                                {errors.price && <p style={{ color: 'red' }}>{errors.price}</p>}
+                                {errors.price && <p style={{ color: 'red', fontSize: '0.75rem' }}>{errors.price}</p>}
                             </div >
                             <div className='form-product-line'>
                                 <label>Stock</label>
@@ -184,9 +198,9 @@ const FormularioProducto = ({ onAgregar, onClose }) => {
                                     name='stock'
                                     value={producto.stock}
                                     onChange={handleChange}
-                                    required
+                                    min="0"
                                 />
-                                {errors.stock && <p style={{ color: 'red' }}>{errors.stock}</p>}
+                                {errors.stock && <p style={{ color: 'red', fontSize: '0.75rem' }}>{errors.stock}</p>}
                             </div>
                         </div>
                         <div className='form-product-line'> {/* Ingredientes */}
@@ -196,13 +210,11 @@ const FormularioProducto = ({ onAgregar, onClose }) => {
                                 name='ingredients'
                                 value={producto.ingredients}
                                 onChange={handleChange}
-                                required
-
-                                placeholder="Ingresá los ingredientes del producto"
+                                placeholder="Ingresá los ingredientes del producto (mínimo 10 caracteres)"
                                 rows="4"
                                 cols="50"
                             />
-                            {errors.ingredients && <p style={{ color: 'red' }}>{errors.ingredients}</p>}
+                            {errors.ingredients && <p style={{ color: 'red', fontSize: '0.75rem' }}>{errors.ingredients}</p>}
                         </div>
                         <div className='form-product-line'> {/* Uso */}
                             <label>Uso</label>
@@ -211,12 +223,11 @@ const FormularioProducto = ({ onAgregar, onClose }) => {
                                 name='use'
                                 value={producto.use}
                                 onChange={handleChange}
-                                required
-                                placeholder="Ingresá las recomendaciones de uso del producto"
+                                placeholder="Ingresá las recomendaciones de uso del producto (mínimo 10 caracteres)"
                                 rows="4"
                                 cols="50"
                             />
-                            {errors.use && <p style={{ color: 'red' }}>{errors.use}</p>}
+                            {errors.use && <p style={{ color: 'red', fontSize: '0.75rem' }}>{errors.use}</p>}
                         </div>
                         <button className='btn-negro' type="submit">Agregar producto</button>
                     </form>
