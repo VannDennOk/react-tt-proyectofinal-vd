@@ -1,5 +1,6 @@
 import { createContext, useEffect, useState, useContext } from "react";
 import { CartContext } from "./CartContext";
+import { toast } from "react-toastify";
 
 export const AdminContext = createContext();
 
@@ -59,7 +60,7 @@ export const AdminProvider = ({ children }) => {
                 throw new Error('Error al agregar producto')
             }
             const data = await respuesta.json()
-            alert('Producto agregado correctamente')
+            toast.success('Producto agregado correctamente')
             cargarProductos()
             setProductos((prev) => [...prev, data])
         } catch (error) {
@@ -79,7 +80,7 @@ export const AdminProvider = ({ children }) => {
             })
             if (!respuesta.ok) throw Error('Error al actualizar el producto')
             const data = await respuesta.json()
-            alert('Producto editado correctamente')
+            toast.success('Producto editado correctamente')
             setOpenEditor(false)
             setSeleccionado(null)
             cargarProductos()
@@ -87,7 +88,7 @@ export const AdminProvider = ({ children }) => {
                 prev.map((p) => (p.id === data.id ? data : p))
             );
         } catch (error) {
-            alert('hubo un error al editar el producto')
+            toast.error('hubo un problema al editar el producto')
         }
     }
 
@@ -100,11 +101,11 @@ export const AdminProvider = ({ children }) => {
                     method: 'DELETE',
                 })
                 if (!respuesta.ok) throw Error('Error al eliminar')
-                alert('producto eliminado correctamente')
+                toast.success('producto eliminado correctamente')
                 cargarProductos()
                 setProductos((prev) => prev.filter((p) => p.id !== id));
             } catch (error) {
-                alert('hubo un problema al eliminar el producto')
+                toast.error('hubo un problema al eliminar el producto')
             }
         }
     }

@@ -14,7 +14,8 @@ const Cart = () => {
     vaciarCarrito,
     borrarProducto,
     isCartOpen,
-    setCartOpen
+    setCartOpen,
+    clearCart
   } = useContext(CartContext);
 
   if (!isCartOpen) return null;
@@ -113,7 +114,10 @@ const Cart = () => {
                 <Link className='btn-gris'
                   onClick={() => setCartOpen(false)}
                   to='/productos'>Seguir comprando</Link>
-                <button className='btn-negro'>Ir a pagar</button>
+                <button
+                  onClick={clearCart} 
+                  className='btn-negro'>Ir a pagar
+                </button>
               </div>
             </>
           )}

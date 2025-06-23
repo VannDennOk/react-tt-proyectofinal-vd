@@ -6,7 +6,7 @@ import Nosotros from './pages/Nosotros'
 import NotFound from './pages/NotFound';
 import GaleriaDeProductos from './pages/GaleriaDeProductos';
 import Contacto from './pages/Contacto';
-import Modal from './components/Modal';
+// import Modal from './components/Modal';
 import Admin from './pages/Admin';
 import Login from './pages/Login';
 import RutasProtegidas from './rutas/RutasProtegidas';
@@ -17,20 +17,19 @@ import { CartContext } from './context/CartContext';
 function App() {
   const {  
             isAuthenticated,
-            modalAbierto,
-            mensajeModal,
-            setModalAbierto
+            //cambié el modal por un TOAST
+            //modalAbierto, mensajeModal, setModalAbierto
   } = useContext(CartContext)
 
   return (
     <>
 
-        {modalAbierto && (
+{/*         {modalAbierto && (
           <Modal 
             mensaje={mensajeModal}
             onClose={() => setModalAbierto(false)}
             />
-        )}
+        )} */}
                 
         <Routes>
           <Route path='/' element={<Home />}></Route>

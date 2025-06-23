@@ -42,6 +42,15 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  --toastify-color-light: var(--colorGrisClaro);
+  --toastify-color-info: var(--colorNegro);
+  --toastify-color-success: var(--colorVerde);
+  --toastify-color-warning: var(--colorAmarillo);
+  --toastify-color-error: var(--colorRojo);
+  --toastify-toast-shadow: 6px 4px 4px 1px var(--sombraTarjetas);
+  --toastify-font-family: var(--fontCuerpo);
+  --toastify-text-color-light: var(--colorGris);
 }
 
 /*RESET*/

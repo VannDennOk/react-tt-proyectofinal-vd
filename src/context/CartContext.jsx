@@ -16,8 +16,10 @@ export const CartProvider = ({ children }) => {
   const [busqueda, setBusqueda] = useState('');
 
   const [isCartOpen, setCartOpen] = useState(false);
-  const [modalAbierto, setModalAbierto] = useState(false);
-  const [mensajeModal, setMensajeModal] = useState('');
+
+  //Cambio el modal por un TOAST
+  //const [modalAbierto, setModalAbierto] = useState(false);
+  //const [mensajeModal, setMensajeModal] = useState('');
 
   //conecta MockAPI
   useEffect(() => {
@@ -56,11 +58,9 @@ export const CartProvider = ({ children }) => {
       });
       const creado = await res.json();
       setProductos((prev) => [...prev, creado]);
-      toast.success("Producto agregado correctamente");
       return true;
     } catch (err) {
       console.error(err);
-      toast.error("No se pudo crear el producto");
       return false;
     }
   };
@@ -72,8 +72,8 @@ export const CartProvider = ({ children }) => {
       toast.success(`El producto ${product.name} se ha agregado al carrito`)
       setCart([...cart, { ...product, cantidad: product.cantidad || 1 }])
     } else {
-      setMensajeModal('El producto ya fue agregado. Revisá tu carrito de compras!!!');
-      setModalAbierto(true);
+      toast.warn('El producto ya fue agregado. Revisá tu carrito de compras!!!');
+      // setModalAbierto(true);
     }
   }
 
@@ -110,6 +110,13 @@ export const CartProvider = ({ children }) => {
   //Productos destacados
   const productosDestacados = productos.filter((producto) => producto?.category?.toLowerCase() === 'destacado');
 
+ //Finalizar compra
+ const clearCart =()=> {
+  setCart([])
+  localStorage.removeItem('cart')
+  toast.info('compra finalizada')
+ }
+
 
   return (
     <CartContext.Provider
@@ -134,15 +141,15 @@ export const CartProvider = ({ children }) => {
 
           isCartOpen,
           setCartOpen,
-          modalAbierto,
-          setModalAbierto,
-          mensajeModal,
+          /* modalAbierto, setModalAbierto, mensajeModal, */
 
 
           busqueda,
           setBusqueda,
           productosFiltrados,
           productosDestacados,
+
+          clearCart,
         }
       }>
       {children}
