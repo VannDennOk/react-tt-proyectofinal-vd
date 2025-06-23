@@ -1,5 +1,5 @@
 import React from 'react'
-import { databanner } from '../assets/databanner'
+import { databanner } from '../utils/databanner'
 import './styles/BannerBottom.css'
 
 const BannerBottom = () => {

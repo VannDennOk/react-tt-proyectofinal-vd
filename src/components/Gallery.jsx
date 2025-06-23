@@ -6,24 +6,8 @@ import './styles/Gallery.css'
 
 const Gallery = () => {
 
-  /*   const images = [
-      "https://i.postimg.cc/c4Q89ZZs/2x700.png",
-      "https://i.postimg.cc/VvtbcPCW/3x700.png",
-      "https://i.postimg.cc/pV5jjz65/4x700.png",
-      "https://i.postimg.cc/yYqZyxMQ/5x700.png"
-    ]; */
-
   return (
-    <>
-      {/*       <div> 
-          {
-            images.map((src, index) => (
-              <img key={index} src={src} alt={`imagen${index + 1}`} />
-            ))
-          }
-      </div> */}
-
-      <div className='gallery_container'>
+       <div className='gallery_container'>
         <ImageGallery
           items={datacarrusel}
           infinite={true}
@@ -37,8 +21,6 @@ const Gallery = () => {
           slideDuration={1000}
         />
       </div>
-
-    </>
   )
 }
 
