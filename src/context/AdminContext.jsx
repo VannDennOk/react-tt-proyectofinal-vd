@@ -1,4 +1,5 @@
-import { createContext, useEffect, useState } from "react";
+import { createContext, useEffect, useState, useContext } from "react";
+import { CartContext } from "./CartContext";
 
 export const AdminContext = createContext();
 
@@ -10,7 +11,11 @@ export const AdminProvider = ({ children }) => {
     const [open, setOpen] = useState(false);
     const [seleccionado, setSeleccionado] = useState(null);
     const [openEditor, setOpenEditor] = useState(false)
+    const [error, setError] = useState(false);
+
     const apiUrl = 'https://68476daeec44b9f3493d0ddc.mockapi.io/vitamins';
+
+    const { setProductos } = useContext(CartContext);
 
     //Conexión con MockAPI
     useEffect(() => {
@@ -56,6 +61,7 @@ export const AdminProvider = ({ children }) => {
             const data = await respuesta.json()
             alert('Producto agregado correctamente')
             cargarProductos()
+            setProductos((prev) => [...prev, data])
         } catch (error) {
             console.log(error.message);
         }
@@ -77,6 +83,9 @@ export const AdminProvider = ({ children }) => {
             setOpenEditor(false)
             setSeleccionado(null)
             cargarProductos()
+            setProductos((prev) =>
+                prev.map((p) => (p.id === data.id ? data : p))
+            );
         } catch (error) {
             alert('hubo un error al editar el producto')
         }
@@ -93,6 +102,7 @@ export const AdminProvider = ({ children }) => {
                 if (!respuesta.ok) throw Error('Error al eliminar')
                 alert('producto eliminado correctamente')
                 cargarProductos()
+                setProductos((prev) => prev.filter((p) => p.id !== id));
             } catch (error) {
                 alert('hubo un problema al eliminar el producto')
             }
@@ -113,6 +123,9 @@ export const AdminProvider = ({ children }) => {
                 agregarProducto,
                 actualizarProducto,
                 eliminarProducto,
+                form,
+                setForm,
+                error,
             }}>
             {children}
         </AdminContext.Provider>

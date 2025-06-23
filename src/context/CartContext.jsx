@@ -1,26 +1,29 @@
 import { createContext, useState, useEffect } from "react";
 import { toast } from "react-toastify";
 
-
-export const CartContext = createContext()
+export const CartContext = createContext();
 
 export const CartProvider = ({ children }) => {
-  const [cart, setCart] = useState(()=>{
-      const savedCart = localStorage.getItem("cart")
-      return savedCart ? JSON.parse(savedCart) : []
-    })
-      
-  const [productos, setProductos] = useState([])
-  const [error, setError] = useState(false)
-  const [carga, setCarga] = useState(true)
-  const [isAuthenticated, setIsAuth] = useState(false)
-  const [busqueda, setBusqueda] = useState('')
+  const [cart, setCart] = useState(() => {
+    const savedCart = localStorage.getItem("cart")
+    return savedCart ? JSON.parse(savedCart) : []
+  });
+
+  const [productos, setProductos] = useState([]);
+  const [error, setError] = useState(false);
+  const [carga, setCarga] = useState(true);
+  const [isAuthenticated, setIsAuth] = useState(false);
+  const [busqueda, setBusqueda] = useState('');
+
+  const [isCartOpen, setCartOpen] = useState(false);
+  const [modalAbierto, setModalAbierto] = useState(false);
+  const [mensajeModal, setMensajeModal] = useState('');
 
   //conecta MockAPI
   useEffect(() => {
     fetch('https://68476daeec44b9f3493d0ddc.mockapi.io/vitamins')
-      .then(respueta => respueta.json())
-      .then(datos => {
+      .then((respueta) => respueta.json())
+      .then((datos) => {
         setTimeout(() => {
           setProductos(datos)
           setCarga(false)
@@ -31,31 +34,42 @@ export const CartProvider = ({ children }) => {
         setCarga(false)
         setError(true)
       });
-  }, [])
+  }, []);
 
-  useEffect(()=>{
+  //persistencia en el carrito
+  useEffect(() => {
     localStorage.setItem("cart", JSON.stringify(cart))
-  }, [cart])
+  }, [cart]);
 
-  //Maneja la apertura del acrrito
-  const [isCartOpen, setCartOpen] = useState(false)
+  //Maneja la apertura del carrito (bloquea el scroll)
   useEffect(() => {
     document.body.style.overflow = isCartOpen ? 'hidden' : 'auto';
   }, [isCartOpen]);
 
-  //Maneja el botón agregar al carrito (con mensaje modal si ya está agregado)
-  const [modalAbierto, setModalAbierto] = useState(false);
-  const [mensajeModal, setMensajeModal] = useState('');
+  //agrega el producto desde el formularios sin recargar las páginas
+  const addProducto = async (nuevo) => {
+    try {
+      const res = await fetch("https://68476daeec44b9f3493d0ddc.mockapi.io/vitamins", {
+        method: 'POST',
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(nuevo),
+      });
+      const creado = await res.json();
+      setProductos((prev) => [...prev, creado]);
+      toast.success("Producto agregado correctamente");
+      return true;
+    } catch (err) {
+      console.error(err);
+      toast.error("No se pudo crear el producto");
+      return false;
+    }
+  };
 
-  //Búsqueda de productos
-  const productosFiltrados = productos.filter((producto) => producto?.name.toLowerCase().includes(busqueda.trim().toLowerCase()))
-
-  //Productos destacados
-  const productosDestacados = productos.filter((producto) => producto?.category?.toLowerCase() === 'destacado');
-
+  //Agrega el producto al carrito
   const handleAddToCart = (product) => {
-    const productExist = cart.find(item => item.id === product.id)
+    const productExist = cart.find((item) => item.id === product.id)
     if (!productExist) {
+      toast.success(`El producto ${product.name} se ha agregado al carrito`)
       setCart([...cart, { ...product, cantidad: product.cantidad || 1 }])
     } else {
       setMensajeModal('El producto ya fue agregado. Revisá tu carrito de compras!!!');
@@ -82,6 +96,7 @@ export const CartProvider = ({ children }) => {
   //maneja el botón vaciar el carrito (elimina a todo lo que haya en el carrito)
   const vaciarCarrito = () => {
     setCart([])
+    localStorage.removeItem("cart")
   }
 
   //maneja el contador
@@ -89,30 +104,45 @@ export const CartProvider = ({ children }) => {
     return cart.reduce((total, item) => total + item.cantidad, 0)
   }
 
+  //Búsqueda de productos
+  const productosFiltrados = productos.filter((producto) => producto?.name.toLowerCase().includes(busqueda.trim().toLowerCase()))
+
+  //Productos destacados
+  const productosDestacados = productos.filter((producto) => producto?.category?.toLowerCase() === 'destacado');
+
+
   return (
     <CartContext.Provider
       value={
         {
           cart,
           productos,
+          setProductos,
           error,
           carga,
+
           isAuthenticated,
           setIsAuth,
+
+          addProducto,
+
           vaciarCarrito,
           handleAddToCart,
           borrarProducto,
-          isCartOpen,
-          setCartOpen,
           actualizarCantidad,
           cartCount,
+
+          isCartOpen,
+          setCartOpen,
           modalAbierto,
-          mensajeModal,
           setModalAbierto,
-          productosFiltrados,
+          mensajeModal,
+
+
           busqueda,
           setBusqueda,
-          productosDestacados
+          productosFiltrados,
+          productosDestacados,
         }
       }>
       {children}
