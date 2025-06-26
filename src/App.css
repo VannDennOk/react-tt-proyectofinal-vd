@@ -166,7 +166,7 @@ form {
     flex-direction: column;
     align-items: flex-start;
     justify-content: center;
-    gap: 2rem;
+    gap: 1rem;
 }
 
 label {
@@ -177,7 +177,7 @@ label {
     font-weight: 300;    
 }
 
-input {
+input, select {
     width: 100%;
     height: 40px;
     border-radius: 20px;
@@ -192,7 +192,10 @@ input {
     color: var(--colorNegro);
 
     outline: none;
+}
 
+select {
+  color: grey;
 }
 
 textarea {
@@ -213,8 +216,18 @@ textarea {
     resize: none;
 }
 
-input:focus, textarea:focus {
+input:focus, textarea:focus, select:focus {
     border: 1px solid var(--colorNaranja);
+}
+
+input::placeholder,
+textarea::placeholder,
+select::placeholder,
+option {
+  font-family: var(--fontCuerpo);
+  color: grey;
+  font-size: 1rem;
+  font-weight: 200;
 }
 
 .form_error {

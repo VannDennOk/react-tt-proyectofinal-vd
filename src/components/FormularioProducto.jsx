@@ -44,20 +44,20 @@ const FormularioProducto = ({ onAgregar, onClose }) => {
     const validarFormulario = () => {
         const newErrors = {};
         if (!producto.name.trim()) {
-            newErrors.name = 'Debés ingresar un nombre';
+            newErrors.name = 'Ingresá un nombre';
         }
         if (!producto.category.trim()) {
-            newErrors.category = 'Debés seleccionar una categoría';
+            newErrors.category = 'Seleccioná una categoría';
         }
         if (!producto.imgUrl.trim()) {
-            newErrors.imgUrl = 'Debés ingresar una URL';
+            newErrors.imgUrl = 'Ingresá una URL';
         }
         if (!producto.description.trim() || producto.description.length <= 10) {
             newErrors.description = 'Descripción debe tener al menos 10 caracteres';
         }
 
         if (!producto.promo.trim()) {
-            newErrors.promo = 'Debés ingresar una Promo';
+            newErrors.promo = 'Ingresá una Promo';
         }
         if (!producto.price || parseFloat(producto.price) <= 0) {
             newErrors.price = 'Precio debe ser mayor a 0';
@@ -71,7 +71,6 @@ const FormularioProducto = ({ onAgregar, onClose }) => {
         if (!producto.use.trim() || producto.use.length <= 10) {
             newErrors.use = 'Uso debe tener al menos 10 caracteres';
         }
-
 
         setErrors(newErrors);
         return Object.keys(newErrors).length === 0;
@@ -105,13 +104,7 @@ const FormularioProducto = ({ onAgregar, onClose }) => {
                     <div className='form-product_header'>
                         <img className='logo' src={logo} alt="logo" />
                         <h2>Agregar nuevo producto</h2>
-                        <button
-                            className='btn_close'
-                            type='button'
-                            onClick={onClose}
-                        >
-                            <FontAwesomeIcon icon={faCircleXmark} />
-                        </button >
+                        <button className='btn_close' type='button' onClick={onClose} ><FontAwesomeIcon icon={faCircleXmark} /></button >
                     </div>
                     <p>Todos los campos son obligatorios!</p>
                     <form onSubmit={handleSubmit}>
@@ -125,7 +118,9 @@ const FormularioProducto = ({ onAgregar, onClose }) => {
                                     onChange={handleChange}
                                     placeholder="Ingresá el nombre del producto"
                                 />
-                                {errors.name && <p style={{ color: 'red', fontSize: '0.75rem' }}>{errors.name}</p>}
+                                <span className='mensajeError'>
+                                    {errors.name && <p>{errors.name}</p>}
+                                </span>
                             </div>
 
                             <div className='form-product-line'>
@@ -135,16 +130,16 @@ const FormularioProducto = ({ onAgregar, onClose }) => {
                                     value={producto.category}
                                     onChange={handleChange}
                                 >
-                                    <option value="">Seleccioná una opción</option>
-                                    <option value="destacado">Destacado</option>
-                                    <option value="no destacado">No destacado</option>
+                                    <option value="">Seleccioná la categoría</option>
+                                    <option value="destacado">destacado</option>
+                                    <option value="no destacado">no destacado</option>
                                 </select>
-                                {errors.category && (
-                                    <p style={{ color: 'red', fontSize: '0.75rem' }}>{errors.category}</p>
-                                )}
+                                <span className='mensajeError'>
+                                    {errors.category && <p>{errors.category}</p>}
+                                </span>
                             </div>
                         </div>
-                        <div className='form-product-line'> {/* Descripción */}
+                        <div className='form-product-line'> {/* Url */}
                             <label>URL de la imagen</label>
                             <input
                                 type="url"
@@ -153,9 +148,10 @@ const FormularioProducto = ({ onAgregar, onClose }) => {
                                 onChange={handleChange}
                                 placeholder="Ingresá la URL de la imagen"
                             />
-                            {errors.imgUrl && <p style={{ color: 'red', fontSize: '0.75rem' }}>{errors.imgUrl}</p>}
+                            <span className='mensajeError'>
+                                {errors.imgUrl && <p>{errors.imgUrl}</p>}
+                            </span>
                         </div>
-
                         <div className='form-product-line'> {/* Descripción */}
                             <label>Descripción</label>
                             <textarea
@@ -167,18 +163,29 @@ const FormularioProducto = ({ onAgregar, onClose }) => {
                                 rows="4"
                                 cols="50"
                             />
-                            {errors.description && <p style={{ color: 'red', fontSize: '0.75rem' }}>{errors.description}</p>}
+                            <span className='mensajeError'>
+                                {errors.description && <p>{errors.description}</p>}
+                            </span>
                         </div>
                         <div className='from-product-box'> {/* Promo Precio Stock */}
                             <div className='form-product-line'>
                                 <label>Promo</label>
-                                <input
-                                    type="text"
-                                    name='promo'
+                                <select
+                                    name="promo"
                                     value={producto.promo}
                                     onChange={handleChange}
-                                />
-                                {errors.promo && <p style={{ color: 'red', fontSize: '0.75rem' }}>{errors.promo}</p>}
+                                >
+                                    <option value="">Seleccioná una promo</option>
+                                    <option value="25% off">25% off</option>
+                                    <option value="50% off">50% off</option>
+                                    <option value="2x1">2x1</option>
+                                    <option value="3x2">3x2</option>
+                                    <option value="">sin promo</option>
+                                </select>
+
+                                <span className='mensajeError'>
+                                    {errors.promo && <p>{errors.promo}</p>}
+                                </span>
                             </div>
                             <div className='form-product-line'>
                                 <label>Precio</label>
@@ -189,7 +196,9 @@ const FormularioProducto = ({ onAgregar, onClose }) => {
                                     onChange={handleChange}
                                     min="0"
                                 />
-                                {errors.price && <p style={{ color: 'red', fontSize: '0.75rem' }}>{errors.price}</p>}
+                                <span className='mensajeError'>
+                                    {errors.price && <p>{errors.price}</p>}
+                                </span>
                             </div >
                             <div className='form-product-line'>
                                 <label>Stock</label>
@@ -200,7 +209,9 @@ const FormularioProducto = ({ onAgregar, onClose }) => {
                                     onChange={handleChange}
                                     min="0"
                                 />
-                                {errors.stock && <p style={{ color: 'red', fontSize: '0.75rem' }}>{errors.stock}</p>}
+                                <span className='mensajeError'>
+                                    {errors.stock && <p>{errors.stock}</p>}
+                                </span>
                             </div>
                         </div>
                         <div className='form-product-line'> {/* Ingredientes */}
@@ -214,7 +225,9 @@ const FormularioProducto = ({ onAgregar, onClose }) => {
                                 rows="4"
                                 cols="50"
                             />
-                            {errors.ingredients && <p style={{ color: 'red', fontSize: '0.75rem' }}>{errors.ingredients}</p>}
+                            <span className='mensajeError'>
+                                {errors.ingredients && <p>{errors.ingredients}</p>}
+                            </span>
                         </div>
                         <div className='form-product-line'> {/* Uso */}
                             <label>Uso</label>
@@ -227,7 +240,9 @@ const FormularioProducto = ({ onAgregar, onClose }) => {
                                 rows="4"
                                 cols="50"
                             />
-                            {errors.use && <p style={{ color: 'red', fontSize: '0.75rem' }}>{errors.use}</p>}
+                            <span className='mensajeError'>
+                                {errors.use && <p>{errors.use}</p>}
+                            </span>
                         </div>
                         <button className='btn-negro' type="submit">Agregar producto</button>
                     </form>
