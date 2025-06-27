@@ -57,7 +57,7 @@ const FormularioContacto = () => {
             <div className='contacto_container-right'>
                 <div className='form_overflow'>
                     <div className='form_header-contacto'>
-                        <h3>Formulario de contacto</h3>
+                        <h2>Formulario de contacto</h2>
                         <p>Completá el formulario y nos pondremos en contacto lo antes posible.</p>
                         <span className='form_header-mensaje'><FontAwesomeIcon icon={faCircleInfo} /><p>Todos los campos son obligatorios!</p></span>
                     </div>

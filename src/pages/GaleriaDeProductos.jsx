@@ -17,16 +17,14 @@ const GaleriaDeProductos = () => {
       <Header />
 
       <main className="container_page">
-        <h1>Galeria de productos</h1>
         {carga ? (
           <div className='container_loading'>
             <img src={loading} alt='loading' />
             <p>Cargando los productos</p>
-          </div> 
+          </div>
         ) : (
           <ProductList />
         )}
-
         <BannerBottom />
         <Cart />
       </main>

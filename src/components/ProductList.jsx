@@ -1,6 +1,8 @@
 import React, { useContext } from 'react'
 import './styles/ProductList.css'
 import Product from './Product'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 import { CartContext } from '../context/CartContext'
 
 const ProductList = () => {
@@ -8,25 +10,29 @@ const ProductList = () => {
 
     if (!productos || productos.length === 0) return null;
 
-    console.log(busqueda);
-
-
     return (
         <section className='productList_container'>
-            <input 
-                type="text"
-                placeholder='Buscar productos'
-                value={busqueda}
-                onChange={(e) => setBusqueda (e.target.value)}
-            />
+            <div className='productList_header'>
+                <h2>Nuestros productos</h2>
+                <span className='search_box'>
+                    <input
+                        type="text"
+                        placeholder='Buscar productos'
+                        value={busqueda}
+                        onChange={(e) => setBusqueda(e.target.value)}
+                    />
+                    <FontAwesomeIcon className='search_box-icon' icon={faMagnifyingGlass} />
+                </span>
+            </div>
 
-
-            {productosFiltrados.map(product => (
-                <Product
-                    key={product.id}
-                    product={product}
-                />
-            ))}
+            <div className='productList_products'>
+                {productosFiltrados.map(product => (
+                    <Product
+                        key={product.id}
+                        product={product}
+                    />
+                ))}
+            </div>
         </section>
     );
 }

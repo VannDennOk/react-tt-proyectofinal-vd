@@ -13,7 +13,7 @@ const Nosotros = () => {
     <>
       <Header />
       <main className="container_page">
-        <h1>Nosotros</h1>
+        <h2>Nosotros</h2>
         <Cart />
         <Footer />
       </main>
