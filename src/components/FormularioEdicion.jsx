@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import './styles/FormularioProducto.css'
+import './styles/Formularios.css'
 import logo from '../assets/Img/logo.png'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCircleXmark, faCircleInfo, faTriangleExclamation } from '@fortawesome/free-solid-svg-icons';
@@ -78,10 +78,10 @@ const FormularioEdicion = ({ productoSeleccionado, onActualizar, onClose }) => {
     }
 
     return (
-        <div className='form-product_overlay' onClick={onClose}>
-            <div className='form-product_container' onClick={(e) => e.stopPropagation()}>
-                <div className='form-product_overflow'>
-                    <div className='form-product_header'>
+        <div className='form_overlay' onClick={onClose}>
+            <div className='form_container' onClick={(e) => e.stopPropagation()}>
+                <div className='form_overflow'>
+                    <div className='form_header'>
                         <img className='logo' src={logo} alt="logo" />
                         <h2>Editar producto</h2>
                         <button
@@ -92,10 +92,10 @@ const FormularioEdicion = ({ productoSeleccionado, onActualizar, onClose }) => {
                             <FontAwesomeIcon icon={faCircleXmark} />
                         </button >
                     </div>
-                    <span className='form-product_mensaje'><FontAwesomeIcon icon={faCircleInfo} /><p>No dejes campos vacios!</p></span>
+                    <span className='form_header-mensaje'><FontAwesomeIcon icon={faCircleInfo} /><p>No dejes campos vacios!</p></span>
                     <form onSubmit={handleSubmit}>
-                        <div className='from-product-box'> {/* Nombre y Categoría */}
-                            <div className='form-product-line'>
+                        <div className='from_box'> {/* Nombre y Categoría */}
+                            <div className='form_line'>
                                 <label>Nombre</label>
                                 <input
                                     type="text"
@@ -108,7 +108,7 @@ const FormularioEdicion = ({ productoSeleccionado, onActualizar, onClose }) => {
                                     {errors.name && <span><FontAwesomeIcon icon={faTriangleExclamation} /><p>{errors.name}</p></span>}
                                 </div>
                             </div>
-                            <div className='form-product-line'>
+                            <div className='form_line'>
                                 <label>Categoría</label>
                                 <select
                                     name="category"
@@ -124,7 +124,7 @@ const FormularioEdicion = ({ productoSeleccionado, onActualizar, onClose }) => {
                                 </div>
                             </div>
                         </div>
-                        <div className='form-product-line'> {/* URL */}
+                        <div className='form_line'> {/* URL */}
                             <label>URL de la imagen</label>
                             <input
                                 type="url"
@@ -137,7 +137,7 @@ const FormularioEdicion = ({ productoSeleccionado, onActualizar, onClose }) => {
                                 {errors.imgUrl && <span><FontAwesomeIcon icon={faTriangleExclamation} /><p>{errors.imgUrl}</p></span>}
                             </div>
                         </div>
-                        <div className='form-product-line'> {/* Descripción */}
+                        <div className='form_line'> {/* Descripción */}
                             <label>Descripción</label>
                             <textarea
                                 type="text"
@@ -152,28 +152,26 @@ const FormularioEdicion = ({ productoSeleccionado, onActualizar, onClose }) => {
                                 {errors.description && <span><FontAwesomeIcon icon={faTriangleExclamation} /><p>{errors.description}</p></span>}
                             </div>
                         </div>
-                        <div className='from-product-box'> {/* Promo Precio Stock */}
-                            <div className='form-product-line'>
-                                <div className='form-product-line'>
-                                    <label>Promo</label>
-                                    <select
-                                        name="promo"
-                                        value={producto.promo}
-                                        onChange={handleChange}
-                                    >
-                                        <option value="">Seleccioná una promo</option>
-                                        <option value="25% off">25% off</option>
-                                        <option value="50% off">50% off</option>
-                                        <option value="2x1">2x1</option>
-                                        <option value="3x2">3x2</option>
-                                        <option value="">sin promo</option>
-                                    </select>
-                                    <div className='mensajeError'>
-                                        {errors.promo && <span><FontAwesomeIcon icon={faTriangleExclamation} /><p>{errors.promo}</p></span>}
-                                    </div>
+                        <div className='from_box'> {/* Promo Precio Stock */}
+                            <div className='form_line'>
+                                <label>Promo</label>
+                                <select
+                                    name="promo"
+                                    value={producto.promo}
+                                    onChange={handleChange}
+                                >
+                                    <option value="">Seleccioná una promo</option>
+                                    <option value="25% off">25% off</option>
+                                    <option value="50% off">50% off</option>
+                                    <option value="2x1">2x1</option>
+                                    <option value="3x2">3x2</option>
+                                    <option value="">sin promo</option>
+                                </select>
+                                <div className='mensajeError'>
+                                    {errors.promo && <span><FontAwesomeIcon icon={faTriangleExclamation} /><p>{errors.promo}</p></span>}
                                 </div>
                             </div>
-                            <div className='form-product-line'>
+                            <div className='form_line'>
                                 <label>Precio</label>
                                 <input
                                     type="number"
@@ -186,7 +184,7 @@ const FormularioEdicion = ({ productoSeleccionado, onActualizar, onClose }) => {
                                     {errors.price && <span><FontAwesomeIcon icon={faTriangleExclamation} /><p>{errors.price}</p></span>}
                                 </div>
                             </div >
-                            <div className='form-product-line'>
+                            <div className='form_line'>
                                 <label>Stock</label>
                                 <input
                                     type="number"
@@ -200,7 +198,7 @@ const FormularioEdicion = ({ productoSeleccionado, onActualizar, onClose }) => {
                                 </div>
                             </div>
                         </div>
-                        <div className='form-product-line'> {/* Ingredientes */}
+                        <div className='form_line'> {/* Ingredientes */}
                             <label>Ingredientes</label>
                             <textarea
                                 type="text"
@@ -215,7 +213,7 @@ const FormularioEdicion = ({ productoSeleccionado, onActualizar, onClose }) => {
                                 {errors.ingredients && <span><FontAwesomeIcon icon={faTriangleExclamation} /><p>{errors.ingredients}</p></span>}
                             </div>
                         </div>
-                        <div className='form-product-line'> {/* Uso */}
+                        <div className='form_line'> {/* Uso */}
                             <label>Uso</label>
                             <textarea
                                 type="text"

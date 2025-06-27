@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import './styles/FormularioProducto.css'
+import './styles/Formularios.css'
 import logo from '../assets/Img/logo.png'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCircleXmark, faCircleInfo, faTriangleExclamation } from '@fortawesome/free-solid-svg-icons';
@@ -98,18 +98,18 @@ const FormularioProducto = ({ onAgregar, onClose }) => {
     }
 
     return (
-        <div className='form-product_overlay' onClick={onClose}>
-            <div className='form-product_container' onClick={(e) => e.stopPropagation()}>
-                <div className='form-product_overflow'>
-                    <div className='form-product_header'>
+        <div className='form_overlay' onClick={onClose}>
+            <div className='form_container' onClick={(e) => e.stopPropagation()}>
+                <div className='form_overflow'>
+                    <div className='form_header'>
                         <img className='logo' src={logo} alt="logo" />
                         <h2>Agregar nuevo producto</h2>
                         <button className='btn_close' type='button' onClick={onClose} ><FontAwesomeIcon icon={faCircleXmark} /></button >
                     </div>
-                    <span className='form-product_mensaje'><FontAwesomeIcon icon={faCircleInfo} /><p>Todos los campos son obligatorios!</p></span>
+                    <span className='form_header-mensaje'><FontAwesomeIcon icon={faCircleInfo} /><p>Todos los campos son obligatorios!</p></span>
                     <form onSubmit={handleSubmit}>
-                        <div className='from-product-box'> {/* Nombre y Categoría */}
-                            <div className='form-product-line'>
+                        <div className='from_box'> {/* Nombre y Categoría */}
+                            <div className='form_line'>
                                 <label>Nombre</label>
                                 <input
                                     type="text"
@@ -122,7 +122,7 @@ const FormularioProducto = ({ onAgregar, onClose }) => {
                                     {errors.name && <span><FontAwesomeIcon icon={faTriangleExclamation} /><p>{errors.name}</p></span>}
                                 </div>
                             </div>
-                            <div className='form-product-line'>
+                            <div className='form_line'>
                                 <label>Categoría</label>
                                 <select
                                     name="category"
@@ -138,7 +138,7 @@ const FormularioProducto = ({ onAgregar, onClose }) => {
                                 </div>
                             </div>
                         </div>
-                        <div className='form-product-line'> {/* Url */}
+                        <div className='form_line'> {/* Url */}
                             <label>URL de la imagen</label>
                             <input
                                 type="url"
@@ -151,7 +151,7 @@ const FormularioProducto = ({ onAgregar, onClose }) => {
                                 {errors.imgUrl && <span><FontAwesomeIcon icon={faTriangleExclamation} /><p>{errors.imgUrl}</p></span>}
                             </div>
                         </div>
-                        <div className='form-product-line'> {/* Descripción */}
+                        <div className='form_line'> {/* Descripción */}
                             <label>Descripción</label>
                             <textarea
                                 type="text"
@@ -166,8 +166,8 @@ const FormularioProducto = ({ onAgregar, onClose }) => {
                                 {errors.description && <span><FontAwesomeIcon icon={faTriangleExclamation} /><p>{errors.description}</p></span>}
                             </div>
                         </div>
-                        <div className='from-product-box'> {/* Promo Precio Stock */}
-                            <div className='form-product-line'>
+                        <div className='from_box'> {/* Promo Precio Stock */}
+                            <div className='form_line'>
                                 <label>Promo</label>
                                 <select
                                     name="promo"
@@ -185,7 +185,7 @@ const FormularioProducto = ({ onAgregar, onClose }) => {
                                     {errors.promo && <span><FontAwesomeIcon icon={faTriangleExclamation} /><p>{errors.promo}</p></span>}
                                 </div>
                             </div>
-                            <div className='form-product-line'>
+                            <div className='form_line'>
                                 <label>Precio</label>
                                 <input
                                     type="number"
@@ -198,7 +198,7 @@ const FormularioProducto = ({ onAgregar, onClose }) => {
                                     {errors.price && <span><FontAwesomeIcon icon={faTriangleExclamation} /><p>{errors.price}</p></span>}
                                 </div>
                             </div >
-                            <div className='form-product-line'>
+                            <div className='form_line'>
                                 <label>Stock</label>
                                 <input
                                     type="number"
@@ -212,7 +212,7 @@ const FormularioProducto = ({ onAgregar, onClose }) => {
                                 </div>
                             </div>
                         </div>
-                        <div className='form-product-line'> {/* Ingredientes */}
+                        <div className='form_line'> {/* Ingredientes */}
                             <label>Ingredientes</label>
                             <textarea
                                 type="text"
@@ -227,7 +227,7 @@ const FormularioProducto = ({ onAgregar, onClose }) => {
                                 {errors.ingredients && <span><FontAwesomeIcon icon={faTriangleExclamation} /><p>{errors.ingredients}</p></span>}
                             </div>
                         </div>
-                        <div className='form-product-line'> {/* Uso */}
+                        <div className='form_line'> {/* Uso */}
                             <label>Uso</label>
                             <textarea
                                 type="text"

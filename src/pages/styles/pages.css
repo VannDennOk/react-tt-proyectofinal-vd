@@ -216,3 +216,28 @@
     justify-content: flex-start;
     gap: 0.5rem;
 }
+
+/*PÁGINA LOGIN ); */
+
+.login_main {
+    width: 100%;
+    height: 100vh;
+    padding: 4rem 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background-image: url("src/assets/fondologin.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.contacto_main{
+    width: 100%;
+    background-color: var(--colorBlanco);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 4rem 2rem;
+}

@@ -230,38 +230,7 @@ option {
   font-weight: 200;
 }
 
-.mensajeError{
-    width: 100%;
-    height: 1rem;
-    padding-left: 0.5rem;
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-}
-
-.mensajeError span{
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  gap: 0.5rem;
-  color: var(--colorRojo);
-  font-size: 0.8rem;
-}
-
-.mensajeError p{
-    font-family: var(--fontCuerpo);
-    font-size: 0.8rem;
-    font-weight: 200;
-    color: var(--colorRojo);
-}
-
-
-
-
-
-
-
+/*ESTILO SWEETALERT PERSONALIZADO*/
 .mi-popup {
   background-color: var(--colorBlanco);
   border-radius: 20px;
