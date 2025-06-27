@@ -1,6 +1,5 @@
 import { createContext, useEffect, useState, useContext } from "react";
 import { CartContext } from "./CartContext";
-import { toast } from "react-toastify";
 import Swal from "sweetalert2";
 
 export const AdminContext = createContext();
@@ -19,7 +18,7 @@ export const AdminProvider = ({ children }) => {
 
     const { setProductos } = useContext(CartContext);
 
-    //Conexión con MockAPI
+    //Conexión con MockAPI OK
     useEffect(() => {
         fetch(apiUrl)
             .then((response) => response.json())
@@ -36,7 +35,7 @@ export const AdminProvider = ({ children }) => {
             })
     }, []);
 
-    //Al agregar o eliminar un producto se va a refrescar sin recargar toda la página
+    //Al agregar o eliminar un producto se va a refrescar sin recargar toda la página OK
     const cargarProductos = async () => {
         try {
             const res = await fetch(apiUrl)
@@ -47,10 +46,10 @@ export const AdminProvider = ({ children }) => {
         }
     }
 
-    //Agregar producto nuevo
+    //Agregar producto nuevo con SweetAlert Personalizado OK
     const agregarProducto = async (producto) => {
         try {
-            const respuesta = await fetch('https://68476daeec44b9f3493d0ddc.mockapi.io/vitamins', {
+            const respuesta = await fetch(`${apiUrl}`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -61,15 +60,41 @@ export const AdminProvider = ({ children }) => {
                 throw new Error('Error al agregar producto')
             }
             const data = await respuesta.json()
-            toast.success('Producto agregado correctamente')
+            Swal.fire({
+                title: '¡Listo!',
+                text: 'El producto fue agregado correctamente',
+                iconHtml: '<i class="fas fa-check-circle fa-1x" style="color: var(--colorVerde);"></i>',
+                iconColor: 'transparent',
+                showCancelButton: false,
+                confirmButtonText: 'Ok',
+                customClass: {
+                    popup: 'mi-popup',
+                    title: 'mi-title',
+                    htmlContainer: 'mi-text',
+                    confirmButton: 'btn-negro btn-160',
+                }
+            })
             cargarProductos()
             setProductos((prev) => [...prev, data])
         } catch (error) {
-            console.log(error.message);
+            Swal.fire({
+                title: '¡Ups!',
+                text: 'Hubo un problema al agregar el producto',
+                iconHtml: '<i class="fa-solid fa-circle-xmark" style="color: var(--colorRojo);"></i>',
+                iconColor: 'transparent',
+                showCancelButton: false,
+                confirmButtonText: 'Ok',
+                customClass: {
+                    popup: 'mi-popup',
+                    title: 'mi-title',
+                    htmlContainer: 'mi-text',
+                    confirmButton: 'btn-negro btn-160',
+                }
+            })
         }
     }
 
-    //Editar producto
+    //Editar producto con SweetAlert Personalizado OK
     const actualizarProducto = async (producto) => {
         try {
             const respuesta = await fetch(`${apiUrl}/${producto.id}`, {
@@ -79,9 +104,24 @@ export const AdminProvider = ({ children }) => {
                 },
                 body: JSON.stringify(producto)
             })
-            if (!respuesta.ok) throw Error('Error al actualizar el producto')
+            if (!respuesta.ok) {
+                throw Error('Error al actualizar el producto')
+            }
             const data = await respuesta.json()
-            toast.success('Producto editado correctamente')
+            Swal.fire({
+                title: '¡Listo!',
+                text: 'El producto fue editado correctamente',
+                iconHtml: '<i class="fas fa-check-circle fa-1x" style="color: var(--colorVerde);"></i>',
+                iconColor: 'transparent',
+                showCancelButton: false,
+                confirmButtonText: 'Ok',
+                customClass: {
+                    popup: 'mi-popup',
+                    title: 'mi-title',
+                    htmlContainer: 'mi-text',
+                    confirmButton: 'btn-negro btn-160',
+                }
+            })
             setOpenEditor(false)
             setSeleccionado(null)
             cargarProductos()
@@ -89,29 +129,24 @@ export const AdminProvider = ({ children }) => {
                 prev.map((p) => (p.id === data.id ? data : p))
             );
         } catch (error) {
-            toast.error('hubo un problema al editar el producto')
+            Swal.fire({
+                title: '¡Ups',
+                text: 'Hubo un problema al editar el producto',
+                iconHtml: '<i class="fa-solid fa-circle-xmark" style="color: var(--colorRojo);"></i>',
+                iconColor: 'transparent',
+                showCancelButton: false,
+                confirmButtonText: 'Ok',
+                customClass: {
+                    popup: 'mi-popup',
+                    title: 'mi-title',
+                    htmlContainer: 'mi-text',
+                    confirmButton: 'btn-negro btn-160',
+                }
+            })
         }
     }
 
-    //Eliminar un producto por ID
-    /*     const eliminarProducto = async (id) => {
-            const confirmar = window.confirm('Estás seguro de eliminar el producto?')
-            if (confirmar) {
-                try {
-                    const respuesta = await fetch(`https://68476daeec44b9f3493d0ddc.mockapi.io/vitamins/${id}`, {
-                        method: 'DELETE',
-                    })
-                    if (!respuesta.ok) throw Error('Error al eliminar')
-                    toast.success('producto eliminado correctamente')
-                    cargarProductos()
-                    setProductos((prev) => prev.filter((p) => p.id !== id));
-                } catch (error) {
-                    toast.error('hubo un problema al eliminar el producto')
-                }
-            }
-        } */
-
-    //Eliminar un producto por ID con SweetAlert Personalizado
+    //Eliminar un producto por ID con SweetAlert Personalizado OK
     const eliminarProducto = async (id) => {
         const { isConfirmed } = await Swal.fire({
             title: '¿Seguro que deseas eliminar el producto?',
@@ -121,7 +156,6 @@ export const AdminProvider = ({ children }) => {
             showCancelButton: true,
             confirmButtonText: 'Aceptar',
             cancelButtonText: 'Cancelar',
-
             customClass: {
                 popup: 'mi-popup',
                 title: 'mi-title',
@@ -133,42 +167,43 @@ export const AdminProvider = ({ children }) => {
 
         if (!isConfirmed) return;
         try {
-            const respuesta = await fetch(
-                `https://68476daeec44b9f3493d0ddc.mockapi.io/vitamins/${id}`,
+            const respuesta = await fetch(`${apiUrl}/${id}`,
                 { method: 'DELETE' }
             );
-
             if (!respuesta.ok) throw new Error('Error al eliminar');
-            // Swal.fire('Listo', 'El producto fue eliminado correctamente', 'success');
             Swal.fire({
-            title: '¡Listo!',
-            text: 'El producto fue eliminado correctamente',
-            iconHtml: '<i class="fas fa-check-circle fa-1x" style="color: var(--colorVerde);"></i>',
-            iconColor: 'transparent',
-            showCancelButton: false,
-            confirmButtonText: 'Ok',
-
-            customClass: {
-                popup: 'mi-popup',
-                title: 'mi-title',
-                htmlContainer: 'mi-text',
-                confirmButton: 'btn-negro btn-160',
-            }
-        })
-            
-            
+                title: '¡Listo!',
+                text: 'El producto fue eliminado correctamente',
+                iconHtml: '<i class="fas fa-check-circle fa-1x" style="color: var(--colorVerde);"></i>',
+                iconColor: 'transparent',
+                showCancelButton: false,
+                confirmButtonText: 'Ok',
+                customClass: {
+                    popup: 'mi-popup',
+                    title: 'mi-title',
+                    htmlContainer: 'mi-text',
+                    confirmButton: 'btn-negro btn-160',
+                }
+            })
             cargarProductos();
             setProductos((prev) => prev.filter((p) => p.id !== id));
         } catch (error) {
-            toast.error('Hubo un problema al eliminar el producto');
-            console.error(error);
+            Swal.fire({
+                title: '¡Ups!',
+                text: 'Hubo un problema al eliminar el producto',
+                iconHtml: '<i class="fa-solid fa-circle-xmark" style="color: var(--colorRojo);"></i>',
+                iconColor: 'transparent',
+                showCancelButton: false,
+                confirmButtonText: 'Ok',
+                customClass: {
+                    popup: 'mi-popup',
+                    title: 'mi-title',
+                    htmlContainer: 'mi-text',
+                    confirmButton: 'btn-negro btn-160',
+                }
+            })
         }
     };
-
-
-
-
-
 
     return (
         <AdminContext.Provider
