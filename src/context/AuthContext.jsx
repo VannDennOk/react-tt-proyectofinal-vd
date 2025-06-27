@@ -13,7 +13,7 @@ export const AuthProvider =({ children }) => {
    
   //persistencia de datos para el logueo
     useEffect(() => {
-        const isAuthenticated = localStorage.getItem('isAuth') === 'true'
+        const isAuthenticated = localStorage.getItem('isAuth') === 'false'
         if (isAuthenticated) {
             setIsAuth(true)
             navigate('/admin')
@@ -37,24 +37,29 @@ export const AuthProvider =({ children }) => {
     try {
       const res = await fetch('data/users.json');
       const users = await res.json();
-
       const foundUser = users.find((user) => user.email === email && user.password === password)
 
       if (!foundUser) {
-        setError({ password: 'Credenciales inválidas' });
+        setError({ email: 'Credenciaes inválidas', password: 'Credenciaes inválidas' });
     } else {
         console.log('User role:', foundUser.role);
         if (foundUser.role === 'admin') {
           setIsAuth(true);
           localStorage.setItem('isAuth', true)
-          navigate('/admin')
+          navigate('/admin'),
+          setEmail('')
+          setPassword('')
+          setError('')
         } else {
           navigate('/')
+          setEmail('')
+          setPassword('')
+          setError('')
         }
       }
     } catch (err) {
       console.error('Error fetching users:', err);
-      setError({ email: 'Algo salió mal, por favor intentalo más tarde' })
+      setError({ password: 'Algo salió mal, por favor intentalo más tarde' })
     }
   }
 

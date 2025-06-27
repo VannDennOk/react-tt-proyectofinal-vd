@@ -1,5 +1,4 @@
 import React, { useState, useContext } from 'react'
-import { CartContext } from "../context/CartContext"
 import { useAuth } from '../context/AuthContext';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
@@ -18,12 +17,10 @@ const Login = () => {
   } = useAuth()
 
   return (
-
     <section className='login_main'>
       <div className='login_container'>
         <Link to='/'><FontAwesomeIcon className='icon_back' icon={faArrowLeft} /></Link>
         <h2>¡Hola!</h2>
-
         <form onSubmit={handleSubmit}>
           <div className='login_form-line'>
             <label htmlFor="formBasicEmail">E-mail</label>
@@ -34,9 +31,9 @@ const Login = () => {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
             />
-            {error.email && (
-              <div className='form_error'>{error.email}</div>
-            )}
+            <span className='mensajeError'>
+              {error.email && <p>{error.email}</p>}
+            </span>
           </div>
 
           <div className='login_form-line'>
@@ -48,11 +45,13 @@ const Login = () => {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
             />
-            {error.password && (
-              <div className='form_error'>{error.password}</div>
-            )}
+            <span className='mensajeError'>
+              {error.password && <p>{error.password}</p>}
+            </span>
           </div>
+          <div className='login_form-btn'>
           <button className='btn-negro' type='submit'>Ingresar</button>
+          </div>
         </form>
       </div>
     </section>

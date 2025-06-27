@@ -235,6 +235,28 @@ option {
     font-size: 0.8rem;
 }
 
+.mensajeError{
+    width: 100%;
+    height: 1rem;
+    padding-left: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.mensajeError p{
+    font-family: var(--fontCuerpo);
+    font-size: 0.8rem;
+    font-weight: 200;
+    color: var(--colorRojo);
+}
+
+
+
+
+
+
+
 .mi-popup {
   background-color: var(--colorBlanco);
   border-radius: 20px;
