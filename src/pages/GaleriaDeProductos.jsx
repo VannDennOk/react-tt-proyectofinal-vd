@@ -10,7 +10,7 @@ import { CartContext } from "../context/CartContext"
 
 const GaleriaDeProductos = () => {
 
-  const { cart, carga } = useContext(CartContext);
+  const { carga } = useContext(CartContext);
 
   return (
     <>

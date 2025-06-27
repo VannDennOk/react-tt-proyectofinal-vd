@@ -15,6 +15,8 @@ export const CartProvider = ({ children }) => {
   const [isAuthenticated, setIsAuth] = useState(false);
   const [busqueda, setBusqueda] = useState('');
 
+  const apiUrl = 'https://68476daeec44b9f3493d0ddc.mockapi.io/vitamins';
+
   const [isCartOpen, setCartOpen] = useState(false);
 
   //Cambio el modal por un TOAST
@@ -23,7 +25,7 @@ export const CartProvider = ({ children }) => {
 
   //conecta MockAPI
   useEffect(() => {
-    fetch('https://68476daeec44b9f3493d0ddc.mockapi.io/vitamins')
+    fetch(apiUrl)
       .then((respueta) => respueta.json())
       .then((datos) => {
         setTimeout(() => {
@@ -51,7 +53,7 @@ export const CartProvider = ({ children }) => {
   //agrega el producto desde el formularios sin recargar las páginas
   const addProducto = async (nuevo) => {
     try {
-      const res = await fetch("https://68476daeec44b9f3493d0ddc.mockapi.io/vitamins", {
+      const res = await fetch(apiUrl, {
         method: 'POST',
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(nuevo),
@@ -116,7 +118,6 @@ export const CartProvider = ({ children }) => {
   localStorage.removeItem('cart')
   toast.info('compra finalizada')
  }
-
 
   return (
     <CartContext.Provider

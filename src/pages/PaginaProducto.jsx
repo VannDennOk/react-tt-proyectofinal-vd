@@ -9,7 +9,7 @@ import BannerBottom from '../components/BannerBottom';
 import { CartContext } from '../context/CartContext';
 
 const PaginaProducto = () => {
-  const { carga, cart} = useContext(CartContext)
+  const { carga } = useContext(CartContext)
 
   return (
     <>

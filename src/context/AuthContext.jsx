@@ -13,7 +13,7 @@ export const AuthProvider =({ children }) => {
    
   //persistencia de datos para el logueo
     useEffect(() => {
-        const isAuthenticated = localStorage.getItem('isAuth') === 'true'
+        const isAuthenticated = localStorage.getItem('isAuth') === 'false'
         if (isAuthenticated) {
             setIsAuth(true)
             navigate('/admin')

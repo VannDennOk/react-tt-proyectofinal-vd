@@ -9,7 +9,6 @@ import { Link } from 'react-router-dom';
 import { AdminContext } from '../context/AdminContext';
 import FormularioEdicion from '../components/FormularioEdicion';
 
-
 const Admin = () => {
 
   const {
