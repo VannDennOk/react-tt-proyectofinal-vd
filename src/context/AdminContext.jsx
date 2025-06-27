@@ -8,7 +8,7 @@ export const AdminProvider = ({ children }) => {
 
     const [products, setProducts] = useState([]);
     const [form, setForm] = useState({ id: null, name: "", price: "" });
-    const [loading, setLoading] = useState(true);
+    const [carga, setCarga] = useState(true);
     const [open, setOpen] = useState(false);
     const [seleccionado, setSeleccionado] = useState(null);
     const [openEditor, setOpenEditor] = useState(false)
@@ -25,13 +25,13 @@ export const AdminProvider = ({ children }) => {
             .then((data) => {
                 setTimeout(() => {
                     setProducts(data);
-                    setLoading(false);
+                    setCarga(false);
                 }, 2000);
             })
             .catch((error) => {
                 console.log("Error fetching data:", error);
                 setError(true);
-                setLoading(false);
+                setCarga(false);
             })
     }, []);
 
@@ -209,7 +209,7 @@ export const AdminProvider = ({ children }) => {
         <AdminContext.Provider
             value={{
                 products,
-                loading,
+                carga,
                 open,
                 setOpen,
                 openEditor,

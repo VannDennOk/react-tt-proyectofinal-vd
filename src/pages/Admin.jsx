@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useContext } from 'react'
 import './styles/pages.css'
 import logo from '../assets/Img/logo.png';
+import loading from '../assets/loading.gif';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowRightFromBracket, faPen, faTrash, faPlus } from '@fortawesome/free-solid-svg-icons';
 import FormularioProducto from '../components/FormularioProducto';
@@ -8,11 +9,12 @@ import { Link } from 'react-router-dom';
 import { AdminContext } from '../context/AdminContext';
 import FormularioEdicion from '../components/FormularioEdicion';
 
+
 const Admin = () => {
 
   const {
     products,
-    loading,
+    carga,
     open,
     setOpen,
     openEditor,
@@ -39,11 +41,13 @@ const Admin = () => {
           <Link to='/'><FontAwesomeIcon icon={faArrowRightFromBracket} />Salir</Link>
         </div>
       </nav>
-
       <h2>Panel Administrativo</h2>
 
-      {loading ? (
-        <p>Cargando...</p>
+      {carga ? (
+          <div className='container_loading'>
+            <img src={loading} alt='loading' />
+            <p>Cargando los productos</p>
+          </div> 
       ) : (
         <div className='admin-products'>
           <ul>
