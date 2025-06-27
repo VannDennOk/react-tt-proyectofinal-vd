@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import './styles/FormularioProducto.css'
 import logo from '../assets/Img/logo.png'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCircleXmark } from '@fortawesome/free-solid-svg-icons';
+import { faCircleXmark, faCircleInfo, faTriangleExclamation } from '@fortawesome/free-solid-svg-icons';
 
 const FormularioProducto = ({ onAgregar, onClose }) => {
     const [producto, setProducto] = useState({
@@ -57,7 +57,7 @@ const FormularioProducto = ({ onAgregar, onClose }) => {
         }
 
         if (!producto.promo.trim()) {
-            newErrors.promo = 'Ingresá una Promo';
+            newErrors.promo = 'Seleccioná una promo';
         }
         if (!producto.price || parseFloat(producto.price) <= 0) {
             newErrors.price = 'Precio debe ser mayor a 0';
@@ -106,7 +106,7 @@ const FormularioProducto = ({ onAgregar, onClose }) => {
                         <h2>Agregar nuevo producto</h2>
                         <button className='btn_close' type='button' onClick={onClose} ><FontAwesomeIcon icon={faCircleXmark} /></button >
                     </div>
-                    <p>Todos los campos son obligatorios!</p>
+                    <span className='form-product_mensaje'><FontAwesomeIcon icon={faCircleInfo} /><p>Todos los campos son obligatorios!</p></span>
                     <form onSubmit={handleSubmit}>
                         <div className='from-product-box'> {/* Nombre y Categoría */}
                             <div className='form-product-line'>
@@ -118,11 +118,10 @@ const FormularioProducto = ({ onAgregar, onClose }) => {
                                     onChange={handleChange}
                                     placeholder="Ingresá el nombre del producto"
                                 />
-                                <span className='mensajeError'>
-                                    {errors.name && <p>{errors.name}</p>}
-                                </span>
+                                <div className='mensajeError'>
+                                    {errors.name && <span><FontAwesomeIcon icon={faTriangleExclamation} /><p>{errors.name}</p></span>}
+                                </div>
                             </div>
-
                             <div className='form-product-line'>
                                 <label>Categoría</label>
                                 <select
@@ -134,9 +133,9 @@ const FormularioProducto = ({ onAgregar, onClose }) => {
                                     <option value="destacado">destacado</option>
                                     <option value="no destacado">no destacado</option>
                                 </select>
-                                <span className='mensajeError'>
-                                    {errors.category && <p>{errors.category}</p>}
-                                </span>
+                                <div className='mensajeError'>
+                                    {errors.category && <span><FontAwesomeIcon icon={faTriangleExclamation} /><p>{errors.category}</p></span>}
+                                </div>
                             </div>
                         </div>
                         <div className='form-product-line'> {/* Url */}
@@ -148,9 +147,9 @@ const FormularioProducto = ({ onAgregar, onClose }) => {
                                 onChange={handleChange}
                                 placeholder="Ingresá la URL de la imagen"
                             />
-                            <span className='mensajeError'>
-                                {errors.imgUrl && <p>{errors.imgUrl}</p>}
-                            </span>
+                            <div className='mensajeError'>
+                                {errors.imgUrl && <span><FontAwesomeIcon icon={faTriangleExclamation} /><p>{errors.imgUrl}</p></span>}
+                            </div>
                         </div>
                         <div className='form-product-line'> {/* Descripción */}
                             <label>Descripción</label>
@@ -163,9 +162,9 @@ const FormularioProducto = ({ onAgregar, onClose }) => {
                                 rows="4"
                                 cols="50"
                             />
-                            <span className='mensajeError'>
-                                {errors.description && <p>{errors.description}</p>}
-                            </span>
+                            <div className='mensajeError'>
+                                {errors.description && <span><FontAwesomeIcon icon={faTriangleExclamation} /><p>{errors.description}</p></span>}
+                            </div>
                         </div>
                         <div className='from-product-box'> {/* Promo Precio Stock */}
                             <div className='form-product-line'>
@@ -182,10 +181,9 @@ const FormularioProducto = ({ onAgregar, onClose }) => {
                                     <option value="3x2">3x2</option>
                                     <option value="">sin promo</option>
                                 </select>
-
-                                <span className='mensajeError'>
-                                    {errors.promo && <p>{errors.promo}</p>}
-                                </span>
+                                <div className='mensajeError'>
+                                    {errors.promo && <span><FontAwesomeIcon icon={faTriangleExclamation} /><p>{errors.promo}</p></span>}
+                                </div>
                             </div>
                             <div className='form-product-line'>
                                 <label>Precio</label>
@@ -196,9 +194,9 @@ const FormularioProducto = ({ onAgregar, onClose }) => {
                                     onChange={handleChange}
                                     min="0"
                                 />
-                                <span className='mensajeError'>
-                                    {errors.price && <p>{errors.price}</p>}
-                                </span>
+                                <div className='mensajeError'>
+                                    {errors.price && <span><FontAwesomeIcon icon={faTriangleExclamation} /><p>{errors.price}</p></span>}
+                                </div>
                             </div >
                             <div className='form-product-line'>
                                 <label>Stock</label>
@@ -209,9 +207,9 @@ const FormularioProducto = ({ onAgregar, onClose }) => {
                                     onChange={handleChange}
                                     min="0"
                                 />
-                                <span className='mensajeError'>
-                                    {errors.stock && <p>{errors.stock}</p>}
-                                </span>
+                                <div className='mensajeError'>
+                                    {errors.stock && <span><FontAwesomeIcon icon={faTriangleExclamation} /><p>{errors.stock}</p></span>}
+                                </div>
                             </div>
                         </div>
                         <div className='form-product-line'> {/* Ingredientes */}
@@ -225,9 +223,9 @@ const FormularioProducto = ({ onAgregar, onClose }) => {
                                 rows="4"
                                 cols="50"
                             />
-                            <span className='mensajeError'>
-                                {errors.ingredients && <p>{errors.ingredients}</p>}
-                            </span>
+                            <div className='mensajeError'>
+                                {errors.ingredients && <span><FontAwesomeIcon icon={faTriangleExclamation} /><p>{errors.ingredients}</p></span>}
+                            </div>
                         </div>
                         <div className='form-product-line'> {/* Uso */}
                             <label>Uso</label>
@@ -240,9 +238,9 @@ const FormularioProducto = ({ onAgregar, onClose }) => {
                                 rows="4"
                                 cols="50"
                             />
-                            <span className='mensajeError'>
-                                {errors.use && <p>{errors.use}</p>}
-                            </span>
+                            <div className='mensajeError'>
+                                {errors.use && <span><FontAwesomeIcon icon={faTriangleExclamation} /><p>{errors.use}</p></span>}
+                            </div>
                         </div>
                         <button className='btn-negro' type="submit">Agregar producto</button>
                     </form>

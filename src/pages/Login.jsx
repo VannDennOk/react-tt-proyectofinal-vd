@@ -1,14 +1,14 @@
 import React, { useState, useContext } from 'react'
 import { useAuth } from '../context/AuthContext';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
+import { faArrowLeft, faTriangleExclamation } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom';
 import './styles/Login.css'
 
 const Login = () => {
 
   const {
-    email, 
+    email,
     setEmail,
     password,
     setPassword,
@@ -31,9 +31,9 @@ const Login = () => {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
             />
-            <span className='mensajeError'>
-              {error.email && <p>{error.email}</p>}
-            </span>
+            <div className='mensajeError'>
+              {error.email && <span><FontAwesomeIcon icon={faTriangleExclamation} /><p>{error.email}</p></span>}
+            </div>
           </div>
 
           <div className='login_form-line'>
@@ -45,12 +45,12 @@ const Login = () => {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
             />
-            <span className='mensajeError'>
-              {error.password && <p>{error.password}</p>}
-            </span>
+            <div className='mensajeError'>
+              {error.password && <span><FontAwesomeIcon icon={faTriangleExclamation} /><p>{error.password}</p></span>}
+            </div>
           </div>
           <div className='login_form-btn'>
-          <button className='btn-negro' type='submit'>Ingresar</button>
+            <button className='btn-negro' type='submit'>Ingresar</button>
           </div>
         </form>
       </div>

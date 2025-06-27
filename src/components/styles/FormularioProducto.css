@@ -45,6 +45,15 @@
     justify-content: space-between;
 }
 
+.form-product_mensaje {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 0.5rem;
+    color: var(--colorNegro);
+}
+
 .from-product-box {
     width: 100%;
     display: flex;
