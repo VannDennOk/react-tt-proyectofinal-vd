@@ -2,6 +2,8 @@ import crueltyFree from '../assets/Icons/crueltyFree.png'
 import libreAzucar from '../assets/Icons/libreAzucar.png'
 import libreGluten from '../assets/Icons/libreGluten.png'
 import vegano from '../assets/Icons/vegano.png'
+import libreLactosa from '../assets/Icons/libreLactosa.png'
+import libreGelatina from '../assets/Icons/libreGelatina.png'
 
 export const databanner = [
     {
@@ -29,5 +31,19 @@ export const databanner = [
         alt: "icono libre azucar",
         line1: "LIBRE",
         line2: "AZÚCAR"
+    },
+
+        {
+        imgUrl: libreLactosa,
+        alt: "icono libre lactosa",
+        line1: "LIBRE",
+        line2: "LACTOSA"
+    },
+
+        {
+        imgUrl: libreGelatina,
+        alt: "icono libre gelatina",
+        line1: "LIBRE",
+        line2: "GELATINA"
     }
 ]
