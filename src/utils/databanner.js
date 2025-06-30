@@ -1,9 +1,9 @@
-import crueltyFree from '../assets/Icons/crueltyFree.png'
-import libreAzucar from '../assets/Icons/libreAzucar.png'
-import libreGluten from '../assets/Icons/libreGluten.png'
-import vegano from '../assets/Icons/vegano.png'
-import libreLactosa from '../assets/Icons/libreLactosa.png'
-import libreGelatina from '../assets/Icons/libreGelatina.png'
+import crueltyFree from '../assets/Icons/b-crueltyFree.png'
+import libreAzucar from '../assets/Icons/b-libreAzucar.png'
+import libreGluten from '../assets/Icons/b-libreGluten.png'
+import vegano from '../assets/Icons/b-aptoVegano.png'
+import libreLactosa from '../assets/Icons/b-libreLactosa.png'
+import libreGelatina from '../assets/Icons/b-libreGelatina.png'
 
 export const databanner = [
     {

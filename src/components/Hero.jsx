@@ -1,9 +1,9 @@
 import React from 'react';
 import logoBlanco from '../assets/logoBlanco.png';
-import balance from '../assets/balance.png';
-import defense from '../assets/defense.png';
-import sleep from '../assets/sleep.png';
-import strong from '../assets/strong.png';
+import equilibrio from '../assets/Icons/ico-equilibrio.png';
+import defensa from '../assets/Icons/ico-defensa.png';
+import descanso from '../assets/Icons/ico-descanso.png';
+import fuerza from '../assets/Icons/ico-fuerza.png';
 import heroproduct from '../assets/Img/heroproduct.png'
 import { Link } from 'react-router-dom';
 import './styles/Hero.css';
@@ -19,19 +19,19 @@ function Hero() {
           <p>Combinamos sabor y ciencia para acompañarte en cada necesidad:</p>
           <div className='container_propiedades'>
             <span>
-              <img src={sleep} alt='icono descanso' />
+              <img src={descanso} alt='icono descanso' />
               <h3>Descanso</h3>
             </span>
             <span>
-              <img src={strong} alt='icono Fuerza' />
+              <img src={fuerza} alt='icono Fuerza' />
               <h3>Fuerza</h3>
             </span>
             <span>
-              <img src={defense} alt='icono defensa' />
+              <img src={defensa} alt='icono defensa' />
               <h3>Defensa</h3>
             </span>
             <span>
-              <img src={balance} alt='icono equilibrio' />
+              <img src={equilibrio} alt='icono equilibrio' />
               <h3>Equilibrio</h3>
             </span>
           </div>
