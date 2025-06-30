@@ -59,13 +59,14 @@ const Admin = () => {
                   <div className='admin-products-data'>
                     <span><h3>Nombre:</h3><p>{product.name}</p></span>
                     <span><h3>Product Id:</h3><p>{product.id}</p></span>
-                    <span><h3>Promo:</h3><p>{product.promo}</p></span>
-                    <span><h3>Precio:</h3><p>$ {product.price}</p></span>
+                    <span><h3>Promo:</h3><p>{product.promo}% off</p></span>
+                    <span><h3>Precio:</h3><p>{new Intl.NumberFormat('es-AR', { style: 'currency', currency: 'ARS' }).format(Number(product.price))}</p></span>
                     <span><h3>Stock:</h3><p>{product.stock} u.</p></span>
                     <span><h3>Descripción:</h3><p>{product.description}</p></span>
                     <span><h3>Ingredientes:</h3><p>{product.ingredients}</p></span>
                     <span><h3>Uso:</h3><p>{product.use}</p></span>
                     <span><h3>Categoría:</h3><p>{product.category}</p></span>
+                    <span><h3>Sabor:</h3><p>{product.flavor}</p></span>
                   </div>
                   <div className='admin-products-btns'>
                     <button className='btn-negro btn-160' onClick={() => {

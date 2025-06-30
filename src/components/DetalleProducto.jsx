@@ -21,6 +21,7 @@ const DetalleProducto = () => {
         <div className='productDetail_container'>
           <div className='productDetail_img-box'>
             <img className='productDetail_img' src={productoDetalle.imgUrl} alt="imagen de producto" />
+            <p className='product_card-promo'>{productoDetalle.promo}% off</p>
           </div>
 
           <div className='productDetail_container-right'>
@@ -35,6 +36,8 @@ const DetalleProducto = () => {
             <p>{productoDetalle.ingredients}</p>
             <h3>Modo de uso</h3>
             <p>{productoDetalle.use}</p>
+            <h3>Sabor</h3>
+            <p>{productoDetalle.flavor}</p>
             <div className='productDetail_btns'>
               <Counter
                 stock={productoDetalle.stock}

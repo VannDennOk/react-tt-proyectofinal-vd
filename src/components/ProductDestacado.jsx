@@ -25,7 +25,7 @@ const ProductDestacado = () => {
                 <div key={producto.id} className='productDestacado_card'>
                     <div className='productDestacado_img-box'>
                         <img src={producto.imgUrl} alt={producto.name} />
-                        {producto.promo && <span className='productDestacado_promo'>{producto.promo}</span>}
+                        {producto.promo && <span className='productDestacado_promo'>{producto.promo}<p>% off</p></span>}
                     </div>
 
                     <div className='productDestacado_info'>

@@ -64,7 +64,11 @@ const FormularioEdicion = ({ productoSeleccionado, onActualizar, onClose }) => {
         }
         if (!producto.use.trim() || producto.use.length <= 10) {
             newErrors.use = 'Uso debe tener al menos 10 caracteres';
+        };
+        if (!producto.flavor.trim()) {
+            newErrors.flavor = 'Seleccioná un sabor'
         }
+
         setErrors(newErrors);
         return Object.keys(newErrors).length === 0;
     };
@@ -161,11 +165,19 @@ const FormularioEdicion = ({ productoSeleccionado, onActualizar, onClose }) => {
                                     onChange={handleChange}
                                 >
                                     <option value="">Seleccioná una promo</option>
-                                    <option value="25% off">25% off</option>
-                                    <option value="50% off">50% off</option>
-                                    <option value="2x1">2x1</option>
-                                    <option value="3x2">3x2</option>
-                                    <option value="">sin promo</option>
+                                    <option value="10">10% off</option>
+                                    <option value="15">15% off</option>
+                                    <option value="20">20% off</option>
+                                    <option value="25">25% off</option>
+                                    <option value="30">30% off</option>
+                                    <option value="35">35% off</option>
+                                    <option value="40">40% off</option>
+                                    <option value="45">45% off</option>
+                                    <option value="50">50% off</option>
+                                    <option value="55">55% off</option>
+                                    <option value="60">60% off</option>
+                                    <option value="65">65% off</option>
+                                    <option value="70">70% off</option>
                                 </select>
                                 <div className='mensajeError'>
                                     {errors.promo && <span><FontAwesomeIcon icon={faTriangleExclamation} /><p>{errors.promo}</p></span>}
@@ -226,6 +238,24 @@ const FormularioEdicion = ({ productoSeleccionado, onActualizar, onClose }) => {
                             />
                             <div className='mensajeError'>
                                 {errors.use && <span><FontAwesomeIcon icon={faTriangleExclamation} /><p>{errors.use}</p></span>}
+                            </div>
+                        </div>
+                        <div className='form_line'> {/* Sabor */}
+                            <label>Sabor</label>
+                            <select
+                                name="flavor"
+                                value={producto.flavor}
+                                onChange={handleChange}
+                            >
+                                <option value="">Seleccioná un sabor</option>
+                                <option value="Naranja">Naranja</option>
+                                <option value="Mandarina">Mandarina</option>
+                                <option value="Frambruesa">Frambruesa</option>
+                                <option value="Mora">Mora</option>
+
+                            </select>
+                            <div className='mensajeError'>
+                                {errors.flavor && <span><FontAwesomeIcon icon={faTriangleExclamation} /><p>{errors.flavor}</p></span>}
                             </div>
                         </div>
                         <button className='btn-negro' type="submit">Editar producto</button>

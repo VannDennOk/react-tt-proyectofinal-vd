@@ -24,7 +24,7 @@ const Product = ({ product }) => {
                 </button>
            
                 <img className='product_card-img' src={product.imgUrl} alt="imagen de producto" />
-                <p className='product_card-promo'>{product.promo}</p>
+                <p className='product_card-promo'>{product.promo}% off</p>
             </div>
 
             <div className='product_card-txt'>
