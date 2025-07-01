@@ -13,7 +13,7 @@
 }
 
 .hero_container-textbox {
-    width: 500px;
+    width: 50%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -22,9 +22,10 @@
 }
 
 .textbox {
+    width: 100%;
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
     justify-content: center;
     gap: 0.5rem;
 }
@@ -32,6 +33,7 @@
 .textbox p,
 .textbox h3 {
     color: var(--colorBlanco);
+    text-align: center;
 }
 
 .textbox span {
@@ -47,7 +49,6 @@
 }
 
 .container_propiedades {
-    width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -77,5 +78,23 @@
 }
 
 .heroproduct-img {
-    width: 500px;
+    width: 50%;
+}
+
+
+/* ESTILOS RESPONSIVOS PARA TABLET HORIZONTAL Y LAPTOPS PEQUEÑAS */
+
+@media screen and (max-width: 1080px) {
+.hero_container {
+    flex-direction: column;
+}
+
+.hero_container-textbox {
+    width: 100%;
+}
+
+.heroproduct-img {
+    display: none;
+}
+
 }

@@ -8,6 +8,9 @@ import Cart from './Cart'
 import { Link } from 'react-router-dom';
 import { CartContext } from '../context/CartContext';
 
+
+
+
 const Header = () => {
 
   const {
@@ -27,21 +30,37 @@ const Header = () => {
         </Link>
 
         <div className='header_links'>
-          <button>
-            <FontAwesomeIcon icon={faMagnifyingGlass} />Buscar
+          <button className='link'>
+            <span className='link-span'>
+              <FontAwesomeIcon icon={faMagnifyingGlass} /><p1 className='link-txt'>Buscar</p1>
+            </span>
           </button>
 
-          <Link to='/login'>
-            <FontAwesomeIcon icon={faUser} />Login
+          <Link to='/login' className='link'>
+            <span className='link-span'>
+              <FontAwesomeIcon icon={faUser}/><p1 className='link-txt'>Login</p1>
+            </span>
           </Link>
 
-          <button><FontAwesomeIcon icon={faHeart} />Favs</button>
-          <button onClick={() => setCartOpen(true)}>
-            <FontAwesomeIcon icon={faCartShopping} />
-            Carrito
+          <button className='link'>
+            <span className='link-span'>
+              <FontAwesomeIcon icon={faHeart} /><p1 className='link-txt'>Favs</p1>
+            </span>
+          </button>
+
+
+          <button className='link' onClick={() => setCartOpen(true)}>
+            <span className='link-span'>
+              <FontAwesomeIcon icon={faCartShopping} />
+              <p1 className='link-txt'>Carrito</p1>
             {totalItems > 0 && <span className='contador_carrito'>{totalItems}</span>}
+            </span>
           </button>
         </div>
+      
+
+      
+      
       </div>
 
       <Cart />
