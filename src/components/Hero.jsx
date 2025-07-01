@@ -42,7 +42,7 @@ function Hero() {
         <Link className='btn-negro btn-240' to='/productos'>¡Descubrilas acá!</Link>
 
       </div>
-          <img className='heroproduct-img' src={imgHero} alt='imagen de producto' />
+          <img fetchPriority="high" className='heroproduct-img' src={imgHero} alt='imagen de producto' />
     </section>
   );
 };

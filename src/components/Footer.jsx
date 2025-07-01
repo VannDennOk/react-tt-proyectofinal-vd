@@ -41,9 +41,9 @@ const Footer = () => {
           <span><FontAwesomeIcon className='icon-big' icon={faCcPaypal} /><p>PayPal</p></span>
         </div>
         <div className='footer_social'>
-          <button><FontAwesomeIcon icon={faTiktok} /></button>
-          <button><FontAwesomeIcon icon={faInstagram} /></button>
-          <button><FontAwesomeIcon icon={faYoutube} /></button>
+          <button aria-label='TikTok'><FontAwesomeIcon icon={faTiktok} /></button>
+          <button aria-label='Instagram'><FontAwesomeIcon icon={faInstagram} /></button>
+          <button aria-label='YouTube'><FontAwesomeIcon icon={faYoutube} /></button>
         </div>
       </section>
 
