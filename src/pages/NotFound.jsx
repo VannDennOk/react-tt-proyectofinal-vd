@@ -1,14 +1,13 @@
 import React from 'react'
 import './styles/pages.css'
 import { Link } from 'react-router-dom'
-import notfoundimg from '../assets/notfoundimg.png'
 
 const NotFound = () => {
   return (
     <main className='notfound_main'>
       <div className='notfound_container'>
       <div className='notfound_container-left'>
-        <img className='notfound_img' src={notfoundimg} alt="gomita de osito naranja" />
+        <img className='notfound_img' src='https://i.postimg.cc/63tTWbb1/img-notfound.png' alt="gomita de osito naranja" />
       </div>
       <div className='notfound_container-right'>      
         <div className='notfound_container-right-title'>

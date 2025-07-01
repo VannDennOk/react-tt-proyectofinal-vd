@@ -3,7 +3,7 @@ import './styles/pages.css'
 import Header from "../components/Header"
 import Footer from "../components/Footer"
 import ProductList from "../components/ProductList"
-import loading from "../assets/loading.gif"
+import loading from "../assets/Gif/loading.gif"
 import Cart from "../components/Cart"
 import BannerBottom from "../components/BannerBottom"
 import { CartContext } from "../context/CartContext"

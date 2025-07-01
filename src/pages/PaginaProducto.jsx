@@ -4,7 +4,7 @@ import Header from '../components/Header';
 import Footer from '../components/Footer';
 import Cart from '../components/Cart';
 import DetalleProducto from '../components/DetalleProducto';
-import loading from "../assets/loading.gif"
+import loading from "../assets/Gif/loading.gif"
 import BannerBottom from '../components/BannerBottom';
 import { CartContext } from '../context/CartContext';
 

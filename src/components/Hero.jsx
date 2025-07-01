@@ -1,10 +1,9 @@
 import React from 'react';
-import logoBlanco from '../assets/logoBlanco.png';
+import logoBlanco from '../assets/Img/logoBlanco.png';
 import equilibrio from '../assets/Icons/ico-equilibrio.png';
 import defensa from '../assets/Icons/ico-defensa.png';
 import descanso from '../assets/Icons/ico-descanso.png';
 import fuerza from '../assets/Icons/ico-fuerza.png';
-import heroproduct from '../assets/Img/heroproduct.png'
 import { Link } from 'react-router-dom';
 import './styles/Hero.css';
 
@@ -42,7 +41,7 @@ function Hero() {
         <Link className='btn-negro btn-240' to='/productos'>¡Descubrilas acá!</Link>
 
       </div>
-      <img className='heroproduct-img' src={heroproduct} alt='imagen de producto' />
+      <img className='heroproduct-img' src='https://i.postimg.cc/25jPC4F7/img-hero.png' alt='imagen de producto' />
     </section>
   );
 };

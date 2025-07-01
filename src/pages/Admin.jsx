@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useContext } from 'react'
 import './styles/pages.css'
 import logo from '../assets/Img/logo.png';
-import loading from '../assets/loading.gif';
+import loading from '../assets/Gif/loading.gif';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowRightFromBracket, faPen, faTrash, faPlus } from '@fortawesome/free-solid-svg-icons';
 import FormularioProducto from '../components/FormularioProducto';

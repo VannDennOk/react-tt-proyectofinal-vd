@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import './styles/Formularios.css'
-import contactoimg from '../assets/contactoimg.png'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCircleInfo, faTriangleExclamation } from '@fortawesome/free-solid-svg-icons';
 import Swal from "sweetalert2";
@@ -52,7 +51,7 @@ const FormularioContacto = () => {
     return (
         <div className='contacto_container'>
             <div className='contacto_container-left'>
-                <img className='contacto_img' src={contactoimg} alt="ositos alineados" />
+                <img className='contacto_img' src='https://i.postimg.cc/tgPVCxq7/img-contacto.png' alt="ositos alineados" />
             </div>
             <div className='contacto_container-right'>
                 <div className='form_overflow'>

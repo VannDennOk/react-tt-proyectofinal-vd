@@ -5,7 +5,7 @@ import Hero from '../components/Hero';
 import Gallery from '../components/Gallery';
 import Footer from '../components/Footer';
 import Cart from '../components/Cart';
-import loading from "../assets/loading.gif"
+import loading from "../assets/Gif/loading.gif"
 import BannerBottom from '../components/BannerBottom';
 import { CartContext } from '../context/CartContext';
 import ProductDestacado from '../components/ProductDestacado';
