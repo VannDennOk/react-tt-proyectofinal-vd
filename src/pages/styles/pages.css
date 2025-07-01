@@ -165,7 +165,8 @@
     align-items: center;
     justify-content: center;
 
-    background-image: url("src/assets/fondologin.png");
+    background-image: url("https://i.postimg.cc/hjr7WRsG/bglogin.png");
+    background-color: var(--colorFrambuesa);
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -265,7 +266,8 @@
     justify-content: center;
     padding: 2rem;
 
-    background-image: url("src/assets/notfoundimgfondo.png");
+    background-image: url("https://i.postimg.cc/fLZ0rRxF/bgnotfound.png");
+    background-color: var(--colorNaranja);
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;

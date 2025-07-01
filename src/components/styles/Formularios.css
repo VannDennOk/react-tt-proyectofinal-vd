@@ -154,7 +154,8 @@
     justify-content: center;
     padding: 1.5rem;
 
-    background-image: url("src/assets/contactoimgfondo.png");
+    background-image: url("https://i.postimg.cc/sgQSB8jn/bgcontact.png");
+    background-color: var(--colorMandarina);
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;

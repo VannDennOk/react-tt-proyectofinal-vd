@@ -22,16 +22,20 @@
   --colorMora: #6B052A;
   --colorMoraClaro: #893755;
 
-  --colorFrambruesaOscuro: #9E0018;
-  --colorFrambruesa: #C5001E;
-  --colorFrambruesaClaro: #D1334B;
+  --colorFrambuesaOscuro: #9E0018;
+  --colorFrambuesa: #C5001E;
+  --colorFrambuesaClaro: #D1334B;
 
-  --colorSalmonOscuro: #B6422A;
-  --colorSalmon: #E35335;
-  --colorSalmonClaro: #E9755D;
+  --colorSalmonOscuro:  violet;
+  --colorSalmon: violet;
+  --colorSalmonClaro: violet;
+
+  --colorMandarinaOscuro: #B6422A;
+  --colorMandarina: #F35D25;
+  --colorMandarinaClaro: #E9755D;
 
   --colorNaranjaOscuro: #CA6A01;
-  --colorNaranja: #FC8401;
+  --colorNaranja: #FA7818;
   --colorNaranjaClaro: #FD9D34;
 
   --colorVerde: #009B83;
