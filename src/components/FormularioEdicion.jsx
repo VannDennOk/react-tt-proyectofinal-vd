@@ -98,20 +98,20 @@ const FormularioEdicion = ({ productoSeleccionado, onActualizar, onClose }) => {
                     </div>
                     <span className='form_header-mensaje'><FontAwesomeIcon icon={faCircleInfo} /><p>No dejes campos vacios!</p></span>
                     <form onSubmit={handleSubmit}>
-                        <div className='from_box'> {/* Nombre y Categoría */}
-                            <div className='form_line'>
-                                <label>Nombre</label>
-                                <input
-                                    type="text"
-                                    name='name'
-                                    value={producto.name}
-                                    onChange={handleChange}
-                                    placeholder="Ingresá el nombre del producto"
-                                />
-                                <div className='mensajeError'>
-                                    {errors.name && <span><FontAwesomeIcon icon={faTriangleExclamation} /><p>{errors.name}</p></span>}
-                                </div>
+                        <div className='form_line'> {/* Nombre */}
+                            <label>Nombre</label>
+                            <input
+                                type="text"
+                                name='name'
+                                value={producto.name}
+                                onChange={handleChange}
+                                placeholder="Ingresá el nombre del producto"
+                            />
+                            <div className='mensajeError'>
+                                {errors.name && <span><FontAwesomeIcon icon={faTriangleExclamation} /><p>{errors.name}</p></span>}
                             </div>
+                        </div>
+                        <div className='from_box'> {/* Categoría y sabor */}
                             <div className='form_line'>
                                 <label>Categoría</label>
                                 <select
@@ -125,6 +125,23 @@ const FormularioEdicion = ({ productoSeleccionado, onActualizar, onClose }) => {
                                 </select>
                                 <div className='mensajeError'>
                                     {errors.category && <span><FontAwesomeIcon icon={faTriangleExclamation} /><p>{errors.category}</p></span>}
+                                </div>
+                            </div>
+                            <div className='form_line'> {/* Sabor */}
+                                <label>Sabor</label>
+                                <select
+                                    name="flavor"
+                                    value={producto.flavor}
+                                    onChange={handleChange}
+                                >
+                                    <option value="">Seleccioná un sabor</option>
+                                    <option value="Frambruesa">Frambruesa</option>
+                                    <option value="Mandarina">Mandarina</option>
+                                    <option value="Mora">Mora</option>
+                                    <option value="Naranja">Naranja</option>
+                                </select>
+                                <div className='mensajeError'>
+                                    {errors.flavor && <span><FontAwesomeIcon icon={faTriangleExclamation} /><p>{errors.flavor}</p></span>}
                                 </div>
                             </div>
                         </div>
@@ -238,24 +255,6 @@ const FormularioEdicion = ({ productoSeleccionado, onActualizar, onClose }) => {
                             />
                             <div className='mensajeError'>
                                 {errors.use && <span><FontAwesomeIcon icon={faTriangleExclamation} /><p>{errors.use}</p></span>}
-                            </div>
-                        </div>
-                        <div className='form_line'> {/* Sabor */}
-                            <label>Sabor</label>
-                            <select
-                                name="flavor"
-                                value={producto.flavor}
-                                onChange={handleChange}
-                            >
-                                <option value="">Seleccioná un sabor</option>
-                                <option value="Naranja">Naranja</option>
-                                <option value="Mandarina">Mandarina</option>
-                                <option value="Frambruesa">Frambruesa</option>
-                                <option value="Mora">Mora</option>
-
-                            </select>
-                            <div className='mensajeError'>
-                                {errors.flavor && <span><FontAwesomeIcon icon={faTriangleExclamation} /><p>{errors.flavor}</p></span>}
                             </div>
                         </div>
                         <button className='btn-negro' type="submit">Editar producto</button>
