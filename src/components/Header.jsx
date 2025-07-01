@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import './styles/Header.css'
-import logo from '../assets/Img/logo.png';
+import logo from '../assets/Logo/logo.png';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMagnifyingGlass, faCartShopping, faHeart, faUser } from '@fortawesome/free-solid-svg-icons';
 import Nav from './Nav';

@@ -1,5 +1,5 @@
 import React from 'react';
-import logoBlanco from '../assets/Img/logoBlanco.png';
+import logoBlanco from '../assets/Logo/logoBlanco.png';
 import equilibrio from '../assets/Icons/ico-equilibrio.png';
 import defensa from '../assets/Icons/ico-defensa.png';
 import descanso from '../assets/Icons/ico-descanso.png';

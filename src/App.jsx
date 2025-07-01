@@ -6,7 +6,6 @@ import Nosotros from './pages/Nosotros'
 import NotFound from './pages/NotFound';
 import GaleriaDeProductos from './pages/GaleriaDeProductos';
 import Contacto from './pages/Contacto';
-// import Modal from './components/Modal';
 import Admin from './pages/Admin';
 import Login from './pages/Login';
 import RutasProtegidas from './rutas/RutasProtegidas';
@@ -15,41 +14,32 @@ import { CartContext } from './context/CartContext';
 
 
 function App() {
-  const {  
-            isAuthenticated,
-            //cambié el modal por un TOAST
-            //modalAbierto, mensajeModal, setModalAbierto
+  const {
+    isAuthenticated,
   } = useContext(CartContext)
 
   return (
     <>
+      <h1 className="sr-only">Cargando Liv...</h1>
+      <Routes>
+        <Route path='/' element={<Home />}></Route>
 
-{/*         {modalAbierto && (
-          <Modal 
-            mensaje={mensajeModal}
-            onClose={() => setModalAbierto(false)}
-            />
-        )} */}
-                
-        <Routes>
-          <Route path='/' element={<Home />}></Route>
+        <Route path='/productos' element={<GaleriaDeProductos />}></Route>
 
-          <Route path='/productos' element={<GaleriaDeProductos />}></Route>
+        <Route path='/productos/:id' element={<PaginaProducto />}></Route>
 
-          <Route path='/productos/:id' element={<PaginaProducto />}></Route>
+        <Route path='/nosotros' element={<Nosotros />}></Route>
 
-          <Route path='/nosotros' element={<Nosotros />}></Route>
+        <Route path='/contacto' element={<Contacto />}></Route>
 
-          <Route path='/contacto' element={<Contacto />}></Route>
+        <Route path='/admin' element={<RutasProtegidas isAuthenticated=
+          {isAuthenticated}> <Admin /></RutasProtegidas>} />
 
-          <Route path='/admin' element={<RutasProtegidas isAuthenticated=
-            {isAuthenticated}> <Admin /></RutasProtegidas>} />
+        <Route path='/login' element={<Login />} />
 
-          <Route path='/login' element={<Login />} />
+        <Route path='*' element={<NotFound />} />
 
-          <Route path='*' element={<NotFound />} />
-
-        </Routes>
+      </Routes>
 
     </>
   )

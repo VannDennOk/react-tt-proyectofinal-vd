@@ -3,7 +3,7 @@ import './styles/Cart.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrashCan, faCircleXmark, faTriangleExclamation } from '@fortawesome/free-solid-svg-icons';
 import Counter from './Counter'
-import logo from '../assets/Img/logo.png'
+import logo from '../assets/Logo/logo.png'
 import { Link } from 'react-router-dom';
 import { CartContext } from '../context/CartContext';
 

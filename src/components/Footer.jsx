@@ -1,6 +1,6 @@
 import React from 'react';
 import './styles/Footer.css'
-import logo from '../assets/Img/logo.png';
+import logo from '../assets/Logo/logo.png';
 import { Link, NavLink } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTiktok, faInstagram, faYoutube, faCcVisa, faCcMastercard, faCcPaypal, faWhatsapp } from '@fortawesome/free-brands-svg-icons'

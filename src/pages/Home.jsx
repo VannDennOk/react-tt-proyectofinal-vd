@@ -16,8 +16,8 @@ const Home = () => {
 
   return (
     <>
+      <h1 className="sr-only">Inicio Liv</h1>
       <Header />
-
       <main className="container_page">
         <Hero />
         <Gallery />
@@ -29,12 +29,10 @@ const Home = () => {
          ) : (            
             <ProductDestacado/>
         )}
-
         <BannerBottom />
 
         <Cart />
       </main>
-      
       <Footer />
     </>
   )

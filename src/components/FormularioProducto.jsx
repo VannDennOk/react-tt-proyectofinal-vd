@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import './styles/Formularios.css'
-import logo from '../assets/Img/logo.png'
+import logo from '../assets/Logo/logo.png'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCircleXmark, faCircleInfo, faTriangleExclamation } from '@fortawesome/free-solid-svg-icons';
 
