@@ -38,7 +38,7 @@ const Nosotros = () => {
               <strong>¡Queremos que seas parte de nuestra comunidad!</strong></p>
           </div>
         </div>
-        <div className='us_text-img'>
+        <div className='us_text-img us_reverse'>
           <div className='us_text'>
             <h3>Sobre nuestros ositos</h3>
             <p>Nuestra meta es poder brindarte la mejor calidad en nuestros productos.
@@ -76,7 +76,7 @@ const Nosotros = () => {
             <p><strong>¡En comunidad podemos hacer la diferencia!</strong></p>
           </div>
         </div>
-        <div className='us_text-img'>
+        <div className='us_text-img us_reverse'>
           <div className='us_text'>
             <h3>Sobre la producción</h3>
             <p>Nuestros gomitas se realizan en nuestros laboratorios certificados.
