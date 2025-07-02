@@ -54,7 +54,7 @@ const FormularioContacto = () => {
                 <img className='contacto_img' src='https://i.postimg.cc/tgPVCxq7/img-contacto.png' alt="ositos alineados" />
             </div>
             <div className='contacto_container-right'>
-                <div className='form_overflow'>
+                
                     <div className='form_header-contacto'>
                         <h2>Formulario de contacto</h2>
                         <p>Completá el formulario y nos pondremos en contacto lo antes posible.</p>
@@ -106,7 +106,7 @@ const FormularioContacto = () => {
                     </form>
                 </div>
             </div>
-        </div>
+       
     );
 }
 

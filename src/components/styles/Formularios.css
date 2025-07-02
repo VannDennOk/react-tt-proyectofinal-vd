@@ -25,11 +25,11 @@
     padding: 1.5rem;
 }
 
-.form_overflow{
+.form_overflow {
     width: 100%;
     height: 100%;
     overflow-y: auto;
-    
+
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -62,7 +62,7 @@
     gap: 1.5rem;
 }
 
-.form_line{
+.form_line {
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -71,7 +71,7 @@
     gap: 0.5rem;
 }
 
-.mensajeError{
+.mensajeError {
     width: 100%;
     height: 1rem;
     padding-left: 0.5rem;
@@ -80,17 +80,17 @@
     justify-content: flex-start;
 }
 
-.mensajeError span{
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  gap: 0.5rem;
-  color: var(--colorRojo);
-  font-size: 0.8rem;
+.mensajeError span {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 0.5rem;
+    color: var(--colorRojo);
+    font-size: 0.8rem;
 }
 
-.mensajeError p{
+.mensajeError p {
     font-family: var(--fontCuerpo);
     font-size: 0.8rem;
     font-weight: 200;
@@ -113,7 +113,7 @@
     gap: 1rem;
 }
 
-.icon_back{
+.icon_back {
     position: absolute;
     top: 1.5rem;
     left: 1.5rem;
@@ -132,9 +132,9 @@
 
 /* FORMULARIO CONTACTO*/
 
-.contacto_container{
+.contacto_container {
     width: 80%;
-    height: 120vh;
+    height: 80vh;
     background-color: var(--colorGrisClaro);
     display: flex;
     align-items: center;
@@ -145,14 +145,14 @@
     overflow: hidden;
 }
 
-.contacto_container-left{
+.contacto_container-left {
     width: 40%;
     height: 100%;
 
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 1.5rem;
+    padding: 1rem;
 
     background-image: url("https://i.postimg.cc/sgQSB8jn/bgcontact.png");
     background-color: var(--colorMandarina);
@@ -161,11 +161,11 @@
     background-size: cover;
 }
 
-.contacto_img{
+.contacto_img {
     width: 100%;
 }
 
-.contacto_container-right{
+.contacto_container-right {
     width: 60%;
     height: 100%;
     display: flex;
@@ -183,4 +183,45 @@
     align-items: flex-start;
     justify-content: center;
     gap: 1rem;
+}
+
+
+/* RESPONSIVE */
+
+@media screen and (max-width: 1024px) {
+
+    .contacto_container {
+        height: auto;
+        flex-direction: column;
+    }
+
+    .contacto_container-left {
+        width: 100%;
+        height: auto;
+    }
+
+    .contacto_img {
+        width: 50%;
+    }
+
+    .contacto_container-right {
+        width: 100%;
+    }
+
+}
+
+@media screen and (max-width: 600px) {
+    .contacto_container {
+        width: 90%;
+    }
+
+    .contacto_container h2 {
+        font-size: 1.5rem;
+
+    }
+
+    .contacto_container-right {
+        padding: 1rem;
+    }
+
 }
