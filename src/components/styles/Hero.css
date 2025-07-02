@@ -85,16 +85,25 @@
 /* ESTILOS RESPONSIVOS PARA TABLET HORIZONTAL Y LAPTOPS PEQUEÑAS */
 
 @media screen and (max-width: 1080px) {
-.hero_container {
-    flex-direction: column;
+    .hero_container {
+        flex-direction: column;
+    }
+
+    .hero_container-textbox {
+        width: 100%;
+    }
+
+    .heroproduct-img {
+        display: none;
+    }
+
 }
 
-.hero_container-textbox {
-    width: 100%;
-}
+@media (max-width: 576px) {
 
-.heroproduct-img {
-    display: none;
-}
-
+    .container_propiedades {
+        display: grid;
+        grid-template-columns: auto auto;
+        gap: 1rem;
+    }
 }

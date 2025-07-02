@@ -59,7 +59,8 @@ footer {
     border-bottom: 1px solid transparent;
 }
 
-.footer-nav_link:hover, .footer-nav_link.active {
+.footer-nav_link:hover,
+.footer-nav_link.active {
     border-bottom: 1px solid var(--colorNegro);
 }
 
@@ -110,4 +111,23 @@ footer {
 
 .txt_blanco {
     color: var(--colorBlanco);
+}
+
+@media screen and (max-width: 704px) {
+    .footer_container-top {
+        grid-template-columns: auto auto;
+    }
+}
+
+@media screen and (max-width: 434px) {
+    .footer_container-top {
+        grid-template-columns: auto;
+    }
+}
+
+@media (max-width: 576px) {
+
+    .footer_container-bottom {
+        margin-bottom: 80px;
+    }
 }
