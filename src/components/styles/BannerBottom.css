@@ -10,7 +10,7 @@
 }
 
 .banner_box {
-    width: 4rem;
+    width: 5rem;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -19,7 +19,7 @@
 }
 
 .banner_img {
-    width: 100%;
+    width: 4rem;
 }
 
 .banner_txt-box {
@@ -40,4 +40,18 @@
     font-family: var(--fontTitulos);
     font-size: 1.25rem;
     font-weight: 700;
+}
+
+@media screen and (max-width: 992px) {
+    .banner_container {
+        gap: 2rem;
+    }
+}
+
+@media screen and (max-width: 704px) {
+    .banner_container {
+        display: grid;
+        grid-template-columns: auto auto auto;
+        padding: 1rem;
+    }
 }
