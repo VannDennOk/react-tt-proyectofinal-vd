@@ -44,13 +44,6 @@ const Cart = () => {
           </button>
         </div>
 
-        <div className='cart_table'>
-          <p>Producto</p>
-          <p>Precio</p>
-          <p>Cantidad</p>
-          <p>Subtotal</p>
-        </div>
-
         <div className='cart_product-list'>
           {cart.length === 0 ? (
             <div className='cart_empty-box'>
@@ -62,19 +55,13 @@ const Cart = () => {
               <ul className='cart_product-list'>
                 {cart.map((item) => (
                   <li key={item.id} className='cart_product' >
+                    <div className='cart_product-info'>
                     <div className='cart_product-name'>
                       <div className='cart_img-box'>
                         <img className='cart_img' src={item.imgUrl} />
                       </div>
                       <p>{item.name}</p>
                     </div>
-                    <p>
-                      {new Intl.NumberFormat('es-AR', {
-                        style: 'currency',
-                        currency: 'ARS'
-                      }).format(Number(item.price))}
-                    </p>
-
                     <div className='cart_product-count'>
                       <Counter
                         stock={item.stock}
@@ -82,20 +69,24 @@ const Cart = () => {
                         productId={item.id}
                       />
                     </div>
-
-                    <div className='cart_product-total'>
-                      <p>
-                        {(item.price * item.cantidad).toLocaleString('es-AR', {
-                          style: 'currency',
-                          currency: 'ARS'
-                        })}
-                      </p>
-                      <button
-                        onClick={() => borrarProducto(item)}
-                        className='btn_product-delete'>
-                        <FontAwesomeIcon icon={faTrashCan} />
-                      </button>
+                    <p>
+                      Precio: {new Intl.NumberFormat('es-AR', {
+                        style: 'currency',
+                        currency: 'ARS'
+                      }).format(Number(item.price))}
+                    </p>
+                    <p>
+                      Subtotal: {(item.price * item.cantidad).toLocaleString('es-AR', {
+                        style: 'currency',
+                        currency: 'ARS'
+                      })}
+                    </p>
                     </div>
+                    <button
+                      onClick={() => borrarProducto(item)}
+                      className='btn_product-delete'>
+                      <FontAwesomeIcon icon={faTrashCan} />
+                    </button>
                   </li>
                 ))}
               </ul>
@@ -115,7 +106,7 @@ const Cart = () => {
                   onClick={() => setCartOpen(false)}
                   to='/productos'>Seguir comprando</Link>
                 <button
-                  onClick={clearCart} 
+                  onClick={clearCart}
                   className='btn-negro'>Ir a pagar
                 </button>
               </div>
