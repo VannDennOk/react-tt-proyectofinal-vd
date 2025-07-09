@@ -101,6 +101,10 @@
 
 @media (max-width: 576px) {
 
+    .hero_container {
+        margin-top: 5rem;
+    }
+    
     .container_propiedades {
         display: grid;
         grid-template-columns: auto auto;

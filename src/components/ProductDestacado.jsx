@@ -38,8 +38,7 @@ const ProductDestacado = () => {
                         </div>
                         <Link className='btn-negro btn-160' to={`/productos/${producto.id}`}>Ver más<FontAwesomeIcon icon={faPlus}/></Link>
                     </div>
-
-                    
+                   
                 </div>
             ))}
         </section>
