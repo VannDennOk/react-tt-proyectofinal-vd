@@ -5,7 +5,7 @@ import FormularioLogin from '../components/FormularioLogin';
 const Login = () => {
   return (
     <section className='login_main'>
-        <FormularioLogin/>
+      <FormularioLogin />
     </section>
   )
 }

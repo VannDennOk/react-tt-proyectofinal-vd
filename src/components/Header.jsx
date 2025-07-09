@@ -49,21 +49,21 @@ const Header = () => {
 
         <div className='header_links-box'>
           <div className='header_links'>
-            <button className='link'>
+            {/*             <button className='link'>
               <span className='link-span'>
                 <FontAwesomeIcon icon={faMagnifyingGlass} /><p1 className='link-txt'>Buscar</p1>
               </span>
-            </button>
+            </button> */}
             <Link to='/login' className='link'>
               <span className='link-span'>
                 <FontAwesomeIcon icon={faUser} /><p1 className='link-txt'>Login</p1>
               </span>
             </Link>
-            <button className='link'>
+            {/*             <button className='link'>
               <span className='link-span'>
                 <FontAwesomeIcon icon={faHeart} /><p1 className='link-txt'>Favs</p1>
               </span>
-            </button>
+            </button> */}
             <button className='link' onClick={() => setCartOpen(true)}>
               <span className='link-span'>
                 <FontAwesomeIcon icon={faCartShopping} />

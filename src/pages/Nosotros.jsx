@@ -1,10 +1,13 @@
 import React, { useContext } from 'react'
 import './styles/pages.css'
+import usEquipo from '../assets/Img/usEquipo.png'
+import usBoxes from '../assets/Img/usBoxes.png'
+import usTesting from '../assets/Img/usTesting.png'
+import anatomiaOsito from '../assets/Gif/anatomiaOsito.gif'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
 import Cart from '../components/Cart'
 import BannerBottom from '../components/BannerBottom'
-import anatomiaOsito from '../assets/Gif/anatomiaOsito.gif'
 import { CartContext } from '../context/CartContext'
 
 const Nosotros = () => {
@@ -20,7 +23,7 @@ const Nosotros = () => {
         </div>
         <div className='us_text-img'>
           <div className='us_img-box'>
-            <img src="https://i.postimg.cc/YSXZ8rPz/Team.png" alt="equipo" />
+            <img src={usEquipo} alt="equipo" />
           </div>
           <div className='us_text'>
             <h3>Sobre nosotros</h3>
@@ -55,7 +58,7 @@ const Nosotros = () => {
         </div>
         <div className='us_text-img'>
           <div className='us_img-box'>
-            <img src="https://i.postimg.cc/MZ99f64W/boxes.png" alt="packaging" />
+            <img src={usBoxes} alt="packaging" />
           </div>
           <div className='us_text'>
             <h3>Sobre nuestros envases</h3>
@@ -91,7 +94,7 @@ const Nosotros = () => {
             <p><strong>Estamos aprobados por ANMAT</strong></p>
           </div>
           <div className='us_img-box'>
-            <img src="https://i.postimg.cc/ZRCgQktt/Testing.png" alt="test" />
+            <img src={usTesting} alt="test" />
           </div>
         </div>
         <BannerBottom />

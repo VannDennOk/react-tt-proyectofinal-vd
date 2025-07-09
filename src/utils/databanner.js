@@ -11,14 +11,14 @@ export const databanner = [
         alt: "icono cruelty free",
         line1: "CRUELTY",
         line2: "FREE"
-    
+
     },
     {
         imgUrl: vegano,
         alt: "icono vegano",
         line1: "APTO",
         line2: "VEGANO"
-    
+
     },
     {
         imgUrl: libreGluten,
@@ -33,14 +33,14 @@ export const databanner = [
         line2: "AZÚCAR"
     },
 
-        {
+    {
         imgUrl: libreLactosa,
         alt: "icono libre lactosa",
         line1: "LIBRE",
         line2: "LACTOSA"
     },
 
-        {
+    {
         imgUrl: libreGelatina,
         alt: "icono libre gelatina",
         line1: "LIBRE",

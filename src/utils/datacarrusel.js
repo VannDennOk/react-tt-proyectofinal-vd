@@ -8,13 +8,13 @@ export const datacarrusel = [
         originalx: "https://i.postimg.cc/yN62FgLN/Descanso.png",
         original: galleryDescanso,
         originalAlt: "imagen de producto descanso"
-    
+
     },
     {
         originalx: "https://i.postimg.cc/P5QBpzzc/Fuerza.png",
         original: galleryFuerza,
         originalAlt: "imagen de producto fuerza"
-    
+
     },
     {
         originalx: "https://i.postimg.cc/rwkBwYWx/Equilibrio.png",

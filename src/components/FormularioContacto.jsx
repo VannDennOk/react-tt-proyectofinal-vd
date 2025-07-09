@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import './styles/Formularios.css'
+import imgContacto from '../assets/Img/img-contacto.png'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCircleInfo, faTriangleExclamation } from '@fortawesome/free-solid-svg-icons';
 import Swal from "sweetalert2";
@@ -51,62 +52,62 @@ const FormularioContacto = () => {
     return (
         <div className='contacto_container'>
             <div className='contacto_container-left'>
-                <img className='contacto_img' src='https://i.postimg.cc/tgPVCxq7/img-contacto.png' alt="ositos alineados" />
+                <img className='contacto_img' src={imgContacto} alt="ositos alineados" />
             </div>
             <div className='contacto_container-right'>
-                
-                    <div className='form_header-contacto'>
-                        <h2>Formulario de contacto</h2>
-                        <p>Completá el formulario y nos pondremos en contacto lo antes posible.</p>
-                        <span className='form_header-mensaje'><FontAwesomeIcon icon={faCircleInfo} /><p>Todos los campos son obligatorios!</p></span>
-                    </div>
-                    <form onSubmit={manejarEnvio}>
-                        <div className='form_line'>
-                            <label htmlFor='formBasicName'>Nombre</label>
-                            <input
-                                id='formBasicName'
-                                type="text"
-                                placeholder="Ingresá tu nombre"
-                                value={nombre}
-                                onChange={(e) => setNombre(e.target.value)}
-                            />
-                            <div className='mensajeError'>
-                                {errors.nombre && <span><FontAwesomeIcon icon={faTriangleExclamation} /><p>{errors.nombre}</p></span>}
-                            </div>
-                        </div>
-                        <div className='form_line'>
-                            <label htmlFor='formBasicEmail'>E-mail</label>
-                            <input
-                                id='formBasicEmail'
-                                type="email"
-                                placeholder="Ingresá tu email"
-                                value={email}
-                                onChange={(e) => setEmail(e.target.value)}
-                            />
-                            <div className='mensajeError'>
-                                {errors.email && <span><FontAwesomeIcon icon={faTriangleExclamation} /><p>{errors.email}</p></span>}
-                            </div>
-                        </div>
-                        <div className='form_line'>
-                            <label htmlFor='formBasicMensaje'>Mensaje</label>
-                            <textarea
-                                id='formBasicMensaje'
-                                name='formBasicMensaje'
-                                placeholder="Ingresá un mensaje"
-                                rows="4"
-                                cols="50"
-                                value={mensaje}
-                                onChange={(e) => setMensaje(e.target.value)}
-                            />
-                            <div className='mensajeError'>
-                                {errors.mensaje && <span><FontAwesomeIcon icon={faTriangleExclamation} /><p>{errors.mensaje}</p></span>}
-                            </div>
-                        </div>
-                        <button className='btn-negro' type="submit">Enviar</button>
-                    </form>
+
+                <div className='form_header-contacto'>
+                    <h2>Formulario de contacto</h2>
+                    <p>Completá el formulario y nos pondremos en contacto lo antes posible.</p>
+                    <span className='form_header-mensaje'><FontAwesomeIcon icon={faCircleInfo} /><p>Todos los campos son obligatorios!</p></span>
                 </div>
+                <form onSubmit={manejarEnvio}>
+                    <div className='form_line'>
+                        <label htmlFor='formBasicName'>Nombre</label>
+                        <input
+                            id='formBasicName'
+                            type="text"
+                            placeholder="Ingresá tu nombre"
+                            value={nombre}
+                            onChange={(e) => setNombre(e.target.value)}
+                        />
+                        <div className='mensajeError'>
+                            {errors.nombre && <span><FontAwesomeIcon icon={faTriangleExclamation} /><p>{errors.nombre}</p></span>}
+                        </div>
+                    </div>
+                    <div className='form_line'>
+                        <label htmlFor='formBasicEmail'>E-mail</label>
+                        <input
+                            id='formBasicEmail'
+                            type="email"
+                            placeholder="Ingresá tu email"
+                            value={email}
+                            onChange={(e) => setEmail(e.target.value)}
+                        />
+                        <div className='mensajeError'>
+                            {errors.email && <span><FontAwesomeIcon icon={faTriangleExclamation} /><p>{errors.email}</p></span>}
+                        </div>
+                    </div>
+                    <div className='form_line'>
+                        <label htmlFor='formBasicMensaje'>Mensaje</label>
+                        <textarea
+                            id='formBasicMensaje'
+                            name='formBasicMensaje'
+                            placeholder="Ingresá un mensaje"
+                            rows="4"
+                            cols="50"
+                            value={mensaje}
+                            onChange={(e) => setMensaje(e.target.value)}
+                        />
+                        <div className='mensajeError'>
+                            {errors.mensaje && <span><FontAwesomeIcon icon={faTriangleExclamation} /><p>{errors.mensaje}</p></span>}
+                        </div>
+                    </div>
+                    <button className='btn-negro' type="submit">Enviar</button>
+                </form>
             </div>
-       
+        </div>
+
     );
 }
 

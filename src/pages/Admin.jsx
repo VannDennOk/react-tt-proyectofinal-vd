@@ -43,10 +43,10 @@ const Admin = () => {
       <h2>Panel Administrativo</h2>
 
       {carga ? (
-          <div className='container_loading'>
-            <img src={loading} alt='loading' />
-            <p>Cargando los productos</p>
-          </div> 
+        <div className='container_loading'>
+          <img src={loading} alt='loading' />
+          <p>Cargando los productos</p>
+        </div>
       ) : (
         <div className='admin-products'>
           <ul>

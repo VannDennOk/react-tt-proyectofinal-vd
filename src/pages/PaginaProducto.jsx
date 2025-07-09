@@ -20,14 +20,14 @@ const PaginaProducto = () => {
           <div className='container_loading'>
             <img src={loading} alt='loading' />
             <p>Cargando información</p>
-          </div> 
+          </div>
         ) : (
-          <DetalleProducto  />
+          <DetalleProducto />
         )}
 
         <BannerBottom />
 
-        <Cart/>
+        <Cart />
       </main>
 
       <Footer />

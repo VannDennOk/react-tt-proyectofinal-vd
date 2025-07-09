@@ -56,31 +56,31 @@ const Cart = () => {
                 {cart.map((item) => (
                   <li key={item.id} className='cart_product' >
                     <div className='cart_product-info'>
-                    <div className='cart_product-name'>
-                      <div className='cart_img-box'>
-                        <img className='cart_img' src={item.imgUrl} />
+                      <div className='cart_product-name'>
+                        <div className='cart_img-box'>
+                          <img className='cart_img' src={item.imgUrl} />
+                        </div>
+                        <p>{item.name}</p>
                       </div>
-                      <p>{item.name}</p>
-                    </div>
-                    <div className='cart_product-count'>
-                      <Counter
-                        stock={item.stock}
-                        cantidad={item.cantidad}
-                        productId={item.id}
-                      />
-                    </div>
-                    <p>
-                      Precio: {new Intl.NumberFormat('es-AR', {
-                        style: 'currency',
-                        currency: 'ARS'
-                      }).format(Number(item.price))}
-                    </p>
-                    <p>
-                      Subtotal: {(item.price * item.cantidad).toLocaleString('es-AR', {
-                        style: 'currency',
-                        currency: 'ARS'
-                      })}
-                    </p>
+                      <div className='cart_product-count'>
+                        <Counter
+                          stock={item.stock}
+                          cantidad={item.cantidad}
+                          productId={item.id}
+                        />
+                      </div>
+                      <p>
+                        Precio: {new Intl.NumberFormat('es-AR', {
+                          style: 'currency',
+                          currency: 'ARS'
+                        }).format(Number(item.price))}
+                      </p>
+                      <p>
+                        Subtotal: {(item.price * item.cantidad).toLocaleString('es-AR', {
+                          style: 'currency',
+                          currency: 'ARS'
+                        })}
+                      </p>
                     </div>
                     <button
                       onClick={() => borrarProducto(item)}

@@ -333,6 +333,10 @@
         width: 100%;
     }
 
+    .admin-products-btns {
+        justify-content: center;
+    }
+
     /* PAGE NOT FOUND */
     .notfound_container {
         flex-direction: column;
@@ -355,6 +359,7 @@
 
 @media screen and (max-width: 576px) {
 
+    /* PAGE NOSOTROS */
     .us_frase {
         width: 100%;
         padding: 2rem 1rem;
@@ -374,5 +379,15 @@
         max-width: 280px;
         min-width: 150px;
         border-radius: 20px;
+    }
+
+}
+
+@media screen and (max-width: 300px) {
+
+    /* PAGE ADMIN*/
+    .admin-products-btns {
+        flex-direction: column;
+        justify-content: center;
     }
 }

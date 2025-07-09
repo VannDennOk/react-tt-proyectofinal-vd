@@ -3,23 +3,23 @@ import { useNavigate } from 'react-router-dom';
 import { CartContext } from './CartContext';
 
 const AuthContext = createContext();
- 
-export const AuthProvider =({ children }) => {  
+
+export const AuthProvider = ({ children }) => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [error, setError] = useState({})
   const navigate = useNavigate()
   const { setIsAuth } = useContext(CartContext)
-   
+
   //persistencia de datos para el logueo
-    useEffect(() => {
-        const isAuthenticated = localStorage.getItem('isAuth') === 'false'
-        if (isAuthenticated) {
-            setIsAuth(true)
-            navigate('/admin')
-        }
-    }, []);
-  
+  useEffect(() => {
+    const isAuthenticated = localStorage.getItem('isAuth') === 'false'
+    if (isAuthenticated) {
+      setIsAuth(true)
+      navigate('/admin')
+    }
+  }, []);
+
   const handleSubmit = async (e) => {
     e.preventDefault()
 
@@ -41,13 +41,13 @@ export const AuthProvider =({ children }) => {
 
       if (!foundUser) {
         setError({ email: 'Credenciaes inválidas', password: 'Credenciaes inválidas' });
-    } else {
+      } else {
         console.log('User role:', foundUser.role);
         if (foundUser.role === 'admin') {
           setIsAuth(true);
           localStorage.setItem('isAuth', true)
           navigate('/admin'),
-          setEmail('')
+            setEmail('')
           setPassword('')
           setError('')
         } else {
@@ -63,15 +63,16 @@ export const AuthProvider =({ children }) => {
     }
   }
 
-    return (
-    <AuthContext.Provider 
-        value={{
-            email, 
-            setEmail,
-            password, 
-            setPassword, 
-            handleSubmit,
-            error}}>
+  return (
+    <AuthContext.Provider
+      value={{
+        email,
+        setEmail,
+        password,
+        setPassword,
+        handleSubmit,
+        error
+      }}>
       {children}
     </AuthContext.Provider>
   );

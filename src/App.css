@@ -1,4 +1,3 @@
-
 /*LOGO*/
 .logo {
   width: 3rem;
@@ -16,7 +15,7 @@ h1 {
 }
 
 /*H2 es para encabezados de secciones*/
-h2{
+h2 {
   font-family: var(--fontTitulos);
   font-size: 2.5rem;
   font-weight: 300;
@@ -25,7 +24,7 @@ h2{
 }
 
 /*H3 es para nombres de productos*/
-h3{
+h3 {
   font-family: var(--fontTitulos);
   font-size: 1.5rem;
   font-weight: 300;
@@ -33,7 +32,7 @@ h3{
   text-align: center;
 }
 
-p{
+p {
   font-family: var(--fontCuerpo);
   font-size: 1rem;
   font-weight: 300;
@@ -43,7 +42,7 @@ p{
 
 /*Estilo general de links a*/
 
-a{
+a {
   font-family: var(--fontCuerpo);
   font-size: 1rem;
   font-weight: 300;
@@ -63,72 +62,72 @@ ul {
 }
 
 .icon-big {
-    font-size: 1.5rem;
+  font-size: 1.5rem;
 }
 
 /*ESTILO GENERAL DE BOTONES*/
 
 .btn-negro {
-    background-color: var(--colorNegro);
-    width: 100%;
-    height: 40px;
-    border-radius: 20px;
-    border: 1px solid var(--colorNegro);
-    color: var(--colorBlanco);
-    font-family: var(--fontCuerpo);
-    font-size: 1rem;
-    font-weight: 300;
+  background-color: var(--colorNegro);
+  width: 100%;
+  height: 40px;
+  border-radius: 20px;
+  border: 1px solid var(--colorNegro);
+  color: var(--colorBlanco);
+  font-family: var(--fontCuerpo);
+  font-size: 1rem;
+  font-weight: 300;
 
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
 
-    padding: 0.5rem 1rem;
-    cursor: pointer;
-    transition: border-color 0.25s;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  transition: border-color 0.25s;
 }
 
 .btn-gris {
-    background-color: var(--colorGrisClaro);
-    width: 100%;
-    height: 40px;
-    border-radius: 20px;
-    border: 1px solid var(--colorNegro);
-    color: var(--colorNegro);
-    font-family: var(--fontCuerpo);
-    font-size: 1rem;
-    font-weight: 300;
+  background-color: var(--colorGrisClaro);
+  width: 100%;
+  height: 40px;
+  border-radius: 20px;
+  border: 1px solid var(--colorNegro);
+  color: var(--colorNegro);
+  font-family: var(--fontCuerpo);
+  font-size: 1rem;
+  font-weight: 300;
 
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
 
-    padding: 0.5rem 1rem;
-    cursor: pointer;
-    transition: border-color 0.25s;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  transition: border-color 0.25s;
 }
 
 .btn-blanco {
-    background-color: var(--colorBlanco);
-    width: 100%;
-    height: 40px;
-    border-radius: 20px;
-    border: 1px solid var(--colorNegro);
-    color: var(--colorNegro);
-    font-family: var(--fontCuerpo);
-    font-size: 1rem;
-    font-weight: 300;
+  background-color: var(--colorBlanco);
+  width: 100%;
+  height: 40px;
+  border-radius: 20px;
+  border: 1px solid var(--colorNegro);
+  color: var(--colorNegro);
+  font-family: var(--fontCuerpo);
+  font-size: 1rem;
+  font-weight: 300;
 
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
 
-    padding: 0.5rem 1rem;
-    cursor: pointer;
-    transition: border-color 0.25s;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  transition: border-color 0.25s;
 }
 
 .btn-160 {
@@ -139,18 +138,20 @@ ul {
   width: 240px;
 }
 
-.btn-negro:hover, .btn-gris:hover, .btn-blanco:hover {
-    color: var(--colorNegro);
-    background-color: var(--colorBlanco);
-    box-shadow: 0px 6px var(--colorNegro);
+.btn-negro:hover,
+.btn-gris:hover,
+.btn-blanco:hover {
+  color: var(--colorNegro);
+  background-color: var(--colorBlanco);
+  box-shadow: 0px 6px var(--colorNegro);
 }
 
 .btn_close {
-    background-color: transparent;
-    border: none;
-    cursor: pointer;
-    color: var(--colorNegro);
-    font-size: 1.25rem;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  color: var(--colorNegro);
+  font-size: 1.25rem;
 }
 
 .btn_close:hover {
@@ -161,37 +162,38 @@ ul {
 /*ESTILO GENERAL DE FORMULARIOS*/
 
 form {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: center;
-    gap: 1rem;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 1rem;
 }
 
 label {
-    width: 100%;
-    color: var(--colorNegro);
-    font-family: var(--fontCuerpo);
-    font-size: 1rem;
-    font-weight: 300;    
+  width: 100%;
+  color: var(--colorNegro);
+  font-family: var(--fontCuerpo);
+  font-size: 1rem;
+  font-weight: 300;
 }
 
-input, select {
-    width: 100%;
-    height: 40px;
-    border-radius: 20px;
-    background-color: var(--colorBlanco);
+input,
+select {
+  width: 100%;
+  height: 40px;
+  border-radius: 20px;
+  background-color: var(--colorBlanco);
 
-    border: 1px solid var(--colorNegro);
-    padding: 0.5rem 1rem;
-    outline: none;
+  border: 1px solid var(--colorNegro);
+  padding: 0.5rem 1rem;
+  outline: none;
 
-    font-family: var(--fontCuerpo);
-    font-size: 1rem;
-    color: var(--colorNegro);
+  font-family: var(--fontCuerpo);
+  font-size: 1rem;
+  color: var(--colorNegro);
 
-    outline: none;
+  outline: none;
 }
 
 select {
@@ -199,25 +201,27 @@ select {
 }
 
 textarea {
-    width: 100%;
-    height: 120px;
-    border-radius: 20px;
-    background-color: var(--colorBlanco);
+  width: 100%;
+  height: 120px;
+  border-radius: 20px;
+  background-color: var(--colorBlanco);
 
-    border: 1px solid var(--colorNegro);
-    padding: 0.5rem 1rem;
-    outline: none;
+  border: 1px solid var(--colorNegro);
+  padding: 0.5rem 1rem;
+  outline: none;
 
-    font-family: var(--fontCuerpo);
-    font-size: 1rem;
-    color: var(--colorNegro);
+  font-family: var(--fontCuerpo);
+  font-size: 1rem;
+  color: var(--colorNegro);
 
-    outline: none;
-    resize: none;
+  outline: none;
+  resize: none;
 }
 
-input:focus, textarea:focus, select:focus {
-    border: 1px solid var(--colorNaranja);
+input:focus,
+textarea:focus,
+select:focus {
+  border: 1px solid var(--colorNaranja);
 }
 
 input::placeholder,
@@ -238,7 +242,9 @@ option {
   gap: 1rem;
   padding: 2rem;
 }
-.mi-title, .mi-text {
+
+.mi-title,
+.mi-text {
   font-family: var(--fontCuerpo);
   font-size: 1.5rem;
   font-weight: 200;

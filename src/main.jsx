@@ -17,10 +17,10 @@ createRoot(document.getElementById('root')).render(
         <AdminProvider>
           <AuthProvider>
             <App />
-            <ToastContainer 
-            className="custom-toast-container"
-            pauseOnHover={true}
-            closeOnClick={true}/>
+            <ToastContainer
+              className="custom-toast-container"
+              pauseOnHover={true}
+              closeOnClick={true} />
           </AuthProvider>
         </AdminProvider>
       </CartProvider>

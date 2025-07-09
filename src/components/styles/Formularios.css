@@ -236,3 +236,9 @@
 
 }
 
+@media (max-width: 576px) {
+
+    .contacto_container {
+        margin-top: 40px;
+    }
+}

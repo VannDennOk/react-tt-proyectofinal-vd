@@ -114,7 +114,7 @@ const FormularioProducto = ({ onAgregar, onClose }) => {
                     <span className='form_header-mensaje'><FontAwesomeIcon icon={faCircleInfo} /><p>Todos los campos son obligatorios!</p></span>
                     <form onSubmit={handleSubmit}>
                         <div className='form_line'> {/* Nombre */}
-                            <label>Nombre</label> 
+                            <label>Nombre</label>
                             <input
                                 type="text"
                                 name='name'

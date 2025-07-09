@@ -22,7 +22,7 @@ const Product = ({ product }) => {
                 <button className='btn-like' onClick={cambiarColor}>
                     <FontAwesomeIcon icon={faHeart} />
                 </button>
-           
+
                 <img className='product_card-img' src={product.imgUrl} alt="imagen de producto" />
                 <p className='product_card-promo'>{product.promo}% off</p>
             </div>
@@ -39,9 +39,9 @@ const Product = ({ product }) => {
                         cantidad={cantidad}
                         setCantidad={setCantidad}
                     />
-                <button className='btn_seeMore'><Link to={`/productos/${product.id}`}>Ver más</Link><FontAwesomeIcon icon={faPlus} /></button>
+                    <button className='btn_seeMore'><Link to={`/productos/${product.id}`}>Ver más</Link><FontAwesomeIcon icon={faPlus} /></button>
                 </div>
-                
+
                 <button className='btn_addToCart' onClick={() => handleAddToCart({ ...product, cantidad })}>Agregar<FontAwesomeIcon icon={faCartPlus} /></button>
             </div>
         </div>

@@ -112,12 +112,12 @@ export const CartProvider = ({ children }) => {
   //Productos destacados
   const productosDestacados = productos.filter((producto) => producto?.category?.toLowerCase() === 'destacado');
 
- //Finalizar compra
- const clearCart =()=> {
-  setCart([])
-  localStorage.removeItem('cart')
-  toast.info('compra finalizada')
- }
+  //Finalizar compra
+  const clearCart = () => {
+    setCart([])
+    localStorage.removeItem('cart')
+    toast.info('compra finalizada')
+  }
 
   return (
     <CartContext.Provider

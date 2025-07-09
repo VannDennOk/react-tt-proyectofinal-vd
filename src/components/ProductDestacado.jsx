@@ -36,9 +36,9 @@ const ProductDestacado = () => {
                                 {new Intl.NumberFormat('es-AR', { style: 'currency', currency: 'ARS' }).format(Number(producto.price))}
                             </p>
                         </div>
-                        <Link className='btn-negro btn-160' to={`/productos/${producto.id}`}>Ver más<FontAwesomeIcon icon={faPlus}/></Link>
+                        <Link className='btn-negro btn-160' to={`/productos/${producto.id}`}>Ver más<FontAwesomeIcon icon={faPlus} /></Link>
                     </div>
-                   
+
                 </div>
             ))}
         </section>

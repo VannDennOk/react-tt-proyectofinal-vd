@@ -21,13 +21,13 @@ const Home = () => {
       <main className="container_page">
         <Hero />
         <Gallery />
-        { carga ? (
+        {carga ? (
           <div className='container_loading'>
             <img src={loading} alt='loading' />
             <p>Cargando los productos</p>
           </div>
-         ) : (            
-            <ProductDestacado/>
+        ) : (
+          <ProductDestacado />
         )}
         <BannerBottom />
 
