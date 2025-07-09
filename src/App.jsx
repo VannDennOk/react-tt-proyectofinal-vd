@@ -10,6 +10,8 @@ import Admin from './pages/Admin';
 import Login from './pages/Login';
 import RutasProtegidas from './rutas/RutasProtegidas';
 import PaginaProducto from './pages/PaginaProducto';
+import ScrollToTop from './components/ScrollToTop';
+
 import { CartContext } from './context/CartContext';
 
 
@@ -21,6 +23,9 @@ function App() {
   return (
     <>
       <h1 className="sr-only">Cargando Liv...</h1>
+
+      <ScrollToTop />
+
       <Routes>
         <Route path='/' element={<Home />}></Route>
 
