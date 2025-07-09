@@ -30,7 +30,7 @@ const Admin = () => {
       <nav className='admin_nav'>
         <Link to='/'><h1><img className='logo' src={logo} alt='logo liv' /></h1></Link>
         <div className='admin_nav-links'>
-          <button className='admin_nav-btn' onClick={() => setOpen(true)}><FontAwesomeIcon icon={faPlus} />Agregar nuevo producto</button>
+          <button className='admin_nav-btn' onClick={() => setOpen(true)}><FontAwesomeIcon icon={faPlus} />Nuevo producto</button>
           {open && (
             <FormularioProducto
               onAgregar={agregarProducto}

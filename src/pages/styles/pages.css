@@ -296,9 +296,10 @@
 }
 
 /* RESPONSIVE*/
-/* PAGE NOSOTROS*/
+
 @media screen and (max-width: 992px) {
 
+    /* PAGE NOSOTROS*/
     .us_text-img {
         flex-direction: column;
         gap: 2rem;
@@ -317,6 +318,39 @@
         flex-direction: column-reverse;
     }
 
+    /* PAGE ADMIN*/
+    .admin-products li {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .admin_products-left {
+        width: 75%;
+    }
+
+    .admin_products-right {
+        width: 100%;
+    }
+
+    /* PAGE NOT FOUND */
+    .notfound_container {
+        flex-direction: column;
+    }
+
+    .notfound_container-left {
+        width: 100%;
+        height: auto;
+        border-radius: 0;
+    }
+
+    .notfound_img {
+        width: 200px;
+    }
+
+    .notfound_container-right {
+        width: 100%;
+    }
 }
 
 @media screen and (max-width: 576px) {

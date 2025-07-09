@@ -210,6 +210,16 @@
 
 }
 
+@media screen and (max-width: 824px) {
+
+    .from_box {
+        flex-direction: column;
+        justify-content: center;
+        gap: 1rem;
+    }
+
+}
+
 @media screen and (max-width: 600px) {
     .contacto_container {
         width: 90%;
@@ -225,3 +235,4 @@
     }
 
 }
+
